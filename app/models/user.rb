@@ -1,9 +1,22 @@
 class User < ApplicationRecord
-    has_many :warbands
-    has_many :warriors, through: :warbands
-    has_secure_password
-    validates :name, presence: true, uniqueness: true
-    validates :email, presence: true, uniqueness: true
-end
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable,
+          :omniauthable, omniauth_providers: [:google_oauth2]
 
-# @user = User.new(name: "brian", email:"brian@aol.com", password:"sausages")
+          def self.from_google(auth)
+            data = auth.info
+            user = User.where(email: data['email']).first
+            unless user
+                user = User.create(
+                   email: data['email'],
+                   password: Devise.friendly_token[0,20]
+                )
+            end
+            user
+          end
+
+       
+
+end
