@@ -30,6 +30,10 @@ class WarriorsController < ApplicationController
     end
 
     def destroy
+        find_warrior
+        @warband = @warrior.warband.id
+        @warrior.destroy
+        redirect_to warband_path (@warband)
     end
     
     private

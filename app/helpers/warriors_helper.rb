@@ -150,113 +150,308 @@ module WarriorsHelper
 
 
     def witchhunter_stats(name)
-    case name    
-    when "Witch Hunter Captain" 
-        Warrior.create(
-            name: "", 
-            warrior_type: "Witch Hunter Captain",
-            exp: 10,
-            move: 4,
-            strength: 4,
-            toughness: 3,
-            agility: 3,
-            wounds: 20,
-            bravery: 5,
-            skills: "Burn the Witch, Leader",
-            number: 1,
-            warband_type: "Witch Hunters",
-            is_hero: true,
-            cost: 60)
-    when "Warrior Priest" 
-        Warrior.create(
-            name: "", 
-            warrior_type: "Warrior Priest",
-            exp: 8,
-            move: 4,
-            strength: 4,
-            toughness: 3,
-            agility: 3,
-            wounds: 12,
-            bravery: 5,
-            skills: "Prayers",
-            number: 1,
-            warband_type: "Witch Hunters",
-            is_hero: true,
-            cost: 40)
-    when "Witch Hunter" 
-        Warrior.create(
-            name: "", 
-            warrior_type: "Witch Hunter" ,
-            exp: 4,
-            move: 4,
-            strength: 3,
-            toughness: 3,
-            agility: 3,
-            wounds: 12,
-            bravery: 4,
-            skills: "",
-            number: 3,
-            warband_type: "Witch Hunters",
-            is_hero: true,
-            cost:25)
-    when "Zealot" 
-        Warrior.create(
-            name: "", 
-            warrior_type: "Zealot",
-            exp: 0,
-            move: 4,
-            strength: 3,
-            toughness: 3,
-            agility: 3,
-            wounds: 8,
-            bravery: 4,
-            skills: "",
-            number: 10,
-            warband_type: "Witch Hunters",
-            is_hero: false,
-            cost: 20)
-    when "Flaggellant"
-        Warrior.create(
-            name: "", 
-            warrior_type: "Flaggellant",
-            exp: 0,
-            move: 4,
-            strength: 4,
-            toughness: 4,
-            agility: 3,
-            wounds: 12,
-            bravery: 5,
-            skills: "Fanatical",
-            number: 5,
-            warband_type: "Witch Hunters",
-            is_hero: false,
-            cost: 40)
-    when "War Dog"
-        Warrior.create(
-            name: "", 
-            warrior_type: "War Dog",
-            exp: 0,
-            move: 5,
-            strength: 4,
-            toughness: 3,
-            agility: 4,
-            wounds: 8,
-            bravery: 3,
-            skills: "Animal",
-            number: 5,
-            warband_type: "Witch Hunters",
-            is_hero: false,
-            cost: 20) 
-    end
+        case name    
+            when "Witch Hunter Captain" 
+                Warrior.create(
+                    name: "", 
+                    warrior_type: "Witch Hunter Captain",
+                    exp: 10,
+                    move: 4,
+                    strength: 3,
+                    toughness: 3,
+                    agility: 3,
+                    wounds: 20,
+                    bravery: 5,
+                    skills: "Burn the Witch, Leader",
+                    number: 1,
+                    warband_type: "Witch Hunters",
+                    is_hero: true,
+                    cost: 60)
+            when "Warrior Priest" 
+                Warrior.create(
+                    name: "", 
+                    warrior_type: "Warrior Priest",
+                    exp: 8,
+                    move: 4,
+                    strength: 3,
+                    toughness: 3,
+                    agility: 3,
+                    wounds: 12,
+                    bravery: 5,
+                    skills: "Prayers",
+                    number: 1,
+                    warband_type: "Witch Hunters",
+                    is_hero: true,
+                    cost: 40)
+            when "Witch Hunter" 
+                Warrior.create(
+                    name: "", 
+                    warrior_type: "Witch Hunter" ,
+                    exp: 4,
+                    move: 4,
+                    strength: 3,
+                    toughness: 3,
+                    agility: 3,
+                    wounds: 12,
+                    bravery: 4,
+                    skills: "",
+                    number: 3,
+                    warband_type: "Witch Hunters",
+                    is_hero: true,
+                    cost:25)
+            when "Zealot" 
+                Warrior.create(
+                    name: "", 
+                    warrior_type: "Zealot",
+                    exp: 0,
+                    move: 4,
+                    strength: 3,
+                    toughness: 3,
+                    agility: 3,
+                    wounds: 8,
+                    bravery: 4,
+                    skills: "",
+                    number: 10,
+                    warband_type: "Witch Hunters",
+                    is_hero: false,
+                    cost: 20)
+            when "Flaggellant"
+                Warrior.create(
+                    name: "", 
+                    warrior_type: "Flaggellant",
+                    exp: 0,
+                    move: 4,
+                    strength: 4,
+                    toughness: 4,
+                    agility: 3,
+                    wounds: 12,
+                    bravery: 5,
+                    skills: "Fanatical",
+                    number: 5,
+                    warband_type: "Witch Hunters",
+                    is_hero: false,
+                    cost: 40)
+            when "War Dog"
+                Warrior.create(
+                name: "", 
+                warrior_type: "War Dog",
+                exp: 0,
+                move: 5,
+                strength: 4,
+                toughness: 3,
+                agility: 4,
+                wounds: 8,
+                bravery: 3,
+                skills: "Animal",
+                number: 5,
+                warband_type: "Witch Hunters",
+                is_hero: false,
+                cost: 20) 
+        end
     
     
     end
 
     def mercenary_stats(name)
+        case name    
+            when"Captain"
+                Warrior.create(
+                name: "", 
+                warrior_type: "Captain",
+                exp: 10,
+                move: 4,
+                strength: 3,
+                toughness: 3,
+                agility: 4,
+                wounds: 20,
+                bravery: 5,
+                skills: "Leader",
+                number: 1,
+                warband_type: "Mercenaries",
+                is_hero: true,
+                cost: 60)
+            when"Champion"
+                Warrior.create(
+                name: "", 
+                warrior_type: "Champion",
+                exp: 4,
+                move: 4,
+                strength: 3,
+                toughness: 3,
+                agility: 3,
+                wounds: 12,
+                bravery: 5,
+                skills: "",
+                number: 2,
+                warband_type: "Mercenaries",
+                is_hero: true,
+                cost: 35)
+            when"Rookie"
+                Warrior.create(
+                name: "", 
+                warrior_type: "Rookie",
+                exp: 10,
+                move: 4,
+                strength: 2,
+                toughness: 3,
+                agility: 3,
+                wounds: 10,
+                bravery: 3,
+                skills: "",
+                number: 2,
+                warband_type: "Mercenaries",
+                is_hero: true,
+                cost: 15)
+            when"Swordsman"
+                Warrior.create(
+                name: "", 
+                warrior_type: "Swordsman",
+                exp: 0,
+                move: 4,
+                strength: 3,
+                toughness: 3,
+                agility: 3,
+                wounds: 8,
+                bravery: 3,
+                skills: "Swordsman",
+                number: 5,
+                warband_type: "Mercenaries",
+                is_hero: false,
+                cost: 35)
+            when"Sniper"
+                Warrior.create(
+                name: "", 
+                warrior_type: "Sniper",
+                exp: 0,
+                move: 4,
+                strength: 4,
+                toughness: 3,
+                agility: 3,
+                wounds: 8,
+                bravery: 3,
+                skills: "",
+                number: 7,
+                warband_type: "Mercenaries",
+                is_hero: false,
+                cost: 25)            
+            when"Soldier"
+                Warrior.create(
+                name: "", 
+                warrior_type: "Soldier",
+                exp: 0,
+                move: 4,
+                strength: 3,
+                toughness: 3,
+                agility: 3,
+                wounds: 8,
+                bravery: 3,
+                skills: "",
+                number: 10,
+                warband_type: "Mercenaries",
+                is_hero: false,
+                cost: 25)
+            end
     end
 
     def cultist_stats(name)
-
+        case name
+        when "Cult Leader"
+            Warrior.create(
+            name: "", 
+            warrior_type: "Cult Leader",
+            exp: 10,
+            move: 4,
+            strength: 3,
+            toughness: 3,
+            agility: 3,
+            wounds: 20,
+            bravery: 5,
+            skills: "Leader, SpellCaster",
+            number: 1,
+            warband_type: "Chaos Cultits",
+            is_hero: true,
+            cost: 70)
+        when "Mutant"  
+            Warrior.create(
+            name: "", 
+            warrior_type: "Mutant" ,
+            exp: 0,
+            move: 4,
+            strength: 3,
+            toughness: 3,
+            agility: 4,
+            wounds: 12,
+            bravery: 3,
+            skills: "Mutations",
+            number: 2,
+            warband_type: "Chaos Cultits",
+            is_hero: true,
+            cost: 35)                
+        when "Possessed" 
+            Warrior.create(
+            name: "", 
+            warrior_type: "Possessed" ,
+            exp: 4,
+            move: 4,
+            strength: 4,
+            toughness: 4,
+            agility: 4,
+            wounds: 18,
+            bravery: 5,
+            skills: "Fear, Mutations",
+            number: 2,
+            warband_type: "Chaos Cultits",
+            is_hero: true,
+            cost: 90)
+        when "DemonSoul"
+            Warrior.create(
+            name: "", 
+            warrior_type: "DemonSoul",
+            exp: 0,
+            move: 4,
+            strength: 4,
+            toughness: 3,
+            agility: 3,
+            wounds: 10,
+            bravery: 4,
+            skills: "No Fear",
+            number: 1,
+            warband_type: "Chaos Cultits",
+            is_hero: false,
+            cost: 35)
+        when "Cultist"
+            Warrior.create(
+            name: "", 
+            warrior_type: "Cultist",
+            exp: 0,
+            move: 4,
+            strength: 3,
+            toughness: 3,
+            agility: 3,
+            wounds: 8,
+            bravery: 3,
+            skills: "",
+            number: 10,
+            warband_type: "Chaos Cultits",
+            is_hero: false,
+            cost: 25)
+        when "Beastmen"
+            Warrior.create(
+            name: "", 
+            warrior_type: "Beastmen",
+            exp: 0,
+            move: 4,
+            strength: 3,
+            toughness: 4,
+            agility: 4,
+            wounds: 15,
+            bravery: 5,
+            skills: "",
+            number: 3,
+            warband_type: "Chaos Cultits",
+            is_hero: false,
+            cost: 45)
+        end
     end
 
     

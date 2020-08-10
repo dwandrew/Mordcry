@@ -24,6 +24,7 @@ Wrydstone: <%= @warband.wyrdstone_shards %><br>
   <th>Max Number in Warband</th>
   <th>Cost</th>
   <th>Add Warrior to Warband</th>
+  <th>Delete Warrior</th>
 </tr>
 
 <% @warband.warriors.each do |w| %>
@@ -43,6 +44,8 @@ Wrydstone: <%= @warband.wyrdstone_shards %><br>
     <td><%= w.number %> </td>
     <td><%= w.cost %> </td>
     <td><%=link_to "Edit Warrior", edit_warrior_path(w) %></td>
+    <td><%= link_to "Remove Warrior from Warband", warrior_path(w), data: { method: :delete, confirm: "Are you sure?", disable_with: "Processing..." } %> </td>
+ 
   </tr>
 <% end %>
 <% end %>
@@ -64,6 +67,7 @@ Wrydstone: <%= @warband.wyrdstone_shards %><br>
     <th>Max Number in Warband</th>
     <th>Cost</th>
     <th>Edit Warrior</th>
+    <th>Delete Warrior</th>
   </tr>
 <% @warband.warriors.each do |w| %>
 <% if !w.is_hero %> 
@@ -80,6 +84,8 @@ Wrydstone: <%= @warband.wyrdstone_shards %><br>
     <td><%= w.number %> </td>
     <td><%= w.cost %> </td>
     <td><%=link_to "Edit Warrior", edit_warrior_path(w) %></td>
+    <td><%= link_to "Remove Warrior from Warband", warrior_path(w), data: { method: :delete, confirm: "Are you sure?", disable_with: "Processing..." } %> </td>
+
   </tr>
 <% end %>
 <% end %>
