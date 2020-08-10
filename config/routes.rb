@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   root 'static#home'
   get '/rules' => 'static#rules'
 
+  get "/warbands/add_to_warband" => 'warbands#add_to_warband'
+  post "/warbands/add_to_warband" => 'warbands#add_to_warband'
 
   resources :equipment
   resources :equipments

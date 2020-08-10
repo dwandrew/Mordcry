@@ -1,8 +1,8 @@
-<% binding.pry %>
+
 <%= form_for @warband do |f| %>
 <% selection = warrior_categories %>
 
-  Warband Name: <%= f.label :name %>:
+  Warband Name:
   <%= f.text_field :name %><br>
 
 <h2>Heroes</h2>
@@ -19,11 +19,13 @@
   <th>Skills</th>
   <th>Max Number in Warband</th>
   <th>Cost</th>
+  <th>Add Warrior to Warband</th>
 </tr>
 
 
 <% selection.each do |w| %>
-<% x = ratmen_stats(w) %> 
+<% x = which_stats(w) %> 
+<% x.save %>
 <% if x.is_hero %>
   <tr>
     <td><%= x.warrior_type %> </td>
@@ -37,6 +39,23 @@
     <td><%= x.skills %> </td>
     <td><%= x.number %> </td>
     <td><%= x.cost %> </td>
+
+    <td><%= link_to "Add to Warband", warbands_add_to_warband_path(warrior:{
+            warband_id: @warband,
+            warrior_type: x.warrior_type,
+            exp: x.exp,
+            move: x.move,
+            strength: x.strength,
+            toughness: x.toughness,
+            agility: x.agility,
+            wounds: x.wounds,
+            bravery: x.bravery,
+            skills: x.skills,
+            number: x.number,
+            warband_type: @warband.warband_type,
+            is_hero: x.is_hero,
+            cost: x.cost,
+    }), :method => :post %> </td>
   </tr>
 <% end %>
 <% end %>
@@ -56,9 +75,10 @@
     <th>Skills</th>
     <th>Max Number in Warband</th>
     <th>Cost</th>
+    <th>Add Warrior to Warband</th>
   </tr>
 <% selection.each do |w| %>
-<% x = ratmen_stats(w) %> 
+<% x = which_stats(w) %> 
 <% if !x.is_hero %> 
   <tr>
     <td><%= x.warrior_type %> </td>
@@ -72,6 +92,22 @@
     <td><%= x.skills %> </td>
     <td><%= x.number %> </td>
     <td><%= x.cost %> </td>
+    <td><%= link_to "Add to Warband", warbands_add_to_warband_path(warrior:{
+            warband_id: @warband,
+            warrior_type: x.warrior_type,
+            exp: x.exp,
+            move: x.move,
+            strength: x.strength,
+            toughness: x.toughness,
+            agility: x.agility,
+            wounds: x.wounds,
+            bravery: x.bravery,
+            skills: x.skills,
+            number: x.number,
+            warband_type: @warband.warband_type,
+            is_hero: x.is_hero,
+            cost: x.cost,
+            }), :method => :post %> </td>
   </tr>
   <% end %>
 <% end %>

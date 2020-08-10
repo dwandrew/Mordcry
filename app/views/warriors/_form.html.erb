@@ -1,0 +1,36 @@
+<h2> <%= @warrior.name %> of <%= @warrior.warband.name %></h2>
+<%= form_for @warrior do |f| %>
+    
+    <%= f.label :name %>
+    <%= f.text_field :name  %><br>
+    <%= f.label :warrior_type %>
+    <%= f.text_field :warrior_type %><br>
+    <%= f.label :exp %>
+    <%= f.number_field :exp %><br>
+    <%= f.label :move %>
+    <%= f.number_field :move %><br>
+    <%= f.label :strength %>
+    <%= f.number_field :strength %><br>
+    <%= f.label :toughness %>
+    <%= f.number_field :toughness %><br>
+    <%= f.label :agility %>
+    <%= f.number_field :agility %><br>
+    <%= f.label :wounds %>
+    <%= f.number_field :wounds %><br>
+    <%= f.label :bravery %>
+    <%= f.number_field :bravery %><br>
+    <%= f.label :skills %>
+    <%= f.text_field :skills %><br>
+    <%= f.label :injuries %>
+    <%= f.text_field :injuries %><br>
+    <%= f.label :active %>
+    <%= f.check_box :active %><br>
+    <%= f.label :number %>
+    <%= f.number_field :number %><br>
+    <%= f.label :is_hero %>
+    <%= f.check_box :is_hero %><br>
+    <%= f.label :cost %>
+    <%= f.number_field :cost %><br>
+    
+  <%= f.submit %>
+<% end %>

@@ -17,7 +17,7 @@ module WarriorsHelper
     end
 
 
-    def which_stats
+    def which_stats(name)
         case @warband.warband_type
         when 'Ratmen'
             ratmen_stats(name)
@@ -33,7 +33,7 @@ module WarriorsHelper
     def ratmen_stats(name)
         case name
         when  "Assassin"
-                Warrior.new(
+                Warrior.create(
                     name: "", 
                     warrior_type: "Assassin",
                     exp: 10,
@@ -42,14 +42,14 @@ module WarriorsHelper
                     toughness: 3,
                     agility: 4,
                     wounds: 20,
-                    bravery: 5,
+                    bravery: 4,
                     skills: "",
                     number: 1,
                     warband_type: "Ratmen",
                     is_hero: true,
                     cost: 60) 
         when  "Brute"
-                Warrior.new(
+                Warrior.create(
                     name: "", 
                     warrior_type: "Brute",
                     exp: "4",
@@ -58,14 +58,14 @@ module WarriorsHelper
                     toughness: 3,
                     agility: 4,
                     wounds: 15,
-                    bravery: 4,
+                    bravery: 3,
                     skills: "",
                     number: 2,
                     warband_type: "Ratmen",
                     is_hero: true,
                     cost: 40 ) 
         when "Sorceror"
-                Warrior.new(
+                Warrior.create(
                     name: "", 
                     warrior_type: "Sorceror",
                     exp: "6",
@@ -81,7 +81,7 @@ module WarriorsHelper
                     is_hero: true,
                     cost: 45) 
         when  "Apprentice"
-                Warrior.new(
+                Warrior.create(
                     name: "", 
                     warrior_type: "Apprentice",
                     exp: 0,
@@ -97,7 +97,7 @@ module WarriorsHelper
                     is_hero: true,
                     cost: 20) 
         when  "Henchrat"
-                Warrior.new(
+                Warrior.create(
                     name: "", 
                     warrior_type: "Henchrat",
                     exp: 0,
@@ -106,14 +106,14 @@ module WarriorsHelper
                     toughness:3,
                     agility: 4,
                     wounds: 8,
-                    bravery: 3,
+                    bravery: 2,
                     skills: '',
                     number: 20,
                     warband_type: "Ratmen",
                     is_hero: false,
                     cost: 20) 
         when  'Giant Rat'
-                Warrior.new(
+                Warrior.create(
                     name: '', 
                     warrior_type: 'Giant Rat',
                     exp: 0,
@@ -129,7 +129,7 @@ module WarriorsHelper
                     is_hero: false,
                     cost: 15) 
         when  "Rat Monster"
-                Warrior.new(
+                Warrior.create(
                     name: "", 
                     warrior_type: "Rat Monster",
                     exp: 0,
@@ -150,12 +150,106 @@ module WarriorsHelper
 
 
     def witchhunter_stats(name)
+    case name    
     when "Witch Hunter Captain" 
+        Warrior.create(
+            name: "", 
+            warrior_type: "Witch Hunter Captain",
+            exp: 10,
+            move: 4,
+            strength: 4,
+            toughness: 3,
+            agility: 3,
+            wounds: 20,
+            bravery: 5,
+            skills: "Burn the Witch, Leader",
+            number: 1,
+            warband_type: "Witch Hunters",
+            is_hero: true,
+            cost: 60)
     when "Warrior Priest" 
+        Warrior.create(
+            name: "", 
+            warrior_type: "Warrior Priest",
+            exp: 8,
+            move: 4,
+            strength: 4,
+            toughness: 3,
+            agility: 3,
+            wounds: 12,
+            bravery: 5,
+            skills: "Prayers",
+            number: 1,
+            warband_type: "Witch Hunters",
+            is_hero: true,
+            cost: 40)
     when "Witch Hunter" 
+        Warrior.create(
+            name: "", 
+            warrior_type: "Witch Hunter" ,
+            exp: 4,
+            move: 4,
+            strength: 3,
+            toughness: 3,
+            agility: 3,
+            wounds: 12,
+            bravery: 4,
+            skills: "",
+            number: 3,
+            warband_type: "Witch Hunters",
+            is_hero: true,
+            cost:25)
     when "Zealot" 
-    when "Flaggellant" 
-    when "War Dog" 
+        Warrior.create(
+            name: "", 
+            warrior_type: "Zealot",
+            exp: 0,
+            move: 4,
+            strength: 3,
+            toughness: 3,
+            agility: 3,
+            wounds: 8,
+            bravery: 4,
+            skills: "",
+            number: 10,
+            warband_type: "Witch Hunters",
+            is_hero: false,
+            cost: 20)
+    when "Flaggellant"
+        Warrior.create(
+            name: "", 
+            warrior_type: "Flaggellant",
+            exp: 0,
+            move: 4,
+            strength: 4,
+            toughness: 4,
+            agility: 3,
+            wounds: 12,
+            bravery: 5,
+            skills: "Fanatical",
+            number: 5,
+            warband_type: "Witch Hunters",
+            is_hero: false,
+            cost: 40)
+    when "War Dog"
+        Warrior.create(
+            name: "", 
+            warrior_type: "War Dog",
+            exp: 0,
+            move: 5,
+            strength: 4,
+            toughness: 3,
+            agility: 4,
+            wounds: 8,
+            bravery: 3,
+            skills: "Animal",
+            number: 5,
+            warband_type: "Witch Hunters",
+            is_hero: false,
+            cost: 20) 
+    end
+    
+    
     end
 
     def mercenary_stats(name)
@@ -164,6 +258,8 @@ module WarriorsHelper
     def cultist_stats(name)
 
     end
+
+    
 
 
 

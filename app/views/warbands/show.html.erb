@@ -4,6 +4,89 @@ Warband Rating: <%= @warband.warband_rating %><br>
 Gold: <%= @warband.gold_crowns %><br>
 Wrydstone: <%= @warband.wyrdstone_shards %><br>
 <br>
+
+<h2>Warriors</h2>
+
+<h2>Heroes</h2>
+<table>
+<tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Exp</th>
+  <th>Move</th>
+  <th>Strength</th>
+  <th>Toughness</th>
+  <th>Agility</th>
+  <th>Wounds</th>
+  <th>Bravery</th>
+  <th>Skills</th>
+  <th>Injuries</th>
+  <th>Max Number in Warband</th>
+  <th>Cost</th>
+  <th>Add Warrior to Warband</th>
+</tr>
+
+<% @warband.warriors.each do |w| %>
+<% if w.is_hero %> 
+  <tr>
+    <td><%= w.name %> </td>
+    <td><%= w.warrior_type %> </td>
+    <td><%= w.exp %> </td>
+    <td><%= w.move %> </td>
+    <td><%= w.strength %> </td>
+    <td><%= w.toughness %> </td>
+    <td><%= w.agility %> </td>
+    <td><%= w.wounds %> </td>
+    <td><%= w.bravery %> </td>
+    <td><%= w.skills %> </td>
+    <td><%= w.injuries %> </td>
+    <td><%= w.number %> </td>
+    <td><%= w.cost %> </td>
+    <td><%=link_to "Edit Warrior", edit_warrior_path(w) %></td>
+  </tr>
+<% end %>
+<% end %>
+
+</table>
+
+<h2>Henchmen</h2>
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Exp</th>
+    <th>Move</th>
+    <th>Strength</th>
+    <th>Toughness</th>
+    <th>Agility</th>
+    <th>Wounds</th>
+    <th>Bravery</th>
+    <th>Skills</th>
+    <th>Max Number in Warband</th>
+    <th>Cost</th>
+    <th>Edit Warrior</th>
+  </tr>
+<% @warband.warriors.each do |w| %>
+<% if !w.is_hero %> 
+  <tr>
+    <td><%= w.warrior_type %> </td>
+    <td><%= w.exp %> </td>
+    <td><%= w.move %> </td>
+    <td><%= w.strength %> </td>
+    <td><%= w.toughness %> </td>
+    <td><%= w.agility %> </td>
+    <td><%= w.wounds %> </td>
+    <td><%= w.bravery %> </td>
+    <td><%= w.skills %> </td>
+    <td><%= w.number %> </td>
+    <td><%= w.cost %> </td>
+    <td><%=link_to "Edit Warrior", edit_warrior_path(w) %></td>
+  </tr>
+<% end %>
+<% end %>
+</table>
+
+
+
 <%= link_to "Add Warrior", new_warrior_path(warband_id: @warband.id)%>
 <%= link_to "Edit Warband", edit_warband_path(@warband)%>
 

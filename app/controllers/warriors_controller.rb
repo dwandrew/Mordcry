@@ -7,13 +7,20 @@ class WarriorsController < ApplicationController
         render 'select_warrior'
     end
 
+    
+
     def create
+        
     end
 
     def edit
+        find_warrior
     end
 
     def update
+        find_warrior
+        @warrior.update(warrior_params)
+        redirect_to warband_path (@warrior.warband.id)
     end
 
     def show
@@ -27,7 +34,23 @@ class WarriorsController < ApplicationController
     
     private
         def warrior_params
-            params.require(:warrior).permit(:name, :warband_type, :gold_crowns, :wyrdstone_shards, :warband_rating)
+            params.require(:warrior).permit(
+                :name,
+                :agility,
+                :bravery,
+                :cost,
+                :exp,
+                :is_hero,
+                :move,
+                :number,
+                :skills,
+                :strength,
+                :toughness,
+                :warband_id,
+                :warband_type,
+                :warrior_type,
+                :wounds
+            )
         end
     
         def new_warrior
