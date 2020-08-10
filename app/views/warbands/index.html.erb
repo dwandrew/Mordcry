@@ -1,0 +1,15 @@
+<%  if @warbands == [] %>
+<h1>No Current Warbands on record</h1>
+<% else %>
+
+<% @warbands.each do |w| %>
+<br>
+Warband Name: <%= w.name %> <br>
+Type: <%= w.warband_type %><br>
+Warband Rating: <%= w.warband_rating %><br>
+Gold: <%= w.gold_crowns %><br>
+Wrydstone: <%= w.wyrdstone_shards %><br>
+<br>
+<% end %>
+
+<% end %>

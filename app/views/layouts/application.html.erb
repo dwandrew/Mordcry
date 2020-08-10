@@ -4,7 +4,55 @@
         .flash__alert   { color: red; }
         .flash__notice  { color: blue; }
         .flash__success { color: green; }
+
+    nav {
+      list-style-type: none;
+      margin-bottom: 10;
+      padding: 0;
+      overflow: hidden;
+      background-color: #300;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      text-color: white;
+    }
+
+    nav li {
+      float: left;
+      display: block;
+      
+      text-align: center;
+      padding: 8px 14px;
+      text-decoration: none;
+    }
+    
+
+    li.nav-link:hover:not(.active) {
+      background-color: #156;
+    }
+
+    .active {
+      background-color: #160;
+    }
+
+    body {
+      margin-top: 60px;
+  
+    }
     </style>
+  <nav> 
+    <ul>
+      <li class= "nav-link active"><%= link_to "Home", '/'%></li>
+      <li class= "nav-link"><%= link_to "Mordcry Rules", '/rules'%></li>
+      
+      <li class= "nav-link"><%= link_to "Log In", '/users/sign_in' %></li>
+      <li class= "nav-link"><%= link_to "Sign up", '/users/sign_up' %></li>
+     
+      <li class= "nav-link"><%= link_to "Sign Out", '/users/sign_out'%></li>
+      
+    </ul>
+  </nav>
+  
   <head>
     <title>Mordcry</title>
     <%= csrf_meta_tags %>
@@ -14,19 +62,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   
-    <% if flash.any? %>
+   
+
+  <body>
+   <% if flash.any? %>
       <% flash.each do |key, value| -%>
         <section class="flash flash__<%= key %>"><%= value.html_safe %></section>
       <% end -%>
     <% end %>
-
-  <body>
-  <% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
+ 
     <%= yield %>
   </body>
 </html>

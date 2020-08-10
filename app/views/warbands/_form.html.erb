@@ -1,0 +1,18 @@
+<%= form_for @warband do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br>
+
+  <%= f.label :warband_type %>:
+  <%= f.select :warband_type, ["Ratmen", "Witch Hunters", "Mercenaries", "Chaos Cultits"] %><br>
+ 
+  <%= f.label :gold_crowns %>:
+  <%= f.number_field :gold_crowns, value:500 %><br>
+  
+  <%= f.label :wyrdstone_shards %>:
+  <%= f.number_field :wyrdstone_shards, value: 0 %><br>
+
+  <%= f.hidden_field :warband_rating, value: 0 %>
+
+  <%= f.submit %>
+<% end %>
+

@@ -1,0 +1,9 @@
+Warband Name: <%= @warband.name %> <br>
+Type: <%= @warband.warband_type %><br>
+Warband Rating: <%= @warband.warband_rating %><br>
+Gold: <%= @warband.gold_crowns %><br>
+Wrydstone: <%= @warband.wyrdstone_shards %><br>
+<br>
+<%= link_to "Add Warrior", new_warrior_path(warband_id: @warband.id)%>
+<%= link_to "Edit Warband", edit_warband_path(@warband)%>
+

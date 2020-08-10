@@ -1,0 +1,81 @@
+<% binding.pry %>
+<%= form_for @warband do |f| %>
+<% selection = warrior_categories %>
+
+  Warband Name: <%= f.label :name %>:
+  <%= f.text_field :name %><br>
+
+<h2>Heroes</h2>
+<table>
+<tr>
+  <th>Type</th>
+  <th>Starting Exp</th>
+  <th>Move</th>
+  <th>Strength</th>
+  <th>Toughness</th>
+  <th>Agility</th>
+  <th>Wounds</th>
+  <th>Bravery</th>
+  <th>Skills</th>
+  <th>Max Number in Warband</th>
+  <th>Cost</th>
+</tr>
+
+
+<% selection.each do |w| %>
+<% x = ratmen_stats(w) %> 
+<% if x.is_hero %>
+  <tr>
+    <td><%= x.warrior_type %> </td>
+    <td><%= x.exp %> </td>
+    <td><%= x.move %> </td>
+    <td><%= x.strength %> </td>
+    <td><%= x.toughness %> </td>
+    <td><%= x.agility %> </td>
+    <td><%= x.wounds %> </td>
+    <td><%= x.bravery %> </td>
+    <td><%= x.skills %> </td>
+    <td><%= x.number %> </td>
+    <td><%= x.cost %> </td>
+  </tr>
+<% end %>
+<% end %>
+</table>
+
+<h2>Henchmen</h2>
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Starting Exp</th>
+    <th>Move</th>
+    <th>Strength</th>
+    <th>Toughness</th>
+    <th>Agility</th>
+    <th>Wounds</th>
+    <th>Bravery</th>
+    <th>Skills</th>
+    <th>Max Number in Warband</th>
+    <th>Cost</th>
+  </tr>
+<% selection.each do |w| %>
+<% x = ratmen_stats(w) %> 
+<% if !x.is_hero %> 
+  <tr>
+    <td><%= x.warrior_type %> </td>
+    <td><%= x.exp %> </td>
+    <td><%= x.move %> </td>
+    <td><%= x.strength %> </td>
+    <td><%= x.toughness %> </td>
+    <td><%= x.agility %> </td>
+    <td><%= x.wounds %> </td>
+    <td><%= x.bravery %> </td>
+    <td><%= x.skills %> </td>
+    <td><%= x.number %> </td>
+    <td><%= x.cost %> </td>
+  </tr>
+  <% end %>
+<% end %>
+</table>
+
+  <%= f.submit %>
+<% end %>

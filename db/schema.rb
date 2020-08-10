@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_07_181956) do
+ActiveRecord::Schema.define(version: 2020_08_10_122802) do
 
   create_table "equipment", force: :cascade do |t|
     t.string "name"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_08_07_181956) do
 
   create_table "warbands", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "warband_type"
     t.integer "user_id"
     t.integer "gold_crowns"
     t.integer "warband_rating"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_08_07_181956) do
 
   create_table "warriors", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "warrior_type"
     t.integer "warband_id"
     t.integer "exp"
     t.integer "move"
@@ -69,6 +69,9 @@ ActiveRecord::Schema.define(version: 2020_08_07_181956) do
     t.integer "number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "warband_type"
+    t.boolean "is_hero", default: false
+    t.integer "cost"
   end
 
   create_table "warriors_equipment", force: :cascade do |t|
