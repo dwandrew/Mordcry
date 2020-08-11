@@ -139,7 +139,7 @@ module WarriorsHelper
                     agility: 4,
                     wounds: 25,
                     bravery: 4,
-                    skills: 'Fear, Animal',
+                    skills: 'Fear, Animal, Large',
                     number: 1,
                     warband_type: "Ratmen",
                     is_hero: false,

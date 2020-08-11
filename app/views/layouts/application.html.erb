@@ -14,7 +14,6 @@
       position: fixed;
       top: 0;
       width: 100%;
-      text-color: white;
     }
 
     nav li {
@@ -26,13 +25,22 @@
       text-decoration: none;
     }
     
-
-    li.nav-link:hover:not(.active) {
-      background-color: #156;
+        a:link {
+      color: green;
+    }
+    a:visited {
+      color: green;
+    }
+    a:hover {
+      color: red;
     }
 
+    a:active {
+      color: yellow;
+    } 
     .active {
-      background-color: #160;
+      background-color: #340;
+
     }
 
     body {
@@ -45,11 +53,15 @@
       <li class= "nav-link active"><%= link_to "Home", '/'%></li>
       <li class= "nav-link"><%= link_to "Mordcry Rules", '/rules'%></li>
       
-      <li class= "nav-link"><%= link_to "Log In", '/users/sign_in' %></li>
+      <% if !logged_in? %>
+      <li class= "nav-link"><%= link_to "Log In", '/users/sign_in', class: "nav-link" %></li>
       <li class= "nav-link"><%= link_to "Sign up", '/users/sign_up' %></li>
-     
-      <li class= "nav-link"><%= link_to "Sign Out", '/users/sign_out'%></li>
-      
+     <% else %>
+
+      <li class= "nav-link"><%= link_to "View Warbands", '/warbands'%></li>
+      <li class= "nav-link"><%= link_to "Make New Warband", '/warbands/new'%></li>
+      <li class= "nav-link"><%= link_to "Sign Out", '/users/sign_out', class: "nav-link" %></li>
+      <% end %>
     </ul>
   </nav>
   

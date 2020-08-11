@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_08_10_122802) do
     t.string "name"
     t.string "warband_type"
     t.integer "user_id"
-    t.integer "gold_crowns"
+    t.integer "gold_crowns", default: 500
     t.integer "warband_rating"
     t.integer "wyrdstone_shards"
     t.datetime "created_at", precision: 6, null: false

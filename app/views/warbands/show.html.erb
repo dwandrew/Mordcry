@@ -1,8 +1,8 @@
 Warband Name: <%= @warband.name %> <br>
 Type: <%= @warband.warband_type %><br>
-Warband Rating: <%= @warband.warband_rating %><br>
+Warband Rating: <%= rating_calc(@warband) %><br>
 Gold: <%= @warband.gold_crowns %><br>
-Wrydstone: <%= @warband.wyrdstone_shards %><br>
+Wrydstone: <%= shards(@warband)  %><br>
 <br>
 
 <h2>Warriors</h2>
@@ -55,6 +55,7 @@ Wrydstone: <%= @warband.wyrdstone_shards %><br>
 <h2>Henchmen</h2>
 <table>
   <tr>
+    <th>Name</th>
     <th>Type</th>
     <th>Exp</th>
     <th>Move</th>
@@ -72,6 +73,7 @@ Wrydstone: <%= @warband.wyrdstone_shards %><br>
 <% @warband.warriors.each do |w| %>
 <% if !w.is_hero %> 
   <tr>
+    <td><%= w.name %> </td>
     <td><%= w.warrior_type %> </td>
     <td><%= w.exp %> </td>
     <td><%= w.move %> </td>

@@ -6,9 +6,10 @@
 <br>
 Warband Name: <%= w.name %> <br>
 Type: <%= w.warband_type %><br>
-Warband Rating: <%= w.warband_rating %><br>
+<% rating_calc(w) %> 
+Warband Rating: <%= rating_calc(w) %><br>
 Gold: <%= w.gold_crowns %><br>
-Wrydstone: <%= w.wyrdstone_shards %><br>
+Wrydstone: <%= shards(w) %><br>
 <%= link_to "Show Warband", warband_path(w) %>
 <br>
 <% end %>

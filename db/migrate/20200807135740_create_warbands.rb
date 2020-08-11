@@ -4,9 +4,9 @@ class CreateWarbands < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :type
       t.integer :user_id
-      t.integer :gold_crowns
-      t.integer :warband_rating
-      t.integer :wyrdstone_shards
+      t.integer :gold_crowns, default: 500
+      t.integer :warband_rating, default: 0
+      t.integer :wyrdstone_shards, default: 0
 
       t.timestamps
     end

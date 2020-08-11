@@ -2,6 +2,9 @@
 <p>From here you can explore this homebrew game, look at the rules and make warbands!</p>
 
 <%= link_to "Mordcry Rules", '/rules'%><br>
+<% if !logged_in? %>
 <%= link_to "Log In", '/users/sign_in'%><br>
 <%= link_to "Sign up", '/users/sign_up'%><br>
+<% else %>
 <%= link_to "Sign Out", '/users/sign_out'%><br>
+<% end %> 

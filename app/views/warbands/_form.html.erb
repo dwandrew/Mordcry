@@ -6,12 +6,12 @@
   <%= f.select :warband_type, ["Ratmen", "Witch Hunters", "Mercenaries", "Chaos Cultits"] %><br>
  
   <%= f.label :gold_crowns %>:
-  <%= f.number_field :gold_crowns, value:500 %><br>
+  <%= f.number_field :gold_crowns, value: @warband.gold_crowns %><br>
   
   <%= f.label :wyrdstone_shards %>:
-  <%= f.number_field :wyrdstone_shards, value: 0 %><br>
+  <%= f.number_field :wyrdstone_shards, value: @warband.wyrdstone_shards ? @warband.wyrdstone_shards : 0  %><br>
 
-  <%= f.hidden_field :warband_rating, value: 0 %>
+  <%= f.hidden_field :warband_rating %>
 
   <%= f.submit %>
 <% end %>
