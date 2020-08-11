@@ -1,6 +1,23 @@
 class Warrior < ApplicationRecord
     belongs_to :warband
-    has_many :equipment, through: :warriorsequipment
+    has_many :warriors_equipment
+    has_many :equipment, :through => :warriors_equipment
 
-    # accepts_nested_attributes_for :warriors
+    accepts_nested_attributes_for :equipment
+
+    def equipment_attributes=(equipment_params)
+        equipment_params.each do |e|
+            weapon = Equipment.find_by_id(e[1][:id])
+            if weapon
+                # binding.pry
+                if !self.equipment.include? (weapon) && self.warband.gold_crowns > weapon.cost
+                    self.equipment << weapon
+                    self.warband.gold_crowns-= weapon.cost
+                    self.warband.save
+                end
+        end 
+        self.save
+        end
+        
+    end
 end

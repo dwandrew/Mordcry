@@ -10,16 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_10_122802) do
+ActiveRecord::Schema.define(version: 2020_08_11_095703) do
 
   create_table "equipment", force: :cascade do |t|
     t.string "name"
-    t.integer "range"
+    t.string "range"
     t.integer "attacks"
     t.string "damage"
     t.string "abilities"
+    t.string "description"
+    t.string "strength"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "cost"
+    t.string "category"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,8 +45,8 @@ ActiveRecord::Schema.define(version: 2020_08_10_122802) do
     t.string "warband_type"
     t.integer "user_id"
     t.integer "gold_crowns", default: 500
-    t.integer "warband_rating"
-    t.integer "wyrdstone_shards"
+    t.integer "warband_rating", default: 0
+    t.integer "wyrdstone_shards", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -74,9 +78,11 @@ ActiveRecord::Schema.define(version: 2020_08_10_122802) do
     t.integer "cost"
   end
 
-  create_table "warriors_equipment", force: :cascade do |t|
+  create_table "warriors_equipments", force: :cascade do |t|
     t.integer "warrior_id"
     t.integer "equipment_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

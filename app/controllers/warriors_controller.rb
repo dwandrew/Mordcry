@@ -15,15 +15,18 @@ class WarriorsController < ApplicationController
 
     def edit
         find_warrior
+        3.times {@warrior.equipment.build} unless @warrior.equipment.length >= 3
     end
 
     def update
+        
         find_warrior
         @warrior.update(warrior_params)
         redirect_to warband_path (@warrior.warband.id)
     end
 
     def show
+        find_warrior
     end
 
     def index
@@ -53,7 +56,11 @@ class WarriorsController < ApplicationController
                 :warband_id,
                 :warband_type,
                 :warrior_type,
-                :wounds
+                :injuries,
+                :active,
+                :wounds,
+                equipment_attributes: [:id]
+                
             )
         end
     

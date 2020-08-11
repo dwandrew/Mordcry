@@ -1,0 +1,77 @@
+<h1>Equipment Table</h1>
+
+<h2> One Handed Weapons</h2>
+ <table>
+ <tr>
+            <th>Name</th>
+            <th>Range(inches)</th>
+            <th>Attacks</th>
+            <th>Strength</th>
+            <th>Damage / Crit</th>
+            <th>Abilities</th>
+            <th>Cost</th>
+        </tr>
+
+        <% close_one_handed(@equipment).each do |e|%>
+        <tr>
+            <td><%= e.name %> </td>
+            <td><%= e.range %> </td>
+            <td><%= e.attacks %> </td>
+            <td><%= e.strength %> </td>
+            <td><%= e.damage %> </td>
+            <td><%= e.abilities %> </td>
+            <td><%= e.cost %> </td>
+        </tr>
+        <% end %>
+    </table> <br>
+
+
+<h2> Two Handed Weapons</h2>
+<table>
+ <tr>
+            <th>Name</th>
+            <th>Range(inches)</th>
+            <th>Attacks</th>
+            <th>Strength</th>
+            <th>Damage / Crit</th>
+            <th>Abilities</th>
+            <th>Cost</th>
+        </tr>
+
+        <% close_two_handed(@equipment).each do |e|%>
+        <tr>
+            <td><%= e.name %> </td>
+            <td><%= e.range %> </td>
+            <td><%= e.attacks %> </td>
+            <td><%= e.strength %> </td>
+            <td><%= e.damage %> </td>
+            <td><%= e.abilities %> </td>
+            <td><%= e.cost %> </td>
+        </tr>
+       <% end %>
+    </table> <br>
+
+<h2> Ranged Weapons </h2>
+<table>
+        <tr>
+            <th>Name</th>
+            <th>Range(inches)</th>
+            <th>Attacks</th>
+            <th>Strength</th>
+            <th>Damage / Crit</th>
+            <th>Abilities</th>
+            <th>Cost</th>
+        </tr>
+
+        <% ranged(@equipment).each do |e|%>
+        <tr>
+            <td><%= e.name %> </td>
+            <td><%= e.range %> </td>
+            <td><%= e.attacks %> </td>
+            <td><%= e.strength %> </td>
+            <td><%= e.damage %> </td>
+            <td><%= e.abilities %> </td>
+            <td><%= e.cost %> </td>
+        </tr>
+        <% end %>
+    </table> <br>
