@@ -5,6 +5,7 @@ class EquipmentController < ApplicationController
 def index
 @equipment = Equipment.all
 @abilities = Ability.all
+@armour = Armour.all
 end
 
 

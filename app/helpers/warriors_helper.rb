@@ -457,7 +457,9 @@ module WarriorsHelper
     def warrior_cost(warrior)
         cost = 0
         warrior.equipment.each {|e| cost+= e.cost}
+        warrior.armour.each {|a| cost+= a.cost}
         cost += warrior.cost
+        warrior.cost = cost
     end
 
     

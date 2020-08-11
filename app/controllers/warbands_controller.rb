@@ -18,7 +18,7 @@ class WarbandsController < ApplicationController
         end
 
         def show
-            unless @warband.user == current_user
+            unless warband_user
             flash[:alert] = "Not permissable to view others warbands"
             redirect_to '/'
             end
@@ -62,6 +62,9 @@ class WarbandsController < ApplicationController
         end
 
         def destroy
+            find_warband
+            @warband.destroy
+            redirect_to warbands_path
         end
 private
         def warband_params
@@ -93,6 +96,10 @@ private
     
         def find_warband
             @warband = Warband.find_by_id(params[:id])
+        end
+
+        def warband_user
+            @warband.user == helpers.current_user
         end
 
         def require_login

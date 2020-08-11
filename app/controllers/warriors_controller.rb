@@ -15,7 +15,13 @@ class WarriorsController < ApplicationController
 
     def edit
         find_warrior
-        3.times {@warrior.equipment.build} unless @warrior.equipment.length >= 3
+        if warrior_user
+            (3-@warrior.equipment.length).times {@warrior.equipment.build}
+            (3-@warrior.armour.length).times {@warrior.armour.build}
+            else
+                flash[:alert] = "Not permissable to view others warriors"
+                redirect_to '/'
+        end
     end
 
     def update
@@ -27,6 +33,10 @@ class WarriorsController < ApplicationController
 
     def show
         find_warrior
+        unless warrior_user
+        flash[:alert] = "Not permissable to view others warriors"
+        redirect_to '/'
+        end
     end
 
     def index
@@ -34,9 +44,14 @@ class WarriorsController < ApplicationController
 
     def destroy
         find_warrior
-        @warband = @warrior.warband.id
-        @warrior.destroy
-        redirect_to warband_path (@warband)
+        if warrior_user
+            @warband = @warrior.warband.id
+            @warrior.destroy
+            redirect_to warband_path (@warband)
+            else
+                flash[:alert] = "Not permissable to view others warriors"
+                redirect_to '/'
+        end
     end
     
     private
@@ -59,7 +74,8 @@ class WarriorsController < ApplicationController
                 :injuries,
                 :active,
                 :wounds,
-                equipment_attributes: [:id]
+                equipment_attributes: [:id],
+                armour_attributes: [:id]
                 
             )
         end
@@ -70,6 +86,10 @@ class WarriorsController < ApplicationController
     
         def find_warrior
             @warrior = Warrior.find_by_id(params[:id])
+        end
+
+        def warrior_user
+            @warrior.warband.user == helpers.current_user
         end
 
         def require_login

@@ -57,7 +57,7 @@ Armour.create(name: "Light Armour",	soak: 1,	agility_penalty: -1, abilities: "-"
 Armour.create(name: "Heavy Armour",	soak: 2,	agility_penalty:-2,	abilities: "-", cost: 50)
 Armour.create(name: "Ithilmar Armour",	soak: 2,	agility_penalty:-1,	abilities: "-", cost: 90)
 Armour.create(name: "Gromril Armour",	soak: 3, agility_penalty:-2,	abilities: "-", cost: 150)
-Armour.create(name: "Shield",	soak: 0,	agility_penalty: 0,	abilities: "+1 Toughness, takes up off hand.", cost: 5)
-Armour.create(name: "Buckler",	soak: 0,	agility_penalty: 0,	abilities: "Parry, as Sword", cost: 5)
-Armour.create(name: "Helmet",	soak: 0,	agility_penalty: 0, abilities: "4+ Save against Stunning, (becomes knocked down)", cost: 10)
+Armour.create(name: "Shield",	soak: 0,	agility_penalty: 0,	abilities: "+1 Toughness, takes up off hand", cost: 5)
+Armour.create(name: "Buckler",	soak: 0,	agility_penalty: 0,	abilities: "Parry, takes up off hand", cost: 5)
+Armour.create(name: "Helmet",	soak: 0,	agility_penalty: 0, abilities: "4+ Save against Stunning, (becomes knocked down instead)", cost: 10)
 

@@ -97,7 +97,8 @@ Wrydstone: <%= shards(@warband)  %><br>
 <% end %>
 </table>
 
-
-<%= link_to "Add Warrior", new_warrior_path(warband_id: @warband.id)%>
-<%= link_to "Edit Warband", edit_warband_path(@warband)%>
+<br>
+<%= link_to "Add Warrior", new_warrior_path(warband_id: @warband.id)%><br>
+<%= link_to "Edit Warband", edit_warband_path(@warband)%><br>
+<%= link_to "Delete Warband", warband_path(@warband), data: { method: :delete, confirm: "Are you sure?", disable_with: "Processing..." } %><br>
 

@@ -4,7 +4,7 @@ module ApplicationHelper
         !!warden.user
     end
       
-      def current_user
+    def current_user
         User.find_by_id(warden.user.id)
-      end
+    end
 end

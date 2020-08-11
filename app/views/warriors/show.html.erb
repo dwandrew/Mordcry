@@ -25,10 +25,12 @@
     </table><br>
     Skills: <%= @warrior.skills %> <br>
     Injuries: <%= @warrior.injuries %> <br>
-    Currently Active: <%= @warrior.active ? "Yes": "No" %> <br>
+    Currently Wounded: <%= @warrior.active ? "No": "Yes" %> <br>
     Hero: <%= @warrior.is_hero ? "Yes" : "No" %> <br>
     Total Cost: <%= warrior_cost(@warrior) %> <br>
 
+
+<h3>Weapons</h3>
     <table>
     <tr>
             <th>Name</th>
@@ -52,4 +54,25 @@
         </tr>
         <%end %>
     
+    </table><br>
+
+<h3>Armour</h3>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Soak</th>
+            <th>Agility Penalty</th>
+            <th>Ability</th>
+            <th>Cost</th>
+        </tr>
+        <% @warrior.armour.each do |a| %>
+            <tr>
+                <td><%= a.name %></td>
+                <td><%= a.soak %></td>
+                <td><%= a.agility_penalty %></td>
+                <td><%= a.abilities %></td>
+                <td><%= a.cost %></td>
+            </tr>
+        <% end %>
     </table>
