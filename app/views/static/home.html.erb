@@ -1,10 +1,12 @@
+<div class="info_box">
 <h1>Welcome to Mordcry!</h1>
 <p>From here you can explore this homebrew game, look at the rules and make warbands!</p>
 
-<%= link_to "Mordcry Rules", '/rules'%><br>
+<%= link_to "Mordcry Rules", '/rules', class: "home_link"%><br>
 <% if !logged_in? %>
-<%= link_to "Log In", '/users/sign_in'%><br>
-<%= link_to "Sign up", '/users/sign_up'%><br>
+<%= link_to "Log In", '/users/sign_in', class: "home_link"%><br>
+<%= link_to "Sign up", '/users/sign_up', class: "home_link"%><br>
 <% else %>
-<%= link_to "Sign Out", '/users/sign_out'%><br>
+<%= link_to "Sign Out", '/users/sign_out', class: "home_link"%><br>
 <% end %> 
+</div>

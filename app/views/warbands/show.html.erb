@@ -1,14 +1,16 @@
-Warband Name: <%= @warband.name %> <br>
+<div class="warband_box">
+<h3>Warband Name: <%= @warband.name %></h3> <br>
 Type: <%= @warband.warband_type %><br>
 Warband Rating: <%= rating_calc(@warband) %><br>
 Gold: <%= @warband.gold_crowns %><br>
 Wrydstone: <%= shards(@warband)  %><br>
 <br>
+</div>
 
 <h2>Warriors</h2>
 
 <h2>Heroes</h2>
-<table>
+<table class="warband_table">
 <tr>
   <th>Name</th>
   <th>Type</th>
@@ -55,7 +57,7 @@ Wrydstone: <%= shards(@warband)  %><br>
 </table>
 
 <h2>Henchmen</h2>
-<table>
+<table class="warband_table">
   <tr>
     <th>Name</th>
     <th>Type</th>

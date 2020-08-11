@@ -1,16 +1,19 @@
 <%  if @warbands == [] %>
+<div class="warband_box">
 <h1>No Current Warbands on record</h1>
+</div>
 <% else %>
 
 <% @warbands.each do |w| %>
-<br>
-Warband Name: <%= w.name %> <br>
+<div class="warband_box">
+<h4> Warband Name: <%= w.name %></h4>
 Type: <%= w.warband_type %><br>
 <% rating_calc(w) %> 
 Warband Rating: <%= rating_calc(w) %><br>
 Gold: <%= w.gold_crowns %><br>
 Wrydstone: <%= shards(w) %><br>
 <%= link_to "Show Warband", warband_path(w) %>
+</div>
 <br>
 <% end %>
 

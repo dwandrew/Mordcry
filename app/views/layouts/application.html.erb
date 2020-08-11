@@ -1,53 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <style>
-        .flash__alert   { color: red; }
-        .flash__notice  { color: blue; }
-        .flash__success { color: green; }
-
-    nav {
-      list-style-type: none;
-      margin-bottom: 10;
-      padding: 0;
-      overflow: hidden;
-      background-color: #300;
-      position: fixed;
-      top: 0;
-      width: 100%;
-    }
-
-    nav li {
-      float: left;
-      display: block;
-      
-      text-align: center;
-      padding: 8px 14px;
-      text-decoration: none;
-    }
-    
-        a:link {
-      color: green;
-    }
-    a:visited {
-      color: green;
-    }
-    a:hover {
-      color: red;
-    }
-
-    a:active {
-      color: yellow;
-    } 
-    .active {
-      background-color: #340;
-
-    }
-
-    body {
-      margin-top: 60px;
   
-    }
-    </style>
   <nav> 
     <ul>
       <li class= "nav-link active"><%= link_to "Home", '/'%></li>
