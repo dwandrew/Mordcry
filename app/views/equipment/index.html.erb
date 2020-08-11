@@ -75,3 +75,20 @@
         </tr>
         <% end %>
     </table> <br>
+
+
+    <h2>Ability Descriptions</h2>
+<br>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Effect</th>
+        </tr>
+    <% @abilities.each do |a| %>
+        <tr>
+            <td><%= a.name %></td>
+            <td><%= a.effect %></td>
+        </tr>
+    <% end %>
+    
+    </table>

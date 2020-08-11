@@ -27,7 +27,7 @@
     Injuries: <%= @warrior.injuries %> <br>
     Currently Active: <%= @warrior.active ? "Yes": "No" %> <br>
     Hero: <%= @warrior.is_hero ? "Yes" : "No" %> <br>
-    Cost: <%= @warrior.cost %> <br>
+    Total Cost: <%= warrior_cost(@warrior) %> <br>
 
     <table>
     <tr>

@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_11_095703) do
+ActiveRecord::Schema.define(version: 2020_08_11_135859) do
+
+  create_table "abilities", force: :cascade do |t|
+    t.string "name"
+    t.string "effect"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "armours", force: :cascade do |t|
+    t.string "name"
+    t.integer "soak"
+    t.integer "agility_penalty"
+    t.string "abilities"
+    t.integer "cost"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "equipment", force: :cascade do |t|
     t.string "name"
@@ -76,6 +93,13 @@ ActiveRecord::Schema.define(version: 2020_08_11_095703) do
     t.string "warband_type"
     t.boolean "is_hero", default: false
     t.integer "cost"
+  end
+
+  create_table "warriors_armours", force: :cascade do |t|
+    t.string "warrior_id"
+    t.string "armour_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "warriors_equipments", force: :cascade do |t|

@@ -2,8 +2,11 @@ class Warrior < ApplicationRecord
     belongs_to :warband
     has_many :warriors_equipment
     has_many :equipment, :through => :warriors_equipment
+    has_many :armour
+    has_many :armour, through: :warriors_armour
 
     accepts_nested_attributes_for :equipment
+    accepts_nested_attributes_for :armour
 
     def equipment_attributes=(equipment_params)
         equipment_params.each do |e|
