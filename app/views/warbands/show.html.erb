@@ -26,7 +26,7 @@ Wrydstone: <%= shards(@warband)  %><br>
   <th>Max Number in Warband</th>
   <th>Cost</th>
   <th>Show Warrior</th>
-  <th>Add Warrior to Warband</th>
+  <th>Edit Warrior</th>
   <th>Delete Warrior</th>
 </tr>
 
@@ -46,9 +46,9 @@ Wrydstone: <%= shards(@warband)  %><br>
     <td><%= w.injuries %> </td>
     <td><%= w.number %> </td>
     <td><%= w.cost %> </td>
-    <td><%= link_to "See Warrior", warrior_path(w)%></td>
-    <td><%=link_to "Edit Warrior", edit_warrior_path(w) %></td>
-    <td><%= link_to "Remove Warrior from Warband", warrior_path(w), data: { method: :delete, confirm: "Are you sure?", disable_with: "Processing..." } %> </td>
+    <td><%= link_to "View", warrior_path(w)%></td>
+    <td><%=link_to "Edit", edit_warrior_path(w) %></td>
+    <td><%= link_to "Remove", warrior_path(w), data: { method: :delete, confirm: "Are you sure?", disable_with: "Processing..." } %> </td>
  
   </tr>
 <% end %>
@@ -90,9 +90,9 @@ Wrydstone: <%= shards(@warband)  %><br>
     <td><%= w.skills %> </td>
     <td><%= w.number %> </td>
     <td><%= w.cost %> </td>
-    <td><%= link_to "See Warrior", warrior_path(w)%></td>
-    <td><%=link_to "Edit Warrior", edit_warrior_path(w) %></td>
-    <td><%= link_to "Remove Warrior from Warband", warrior_path(w), data: { method: :delete, confirm: "Are you sure?", disable_with: "Processing..." } %> </td>
+    <td><%= link_to "View", warrior_path(w)%></td>
+    <td><%=link_to "Edit", edit_warrior_path(w) %></td>
+    <td><%= link_to "Remove", warrior_path(w), data: { method: :delete, confirm: "Are you sure?", disable_with: "Processing..." } %> </td>
 
   </tr>
 <% end %>

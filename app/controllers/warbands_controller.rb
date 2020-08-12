@@ -1,7 +1,8 @@
 class WarbandsController < ApplicationController
     before_action :new_warband, only: [:new]
-    before_action :require_login
+    before_action :require_login, except: [:index, :show]
     before_action :find_warband, only: [:edit, :update, :show, :destroy]
+    before_action :check_owner, only: [:edit, :update, :destroy]
     
         def new
         end
@@ -14,18 +15,20 @@ class WarbandsController < ApplicationController
         end
 
         def index
-            @warbands = current_user.warbands
+            if params[:user_id]
+                @warbands = User.find(params[:user_id]).warbands
+              else
+                @warbands = current_user.warbands
+            end
         end
 
         def show
-            unless warband_user
-            flash[:alert] = "Not permissable to view others warbands"
-            redirect_to '/'
-            end
+
         end
 
         def add_to_warband
             @warband = Warband.find_by_id(params[:warrior][:warband_id])
+            check_owner
             if (@warband.gold_crowns- params[:warrior][:cost].to_i) <= 0
             flash[:alert] = "Do not have enough gold for that!"
             redirect_to warband_path(@warband)
@@ -106,6 +109,13 @@ private
             unless helpers.logged_in?
               flash[:alert] = "You must be logged in to access this section"
               redirect_to '/'
+            end
+        end
+
+        def check_owner
+            unless warband_user
+                flash[:alert] = "Not permissable to Edit others warbands"
+                redirect_to '/'
             end
         end
 

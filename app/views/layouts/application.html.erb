@@ -33,7 +33,7 @@
   <body>
    <% if flash.any? %>
       <% flash.each do |key, value| -%>
-        <section class="flash flash__<%= key %>"><%= value.html_safe %></section>
+        <strong><section class="flash flash__<%= key %>"><%= value.html_safe %></section></strong>
       <% end -%>
     <% end %>
  

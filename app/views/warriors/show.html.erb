@@ -1,10 +1,19 @@
+<div class="info_box">
 <h1>Warrior Stats for <%= @warrior.name %></h1>
     Name: <%= @warrior.name %> <br>
     Type: <%= @warrior.warrior_type %> <br>
     Warband: <%= link_to @warrior.warband.name, warband_path(@warrior.warband_id)%><br>
     Warband Type: <%= @warrior.warband_type %> <br>
     Exp: <%= @warrior.exp %> <br>
-    <table>
+    Skills: <%= @warrior.skills %> <br>
+    Injuries: <%= @warrior.injuries %> <br>
+    Currently Wounded: <%= @warrior.active ? "No": "Yes" %> <br>
+    Hero: <%= @warrior.is_hero ? "Yes" : "No" %> <br>
+    Total Cost: <%= warrior_cost(@warrior) %> <br>
+
+    </div>
+    <h3>Warrior Characteristics</h3>
+    <table class="warband_table">
         <tr>
             <th>Move</th>
             <th>Strength</th>
@@ -22,16 +31,11 @@
             <td><%= @warrior.wounds %> </td>
             <td><%= @warrior.bravery %> </td>
         </tr>
-    </table><br>
-    Skills: <%= @warrior.skills %> <br>
-    Injuries: <%= @warrior.injuries %> <br>
-    Currently Wounded: <%= @warrior.active ? "No": "Yes" %> <br>
-    Hero: <%= @warrior.is_hero ? "Yes" : "No" %> <br>
-    Total Cost: <%= warrior_cost(@warrior) %> <br>
+    </table ><br>
 
 
 <h3>Weapons</h3>
-    <table>
+    <table class="warband_table">
     <tr>
             <th>Name</th>
             <th>Range(inches)</th>
@@ -58,7 +62,7 @@
 
 <h3>Armour</h3>
 
-    <table>
+    <table class="warband_table">
         <tr>
             <th>Name</th>
             <th>Soak</th>
