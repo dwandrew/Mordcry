@@ -1,4 +1,6 @@
+<div class="create_box">
 <%= form_for @warband do |f| %>
+<table>
   <%= f.label :name %>:
   <%= f.text_field :name %><br>
 
@@ -12,7 +14,9 @@
   <%= f.number_field :wyrdstone_shards, value: @warband.wyrdstone_shards ? @warband.wyrdstone_shards : 0  %><br>
 
   <%= f.hidden_field :warband_rating %>
+  </table>
+  </div>
 
-  <%= f.submit %>
+  <%= f.submit class: "home_link"%>
 <% end %>
 

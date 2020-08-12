@@ -34,23 +34,23 @@ Equipment.create(name: "Throwing Knife/Star" , range: "6",	attacks: 3,	 damage: 
 					
     
 
-Ability.create(name: "Parry", effect:	"Can roll one dice, if this beats the lowest successful hits dice roll ignore the damage from it. Cannot parry crits.")
-Ability.create(name: "Penetrating", effect: "Ignore one point of armour")
+Ability.create(name: "Parry", effect:	"Can roll one dice, if this beats the lowest successful hits dice roll, then ignore the damage from it. Cannot parry crits.")
+Ability.create(name: "Penetrating", effect: "Weapon Ignore one point of armour")
 Ability.create(name: "Clubbed", effect:	"Stuns on a 4+ rather than a 5+")
-Ability.create(name: "Flailing", effect:	"Parry has to beat the highest successful roll.
+Ability.create(name: "Flailing", effect:	"Parry has to beat the highest successful hit roll.
 Add +(*) to Strength if the first activation is used to attack. But not for the second activation (and any consecutive activations this turn) if it is also used to attack.")
 Ability.create(name: "Damaging", effect:	"Blows calculated at +(*) Strength")
-Ability.create(name: "More or Fire", effect:	"Cannot be fired if wielder moves during its activation")
+Ability.create(name: "Move or Fire", effect:	"Cannot be fired if wielder moves during its activation")
 Ability.create(name: "Blunt", effect:	"Strength of attack counts as 1 lower for attacks made by this weapon.")
 Ability.create(name: "Reload", effect:	"Weapon takes an activation to reload")
 Ability.create(name: "Accurate", effect:	"Weapon gets a +1 on any dice roll to hit, this does not change 5’s into crits.")
-Ability.create(name: "Blunderbuss", effect:	"When fired, draw a line 16” long and 1” wide, for anyone in this line roll a dice:
-1-2: 1 point of damage
-3-5: 3 points of damage
-6: 5 points of damage
+Ability.create(name: "Blunderbuss", effect:	"When fired, draw a line 16” long and 1” wide, for anyone in this line roll a dice: <br>
+1-2: 1 point of damage<br>
+3-5: 3 points of damage<br>
+6: 5 points of damage<br>
 After firing the Blunderbuss takes a full 2 activations to reload.")
-Ability.create(name: "Gromril Weapon", effect: "(CC only)	Weapon ignores additional point of armour, increase Damage and Crit Damage by 1")
-Ability.create(name: "Ithilmar Weapon", effect: "(CC only)	Weapon adds one to its number of attacks and Crit Damage")
+Ability.create(name: "Gromril Weapon", effect: "(CC only)	Weapon ignores a point of armour, increase Damage and Crit Damage of the weapon by +1")
+Ability.create(name: "Ithilmar Weapon", effect: "(CC only)	Weapon adds +1 to its number of attacks and Crit Damage")
 
 
 Armour.create(name: "Light Armour",	soak: 1,	agility_penalty: -1, abilities: "-", cost: 20)

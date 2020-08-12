@@ -74,7 +74,12 @@
       color: yellow;
     } 
 
-    .home_link input{
+    h1 {
+      font-family: 'Courier New', Courier, monospace;
+      text-decoration: underline;
+    }
+
+    .home_link, .home_link input{
       margin-top: 5px;
       margin-bottom: 3px;
       font-size: medium;
@@ -89,7 +94,7 @@
       line-height: 40px;  
 
     }
-    .home_link input:hover {
+    .home_link:hover, .home_link input:hover {
       color: red;
       cursor: pointer;
     }
@@ -103,7 +108,7 @@
 
     .info_box {
         margin: 5px;
-        padding: 5px;
+        padding: 15px;
         border: black;
         border-style: solid;
         border-radius: 10px;
@@ -118,6 +123,18 @@
         text-decoration: underline;
     }
     
+    .create_box {
+        margin: 5px;
+        padding: 15px;
+        border: black;
+        border-style: solid;
+        border-radius: 10px;
+        background-color: azure;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', san-serif;
+        line-height: 20px;
+        width: fit-content;
+    }
+   
 
     .warband_box {
         margin: 5px;

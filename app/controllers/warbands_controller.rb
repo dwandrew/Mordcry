@@ -10,20 +10,37 @@ class WarbandsController < ApplicationController
         def create
             @user = current_user
             @warband = @user.warbands.build(warband_params)
+            if @warband.valid?
             @warband.save
             redirect_to warband_path(@warband)
+            else
+                flash[:alert] = warband_alerts
+                redirect_to new_warband_path
+            end
         end
 
         def index
             if params[:user_id]
                 @warbands = User.find(params[:user_id]).warbands
-              else
+            elsif params[:warband]
+                @warbands = Warband.warband_search(params[:warband])
+            elsif params[:rating]
+                @warbands = Warband.rating_search(params[:rating])
+            elsif helpers.logged_in?
                 @warbands = current_user.warbands
+            elsif Warband.all ==[] 
+                flash[:alert] = "No Currently created Warbands on Record, Feel free to Sign in and make one!"
+                redirect_to '/'
+            else
+                @warbands = Warband.all
             end
         end
 
         def show
-
+            unless @warband
+            flash[:alert] = "No Current Warband of that record, Feel free to make one!"
+            redirect_to '/'
+            end
         end
 
         def add_to_warband
@@ -103,6 +120,14 @@ private
 
         def warband_user
             @warband.user == helpers.current_user
+        end
+
+        def warband_alerts
+            alert = []
+            @warband.errors.messages.each do |k,v|
+                alert << "#{k.to_s.capitalize} #{v.join(", ")} "
+            end
+            alert.join()
         end
 
         def require_login
