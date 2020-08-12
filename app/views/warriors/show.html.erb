@@ -1,17 +1,48 @@
-<div class="info_box">
-<h1>Warrior Stats for <%= @warrior.name %></h1>
-    Name: <%= @warrior.name %> <br>
-    Type: <%= @warrior.warrior_type %> <br>
-    Warband: <%= link_to @warrior.warband.name, warband_path(@warrior.warband_id)%><br>
-    Warband Type: <%= @warrior.warband_type %> <br>
-    Exp: <%= @warrior.exp %> <br>
-    Skills: <%= @warrior.skills %> <br>
-    Injuries: <%= @warrior.injuries %> <br>
-    Currently Wounded: <%= @warrior.active ? "No": "Yes" %> <br>
-    Hero: <%= @warrior.is_hero ? "Yes" : "No" %> <br>
-    Total Cost: <%= warrior_cost(@warrior) %> <br>
 
-    </div>
+<h1>Warrior Stats for <%= @warrior.name %></h1>
+<table class="create_box">
+        <tr>
+            <td>Name:</td>
+            <td><%= @warrior.name %> </td>
+        </tr>
+        <tr>
+            <td>Type:</td>
+            <td><%= @warrior.warrior_type %></td> 
+        </tr>
+        <tr>
+            <td>Warband Type:</td>
+            <td><%= @warrior.warband_type %></td> 
+        </tr>
+        <tr>
+            <td>Exp:</td>
+            <td><%= @warrior.exp %></td> 
+        </tr>
+        <tr>
+            <td>Skills:</td>
+            <td><%= @warrior.skills %></td> 
+        </tr>
+        <tr>
+            <td>Injuries:</td>
+            <td><%= @warrior.injuries %> </td>
+        </tr>
+        <tr>
+            <td>Currently Wounded:</td>
+            <td><%= @warrior.active ? "No": "Yes" %></td> 
+        </tr>
+        <tr>
+            <td>Hero:</td>
+            <td><%= @warrior.is_hero ? "Yes" : "No" %> </td>
+        </tr>
+        <tr>
+            <td>Total Cost:</td>
+            <td><%= warrior_cost(@warrior) %> </td>
+        </tr>
+        <tr>
+            <td>Warband:</td>
+            <td><%= link_to @warrior.warband.name, warband_path(@warrior.warband_id)%></td>
+        </tr>
+</table>
+    
     <h3>Warrior Characteristics</h3>
     <table class="warband_table">
         <tr>

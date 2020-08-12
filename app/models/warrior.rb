@@ -1,9 +1,12 @@
 class Warrior < ApplicationRecord
     belongs_to :warband
     has_many :warriors_equipment
-    has_many :equipment, :through => :warriors_equipment
+    has_many :equipment, through: :warriors_equipment
     has_many :warriors_armour
     has_many :armour, through: :warriors_armour
+    has_many :warriors_skill
+    has_many :skill, through: :warriors_skill
+
 
     accepts_nested_attributes_for :equipment
     accepts_nested_attributes_for :armour

@@ -1,22 +1,28 @@
 <div class="create_box">
 <%= form_for @warband do |f| %>
-<table>
-  <%= f.label :name %>:
-  <%= f.text_field :name %><br>
-
-  <%= f.label :warband_type %>:
-  <%= f.select :warband_type, ["Ratmen", "Witch Hunters", "Mercenaries", "Chaos Cultits"] %><br>
- 
-  <%= f.label :gold_crowns %>:
-  <%= f.number_field :gold_crowns, value: @warband.gold_crowns %><br>
-  
-  <%= f.label :wyrdstone_shards %>:
-  <%= f.number_field :wyrdstone_shards, value: @warband.wyrdstone_shards ? @warband.wyrdstone_shards : 0  %><br>
-
+<table class="form_box">
+  <tr>
+    <td><%= f.label :name %>:</td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :warband_type %>:</td>
+    <td><%= f.select :warband_type, ["Ratmen", "Witch Hunters", "Mercenaries", "Chaos Cultits"] %><br></td>
+  <tr>
+    <td><%= f.label :gold_crowns %>:</td>
+    <td><%= f.number_field :gold_crowns, value: @warband.gold_crowns %><br></td>
+  </tr>
+  <tr>
+    <td><%= f.label :wyrdstone_shards %>:</td>
+    <td><%= f.number_field :wyrdstone_shards, value: @warband.wyrdstone_shards ? @warband.wyrdstone_shards : 0  %><br></td>
+  </tr>
   <%= f.hidden_field :warband_rating %>
+
+  <tr>
+  
+    <td><%= f.submit class: "home_link"%></td>
+  </tr>
+<% end %>
   </table>
   </div>
-
-  <%= f.submit class: "home_link"%>
-<% end %>
 

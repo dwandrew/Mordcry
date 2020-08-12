@@ -1,0 +1,2 @@
+class WarriorsSkill < ApplicationRecord
+end

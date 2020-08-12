@@ -79,7 +79,7 @@
       text-decoration: underline;
     }
 
-    .home_link, .home_link input{
+    .home_link{
       margin-top: 5px;
       margin-bottom: 3px;
       font-size: medium;
@@ -94,7 +94,7 @@
       line-height: 40px;  
 
     }
-    .home_link:hover, .home_link input:hover {
+    .home_link:hover{
       color: red;
       cursor: pointer;
     }
@@ -134,41 +134,44 @@
         line-height: 20px;
         width: fit-content;
     }
-   
-
-    .warband_box {
-        margin: 5px;
-        padding: 15px;
-        border: black;
-        border-style: solid;
-        border-radius: 10px;
-        background-color: azure;
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', san-serif;
-        line-height: normal;
-        width: fit-content;
-    }
-
-    .warband_box h4, h3 {
-        font-family: 'Courier New', Courier, monospace;
-        text-decoration: underline;
-        padding-bottom: 5;
-        margin-bottom: 0;
-    }
-
-    .warband_table {
-        border-collapse: collapse;
-        text-align: center;
-        margin: 5px;
-    }
-
-    .warband_table th{
-        background-color: khaki;
-    }
-    .warband_table, tr, th, td{
-        border: black;
-        border-style: solid;
-        padding: 6px;
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', san-serif;
-    }
 
     
+    .warband_box {
+      margin: 5px;
+      padding: 15px;
+      border: black;
+      border-style: solid;
+      border-radius: 10px;
+      background-color: azure;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', san-serif;
+      line-height: normal;
+      width: fit-content;
+    }
+    
+    .warband_box h4, h3 {
+      font-family: 'Courier New', Courier, monospace;
+      text-decoration: underline;
+      padding-bottom: 5;
+      margin-bottom: 0;
+    }
+    
+    .warband_table {
+      border-collapse: collapse;
+      text-align: center;
+      margin: 5px;
+    }
+    
+    .warband_table th{
+      background-color: khaki;
+    }
+    .warband_table, tr, th, td{
+      border: black;
+      border-style: solid;
+      padding: 6px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', san-serif;
+    }
+    
+     table.form_box tr, td{
+      border: none;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', san-serif;
+    }

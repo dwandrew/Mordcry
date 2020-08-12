@@ -2,7 +2,7 @@ class WarbandsController < ApplicationController
     before_action :new_warband, only: [:new]
     before_action :require_login, except: [:index, :show]
     before_action :find_warband, only: [:edit, :update, :show, :destroy]
-    before_action :check_owner, only: [:edit, :update, :destroy]
+    before_action :check_owner, only: [:edit, :destroy]
     
         def new
         end
@@ -77,7 +77,6 @@ class WarbandsController < ApplicationController
 
         def update
             @warband.update(warband_params)
-            @warband.save
             redirect_to warband_path(@warband)
         end
 
