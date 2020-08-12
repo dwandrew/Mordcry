@@ -92,7 +92,6 @@ ActiveRecord::Schema.define(version: 2020_08_12_125728) do
     t.integer "agility"
     t.integer "wounds"
     t.integer "bravery"
-    t.string "skills"
     t.string "injuries"
     t.boolean "active"
     t.integer "number"

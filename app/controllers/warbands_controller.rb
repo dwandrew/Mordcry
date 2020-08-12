@@ -59,11 +59,13 @@ class WarbandsController < ApplicationController
             agility: params[:warrior][:agility],
             wounds: params[:warrior][:wounds],
             bravery: params[:warrior][:bravery],
-            skills: params[:warrior][:skills],
             number: params[:warrior][:number],
             warband_type: @warband.warband_type,
             is_hero: params[:warrior][:is_hero],
             cost: params[:warrior][:cost])
+            params[:warrior][:skills].each do |s|
+                @warrior.skill << Skill.find_by_name(s)
+            end
             @warrior.save
             @warband.gold_crowns-= @warrior.cost
             @warband.save

@@ -11,7 +11,7 @@ class CreateWarriors < ActiveRecord::Migration[6.0]
       t.integer :agility
       t.integer :wounds
       t.integer :bravery
-      t.string :skills
+      # t.string :skills
       t.string :injuries
       t.boolean :active
       t.integer :number

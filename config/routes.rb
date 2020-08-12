@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   end
   root 'static#home'
   get '/rules' => 'static#rules'
-
+  get '/skills' => 'skill#index'
   get "/warbands/add_to_warband" => 'warbands#add_to_warband'
   post "/warbands/add_to_warband" => 'warbands#add_to_warband'
 
+  resources :skill, only: [:show, :index]
   resources :equipment
-  resources :equipments
   resources :warriors
   resources :warbands
   resources :users do

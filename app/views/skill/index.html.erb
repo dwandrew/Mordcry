@@ -1,0 +1,15 @@
+<table class="warband_table">
+<tr>
+<th>Skill Name</th>
+<th>Skill Category</th>
+<th>Skill Description</th>
+</tr>
+<% @skills.each do |s| %>
+<tr>
+<td><%= s.name %> </td>
+<td><%= s.skill_category %> </td>
+<td><%= s.description %> </td>
+</tr>
+<% end %>
+
+</table>

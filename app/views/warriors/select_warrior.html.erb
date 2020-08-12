@@ -36,7 +36,7 @@
     <td><%= x.agility %> </td>
     <td><%= x.wounds %> </td>
     <td><%= x.bravery %> </td>
-    <td><%= x.skills %> </td>
+    <td><%= x.skill.map {|s| s.name}.join(", ") %> </td>
     <td><%= x.number %> </td>
     <td><%= x.cost %> </td>
 
@@ -50,7 +50,7 @@
             agility: x.agility,
             wounds: x.wounds,
             bravery: x.bravery,
-            skills: x.skills,
+            skills: x.skill.map {|s| s.name},
             number: x.number,
             warband_type: @warband.warband_type,
             is_hero: x.is_hero,
@@ -89,7 +89,7 @@
     <td><%= x.agility %> </td>
     <td><%= x.wounds %> </td>
     <td><%= x.bravery %> </td>
-    <td><%= x.skills %> </td>
+    <td><%= x.skill.map {|s| s.name}.join(", ")  %> </td>
     <td><%= x.number %> </td>
     <td><%= x.cost %> </td>
     <td><%= link_to "Add to Warband", warbands_add_to_warband_path(warrior:{
@@ -99,10 +99,10 @@
             move: x.move,
             strength: x.strength,
             toughness: x.toughness,
+            skills: x.skill.map {|s| s.name},
             agility: x.agility,
             wounds: x.wounds,
             bravery: x.bravery,
-            skills: x.skills,
             number: x.number,
             warband_type: @warband.warband_type,
             is_hero: x.is_hero,

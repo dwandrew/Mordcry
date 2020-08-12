@@ -7,7 +7,7 @@ class Warrior < ApplicationRecord
     has_many :warriors_skill
     has_many :skill, through: :warriors_skill
 
-
+    accepts_nested_attributes_for :skill
     accepts_nested_attributes_for :equipment
     accepts_nested_attributes_for :armour
 

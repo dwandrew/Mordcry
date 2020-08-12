@@ -23,7 +23,7 @@ Wrydstone: <%= shards(@warband)  %><br>
   <th>Bravery</th>
   <th>Skills</th>
   <th>Injuries</th>
-  <th>Max Number in Warband</th>
+  <th>Max in Warband</th>
   <th>Cost</th>
   <th>Show Warrior</th>
   <th>Edit Warrior</th>
@@ -42,7 +42,10 @@ Wrydstone: <%= shards(@warband)  %><br>
     <td><%= w.agility %> </td>
     <td><%= w.wounds %> </td>
     <td><%= w.bravery %> </td>
-    <td><%= w.skills %> </td>
+    <td><% w.skill.each do |s| %>
+    <%=link_to s.name, skill_path(s) %><br>
+    <%end%>
+     </td>
     <td><%= w.injuries %> </td>
     <td><%= w.number %> </td>
     <td><%= w.cost %> </td>
@@ -69,7 +72,7 @@ Wrydstone: <%= shards(@warband)  %><br>
     <th>Wounds</th>
     <th>Bravery</th>
     <th>Skills</th>
-    <th>Max Number in Warband</th>
+    <th>Max in Warband</th>
     <th>Cost</th>
     <th>Show Warrior</th>
     <th>Edit Warrior</th>
@@ -87,7 +90,10 @@ Wrydstone: <%= shards(@warband)  %><br>
     <td><%= w.agility %> </td>
     <td><%= w.wounds %> </td>
     <td><%= w.bravery %> </td>
-    <td><%= w.skills %> </td>
+    <td><% w.skill.each do |s| %>
+    <%=link_to s.name, skill_path(s) %><br>
+    <%end%>
+     </td>
     <td><%= w.number %> </td>
     <td><%= w.cost %> </td>
     <td><%= link_to "View", warrior_path(w)%></td>

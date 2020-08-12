@@ -19,7 +19,10 @@
         </tr>
         <tr>
             <td>Skills:</td>
-            <td><%= @warrior.skills %></td> 
+            <td><% @warrior.skill.each do |s| %>
+                <%=link_to s.name, skill_path(s) %>
+                <%end%>
+                </td>
         </tr>
         <tr>
             <td>Injuries:</td>
