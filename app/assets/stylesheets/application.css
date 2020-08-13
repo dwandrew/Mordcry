@@ -61,8 +61,7 @@
         text-decoration: none;
         text-align: center;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        line-height: 40px; 
-        
+        line-height: 40px;     
     }
     a:link {
         color: rgb(255, 233, 40);
@@ -117,7 +116,7 @@
         border-radius: 10px;
         background-color: azure;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        text-indent: 15px;
+        
         line-height: normal;
         
     }
@@ -129,19 +128,20 @@
       border-radius: 10px;
       background-color: azure;
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-      text-indent: 15px;
-      line-height: normal;
       width: 98%;
       column-span: all;
+      text-align: center;
       
   }
-    .search_table {
-      margin: auto;
-      background-color: none;
+
+    .search_box span{
+      display: inline-block;
+      margin-left: 60px;
+      margin-right: 60px;
     }
     .info_box h1, h2, h3{
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        text-decoration: underline;
+      text-decoration: underline;
     }
     
     .create_box {
@@ -154,6 +154,11 @@
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         line-height: 20px;
         width: fit-content;
+        text-align: center;
+    }
+
+    .create_box table {
+      margin: auto;
     }
 
     
@@ -208,10 +213,4 @@
    td:hover {background-color: rgb(182, 182, 182);}
    td:nth-child(even):hover{background-color: rgb(182, 182, 182);}
   
-  .search_table tr:nth-child(even), td:nth-child(even){
-    background-color: transparent;
-  }
-  .search_table tr:hover, .search_table td:hover{
-    background-color: transparent;
-  }
 

@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   get "/warbands/add_to_warband" => 'warbands#add_to_warband'
   post "/warbands/add_to_warband" => 'warbands#add_to_warband'
 
+  get '/equipment/sell' => 'equipment#sell'
+  get '/equipment/delete' => 'equipment#destroy'
+  get '/equipment/sell_armour' => 'equipment#sell_armour'
+  get '/equipment/delete_armour' => 'equipment#destroy_armour'
+
   resources :skill, only: [:show, :index]
   resources :equipment
   resources :warriors

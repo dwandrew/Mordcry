@@ -1,5 +1,6 @@
-
-<h1>Warrior Stats for <%= @warrior.name %></h1>
+<% if @warrior.name !=nil %>
+<h1>Warrior Stats for <%= @warrior.name.empty? ? "Unnamed Warrior" : @warrior.name %></h1>
+<% end %>
 <table class="create_box">
         <tr>
             <td>Name:</td>
@@ -43,6 +44,10 @@
         <tr>
             <td>Warband:</td>
             <td><%= link_to @warrior.warband.name, warband_path(@warrior.warband_id)%></td>
+        </tr>
+        <tr>
+            <td>"Edit"</td>
+            <td><%= link_to "Edit Warrior", edit_warrior_path(@warrior) %></td>
         </tr>
 </table>
     

@@ -36,7 +36,10 @@
     <td><%= x.agility %> </td>
     <td><%= x.wounds %> </td>
     <td><%= x.bravery %> </td>
-    <td><%= x.skill.map {|s| s.name}.join(", ") %> </td>
+    <td><% x.skill.each do |s| %>
+    <%=link_to s.name, skill_path(s) %><br>
+    <%end%>
+     </td>
     <td><%= x.number %> </td>
     <td><%= x.cost %> </td>
 
@@ -89,7 +92,10 @@
     <td><%= x.agility %> </td>
     <td><%= x.wounds %> </td>
     <td><%= x.bravery %> </td>
-    <td><%= x.skill.map {|s| s.name}.join(", ")  %> </td>
+    <td><% x.skill.each do |s| %>
+    <%=link_to s.name, skill_path(s) %><br>
+    <%end%>
+     </td>
     <td><%= x.number %> </td>
     <td><%= x.cost %> </td>
     <td><%= link_to "Add to Warband", warbands_add_to_warband_path(warrior:{

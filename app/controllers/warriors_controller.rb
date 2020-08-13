@@ -18,7 +18,7 @@ class WarriorsController < ApplicationController
         if warrior_user
             (3-@warrior.equipment.length).times {@warrior.equipment.build}
             (3-@warrior.armour.length).times {@warrior.armour.build}
-            (1+@warrior.skill.length).times {@warrior.skill.build}
+            @warrior.skill.build
             else
                 flash[:alert] = "Not permissable to view others warriors"
                 redirect_to '/'
@@ -54,6 +54,12 @@ class WarriorsController < ApplicationController
         end
     end
     
+    def equipment_sell
+    end
+    
+    def eqiupment_destroy
+    end
+
     private
         def warrior_params
             params.require(:warrior).permit(

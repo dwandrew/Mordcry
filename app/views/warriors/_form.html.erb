@@ -1,60 +1,114 @@
-<h2> <%= @warrior.name %> of <%= @warrior.warband.name %></h2>
+<div class="create_box">
+<% if @warrior.name !=nil %>
+<h2> <%= @warrior.name.empty? ? "Unamed Warrior" : @warrior.name %> <br><br> of <%= @warrior.warband.name %></h2>
+<% end %>
 <%= form_for @warrior do |f| %>
-    
-    <%= f.label :name %>
-    <%= f.text_field :name  %><br>
-
-    <%= f.label :warrior_type %>
-    <%= f.text_field :warrior_type %><br>
-
-    <%= f.label :exp %>
-    <%= f.number_field :exp %><br>
-
-    <%= f.label :move %>
-    <%= f.number_field :move %><br>
-
-    <%= f.label :strength %>
-    <%= f.number_field :strength %><br>
-
-    <%= f.label :toughness %>
-    <%= f.number_field :toughness %><br>
-
-    <%= f.label :agility %>
-    <%= f.number_field :agility %><br>
-
-    <%= f.label :wounds %>
-    <%= f.number_field :wounds %><br>
-
-    <%= f.label :bravery %>
-    <%= f.number_field :bravery %><br>
-
-    <%= f.label :injuries %>
-    <%= f.text_field :injuries %><br>
-
-    <%= f.label :active %>
-    <%= f.check_box :active %><br>
-
-    <%= f.label :number %>
-    <%= f.number_field :number %><br>
-
-    <%= f.label :is_hero %>
-    <%= f.check_box :is_hero %><br>
-  <h3>Weapons</h3>
-    <%= f.fields_for :equipment do |e| %>
-    <%= e.collection_select :id, Equipment.all, :id, :name, {include_blank: 'Select a Weapon'} %><br>
-    <% end %>
+<table> 
+    <tr>
+      <td><%= f.label :name %></td>
+      <td><%= f.text_field :name  %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :warrior_type %></td>
+      <td><%= f.text_field :warrior_type %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :exp %></td>
+      <td><%= f.number_field :exp %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :move %></td>
+      <td><%= f.number_field :move %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :strength %>
+      <td><%= f.number_field :strength %>
+    </tr>
+    <tr>
+      <td><%= f.label :toughness %>
+      <td><%= f.number_field :toughness %>
+    </tr>
+    <tr>
+      <td><%= f.label :agility %></td>
+      <td><%= f.number_field :agility %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :wounds %></td>
+      <td><%= f.number_field :wounds %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :bravery %></td>
+      <td><%= f.number_field :bravery %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :injuries %></td>
+      <td><%= f.text_field :injuries %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :active %></td>
+      <td><%= f.check_box :active %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :number %></td>
+      <td><%= f.number_field :number %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :is_hero %></td>
+      <td><%= f.check_box :is_hero %></td>
+    </tr>
+  
+</table>
+<br>
+<h3>Weapons</h3>
+<table>
+  <tr>
+    <th>Weapon Name</th>
+    <th>Add Weapon</th>
+    <th>Sell Weapon</th>
+    <th>Delete Weapon</th>
+  </tr>
+  <br>
+  
+  <%= f.fields_for :equipment do |e| %>
+    <tr>
+      <td><%= e.object.name %> </td>
+      <td><%= e.collection_select :id, Equipment.all, :id, :name, {include_blank: 'Select a Weapon'} %></td>
+      <td><%= link_to "Sell Weapon", equipment_sell_path(warrior_id: @warrior, equipment_id: e.object.id) %> </td>
+      <td><%= link_to "Delete Weapon", equipment_delete_path(warrior_id: @warrior, equipment_id: e.object.id) %> </td>
+    </tr>
+  <%end%>
+</table>
+<br>
 <h3>Armour</h3>
-    <%= f.fields_for :armour do |a| %>
-    <%= a.collection_select :id, Armour.all, :id, :name, {include_blank: 'Select Armour'} %><br>
-    <% end %>
+<table>
+  <tr>
+    <th>Armour Name</th>
+    <th>Add Armour</th>
+    <th>Sell Armour</th>
+    <th>Delete Armour</th>
+  </tr>
+  <br>
+  
+  <%= f.fields_for :armour do |a| %>
+    <tr>
+      <td><%= a.object.name %> </td>
+      <td><%= a.collection_select :id, Armour.all, :id, :name, {include_blank: 'Select Armour'} %></td>
+      <td><%= link_to "Sell Armour", equipment_sell_armour_path(warrior_id: @warrior, armour_id: a.object.id) %> </td>
+      <td><%= link_to "Delete Armour", equipment_delete_armour_path(warrior_id: @warrior, armour_id: a.object.id) %> </td>
+    </tr>
+  <%end%>
+</table>
+
 <h3>Skills</h3>
     <%= f.fields_for :skill do |s| %>
     <%= s.collection_select :id, Skill.all, :id, :name, {include_blank: 'Select a Skill'} %><br>
     <% end %>
 <br>
-    <%= f.label :cost %>
-    <%= f.number_field :cost %><br>
 
 
-  <%= f.submit %>
+    <%= f.hidden_field :cost %><br>
+
+
+  <%= f.submit class:"home_link"%>
 <% end %>
+</div>

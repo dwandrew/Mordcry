@@ -6,8 +6,10 @@
     <td><%= f.text_field :name %></td>
   </tr>
   <tr>
+    <% unless @warband.id %>
     <td><%= f.label :warband_type %>:</td>
     <td><%= f.select :warband_type, ["Ratmen", "Witch Hunters", "Mercenaries", "Chaos Cultits"] %><br></td>
+    <% end %>
   <tr>
     <td><%= f.label :gold_crowns %>:</td>
     <td><%= f.number_field :gold_crowns, value: @warband.gold_crowns %><br></td>
