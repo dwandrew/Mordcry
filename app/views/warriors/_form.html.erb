@@ -100,10 +100,22 @@
 </table>
 
 <h3>Skills</h3>
-    <%= f.fields_for :skill do |s| %>
-    <%= s.collection_select :id, Skill.all, :id, :name, {include_blank: 'Select a Skill'} %><br>
-    <% end %>
 <br>
+<table>
+  <tr>
+    <th>Skill Name</th>
+    <th>Add Skill</th>
+    <th>Delete Skill</th>
+  </tr>
+  <br>
+    <%= f.fields_for :skill do |s| %>
+    <tr>
+      <td><%= s.object.name %> </td>
+      <td><%= s.collection_select :id, Skill.all, :id, :name, {include_blank: 'Select a Skill'} %></td>
+      <td><%= link_to "Delete Skill", skill_destroy_path(warrior_id: @warrior, skill_id: s.object.id) %> </td>
+    </tr>
+    <% end %>
+</table>
 
 
     <%= f.hidden_field :cost %><br>

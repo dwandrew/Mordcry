@@ -23,7 +23,6 @@ end
 def destroy
     if params[:equipment_id]
     @warrior = Warrior.find_by_id(params[:warrior_id])
-    @weapon = Equipment.find_by_id(params[:equipment_id])
     @warrior.equipment.delete(Equipment.find_by_id(params[:equipment_id]))
     redirect_to edit_warrior_path(@warrior)
     else 
@@ -46,7 +45,6 @@ end
 def destroy_armour
     if params[:armour_id]
     @warrior = Warrior.find_by_id(params[:warrior_id])
-    @armour = Armour.find_by_id(params[:armour_id])
     @warrior.armour.delete(Armour.find_by_id(params[:armour_id]))
     redirect_to edit_warrior_path(@warrior)
     else 

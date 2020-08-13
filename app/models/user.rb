@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
           :omniauthable, omniauth_providers: [:google_oauth2]
   has_many :warbands
+  has_many :warriors, through: :warbands
   
 
           def self.from_google(auth)

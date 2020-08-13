@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   get '/equipment/delete' => 'equipment#destroy'
   get '/equipment/sell_armour' => 'equipment#sell_armour'
   get '/equipment/delete_armour' => 'equipment#destroy_armour'
+  get '/skill/destroy' => "skill#destroy"
 
-  resources :skill, only: [:show, :index]
+  resources :skill, only: [:show, :index, :destroy]
   resources :equipment
   resources :warriors
   resources :warbands
