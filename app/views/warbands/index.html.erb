@@ -14,6 +14,25 @@
 </div>
 <% else %>
 
+<div class='search_box'>
+<table class='search_table'>
+    <tr>
+        <%= form_tag warbands_path, method:'get' do %>
+        <td><h4><%= label_tag (:warband), "Enter Type of Warband:"%></h4></td>
+        <td><%= text_field_tag :warband, params[:warband], placeholder:"Enter type"%></td>
+        <td><%= submit_tag("Search", name: nil, class:'home_link') %></td>
+    
+<% end %>
+    
+        <%= form_tag warbands_path, method:'get' do %>
+        <td><h4><%= label_tag (:rating), "Enter Rating of warband:"%></h4></td>
+        <td><%= text_field_tag :rating, params[:rating], placeholder:"Enter Rating"%></td>
+        <td><%= submit_tag("Search", name: nil, class:'home_link') %></td>
+    <% end %>
+    </tr>
+</table>
+</div>
+
 <% @warbands.each do |w| %>
 <div class="warband_box">
 <h4> Warband Name: <%= w.name %></h4>

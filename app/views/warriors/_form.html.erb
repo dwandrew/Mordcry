@@ -28,9 +28,6 @@
     <%= f.label :bravery %>
     <%= f.number_field :bravery %><br>
 
-    <%= f.label :skills %>
-    <%= f.text_field :skills %><br>
-
     <%= f.label :injuries %>
     <%= f.text_field :injuries %><br>
 
@@ -49,6 +46,10 @@
 <h3>Armour</h3>
     <%= f.fields_for :armour do |a| %>
     <%= a.collection_select :id, Armour.all, :id, :name, {include_blank: 'Select Armour'} %><br>
+    <% end %>
+<h3>Skills</h3>
+    <%= f.fields_for :skill do |s| %>
+    <%= s.collection_select :id, Skill.all, :id, :name, {include_blank: 'Select a Skill'} %><br>
     <% end %>
 <br>
     <%= f.label :cost %>

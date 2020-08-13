@@ -18,6 +18,7 @@ class WarriorsController < ApplicationController
         if warrior_user
             (3-@warrior.equipment.length).times {@warrior.equipment.build}
             (3-@warrior.armour.length).times {@warrior.armour.build}
+            (1+@warrior.skill.length).times {@warrior.skill.build}
             else
                 flash[:alert] = "Not permissable to view others warriors"
                 redirect_to '/'
@@ -25,7 +26,6 @@ class WarriorsController < ApplicationController
     end
 
     def update
-        
         find_warrior
         @warrior.update(warrior_params)
         redirect_to warband_path (@warrior.warband.id)
@@ -75,8 +75,8 @@ class WarriorsController < ApplicationController
                 :active,
                 :wounds,
                 equipment_attributes: [:id],
-                armour_attributes: [:id]
-                
+                armour_attributes: [:id],
+                skill_attributes: [:id]
             )
         end
     

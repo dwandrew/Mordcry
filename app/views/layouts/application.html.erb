@@ -5,14 +5,14 @@
     <ul>
       <li class= "nav-link active"><%= link_to "Home", '/'%></li>
       <li class= "nav-link"><%= link_to "Mordcry Rules", '/rules'%></li>
+      <li class= "nav-link"><%= link_to "View Warbands", '/warbands'%></li>
       
       <% if !logged_in? %>
       <li class= "nav-link"><%= link_to "Log In", '/users/sign_in', class: "nav-link" %></li>
       <li class= "nav-link"><%= link_to "Sign up", '/users/sign_up' %></li>
      <% else %>
-
-      <li class= "nav-link"><%= link_to "View Warbands", '/warbands'%></li>
       <li class= "nav-link"><%= link_to "Make New Warband", '/warbands/new'%></li>
+      <li class= "nav-link"><%= link_to "View Skills", '/skill'%></li>
       <li class= "nav-link"><%= link_to "View Equipment", '/equipment'%></li>
       <li class= "nav-link"><%= link_to "Sign Out", '/users/sign_out', class: "nav-link" %></li>
       <% end %>

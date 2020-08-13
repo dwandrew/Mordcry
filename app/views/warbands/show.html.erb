@@ -48,7 +48,7 @@ Wrydstone: <%= shards(@warband)  %><br>
      </td>
     <td><%= w.injuries %> </td>
     <td><%= w.number %> </td>
-    <td><%= w.cost %> </td>
+    <td><%= warrior_cost(w) %> </td>
     <td><%= link_to "View", warrior_path(w)%></td>
     <td><%=link_to "Edit", edit_warrior_path(w) %></td>
     <td><%= link_to "Remove", warrior_path(w), data: { method: :delete, confirm: "Are you sure?", disable_with: "Processing..." } %> </td>
