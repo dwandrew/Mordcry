@@ -19,7 +19,10 @@
             <td><%= e.attacks %> </td>
             <td><%= e.strength %> </td>
             <td><%= e.damage %> </td>
-            <td><%= e.abilities %> </td>
+            <td><% e.abilities.each do |a| %>
+            <%=link_to a.name, abilities_show_path(id: a) %><br>
+            <%end%>
+            </td>
             <td><%= e.cost %> </td>
         </tr>
         <% end %>
@@ -45,7 +48,10 @@
             <td><%= e.attacks %> </td>
             <td><%= e.strength %> </td>
             <td><%= e.damage %> </td>
-            <td><%= e.abilities %> </td>
+            <td><% e.abilities.each do |a| %>
+            <%=link_to a.name, abilities_show_path(id: a) %><br>
+            <%end%>
+            </td>
             <td><%= e.cost %> </td>
         </tr>
        <% end %>
@@ -70,7 +76,10 @@
             <td><%= e.attacks %> </td>
             <td><%= e.strength %> </td>
             <td><%= e.damage %> </td>
-            <td><%= e.abilities %> </td>
+            <td><% e.abilities.each do |a| %>
+            <%=link_to a.name, abilities_show_path(id: a) %><br>
+            <%end%>
+            </td>
             <td><%= e.cost %> </td>
         </tr>
         <% end %>

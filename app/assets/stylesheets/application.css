@@ -206,12 +206,9 @@
       border: none;
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
+  td {background-color: burlywood;}
+  td:nth-child(even){background-color: cornsilk;}
 
-   tr:nth-child(even){background-color: #f2f2f2;}
-   tr:hover {background-color: #ddd;}
-   
-   td:nth-child(even){background-color: lavender;}
-   td:hover {background-color: rgb(182, 182, 182);}
-   td:nth-child(even):hover{background-color: rgb(182, 182, 182);}
+    td:hover {background-color: #ddd;}
   
 
