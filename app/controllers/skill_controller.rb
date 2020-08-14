@@ -5,7 +5,13 @@ class SkillController < ApplicationController
     end
 
     def index
-        @skills = Skill.all
+        if params[:category]
+            @skills = Skill.category_search(params[:category])
+        elsif params[:name]
+            @skills = Skill.name_search(params[:name])
+        else
+            @skills = Skill.all
+        end
     end
 
     def destroy

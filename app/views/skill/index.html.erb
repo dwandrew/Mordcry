@@ -1,3 +1,23 @@
+<div class='search_box'>
+<span>
+        <%= form_tag skills_path, method:'get' do %>
+        <h3><%= label_tag (:category), "Enter Skill Category:"%></h3>
+        <%= text_field_tag :category, params[:category], placeholder:"Enter Category"%>
+        <%= submit_tag "Search", name: nil, class:'home_link' %>
+    
+<% end %>
+ </span>
+ <span>  
+        <%= form_tag skills_path, method:'get' do %>
+        <h3><%= label_tag (:name), "Enter Name of Skill:"%></h3>
+        <%= text_field_tag :name, params[:name], placeholder:"Enter Name"%>
+        <%= submit_tag("Search", name: nil, class:'home_link') %>
+    <% end %>
+</span>
+</div>
+
+
+<div class="info_box">
 <table class="warband_table">
 <tr>
 <th>Skill Name</th>
@@ -13,3 +33,4 @@
 <% end %>
 
 </table>
+</div>

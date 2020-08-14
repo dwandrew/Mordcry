@@ -3,10 +3,13 @@
 Type: <%= @warband.warband_type %><br>
 Warband Rating: <%= rating_calc(@warband) %><br>
 Gold: <%= @warband.gold_crowns %><br>
-Wrydstone: <%= shards(@warband)  %><br>
+Wyrdstone: <%= shards(@warband)  %><br>
 <br>
+<%= link_to "Add Wyrdstone Shard", warbands_add_wyrdstone_path(id: @warband.id)%>
+<%= link_to "Sell Wyrdstone Shard", warbands_sell_wyrdstone_path(id: @warband.id)%>
 <br>
-<%= link_to "Add Warrior", new_warrior_path(warband_id: @warband.id)%>
+
+<%= link_to "Add Warrior", new_warband_warrior_path(warband_id: @warband.id)%>
 <%= link_to "Edit Warband", edit_warband_path(@warband)%>
 <%= link_to "Delete Warband", warband_path(@warband), data: { method: :delete, confirm: "Are you sure?" } %>
 </div>
@@ -53,8 +56,8 @@ Wrydstone: <%= shards(@warband)  %><br>
     <td><%= w.injuries %> </td>
     <td><%= w.number %> </td>
     <td><%= warrior_cost(w) %> </td>
-    <td><%= link_to "View", warrior_path(w)%></td>
-    <td><%=link_to "Edit", edit_warrior_path(w) %></td>
+    <td><%= link_to "View", warband_warrior_path(warband_id:@warband.id, id:w.id)%></td>
+    <td><%=link_to "Edit", edit_warband_warrior_path(warband_id:@warband.id, id:w.id) %></td>
     <td><%= link_to "Remove", warrior_path(w), data: { method: :delete, confirm: "Are you sure?", disable_with: "Processing..." } %> </td>
  
   </tr>
@@ -99,9 +102,9 @@ Wrydstone: <%= shards(@warband)  %><br>
     <%end%>
      </td>
     <td><%= w.number %> </td>
-    <td><%= w.cost %> </td>
-    <td><%= link_to "View", warrior_path(w)%></td>
-    <td><%=link_to "Edit", edit_warrior_path(w) %></td>
+    <td><%= warrior_cost(w) %> </td>
+     <td><%= link_to "View", warband_warrior_path(warband_id:@warband.id, id:w.id)%></td>
+    <td><%=link_to "Edit", edit_warband_warrior_path(warband_id:@warband.id, id:w.id) %></td>
     <td><%= link_to "Remove", warrior_path(w), data: { method: :delete, confirm: "Are you sure?", disable_with: "Processing..." } %> </td>
 
   </tr>

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/skills' => 'skill#index'
   get "/warbands/add_to_warband" => 'warbands#add_to_warband'
   post "/warbands/add_to_warband" => 'warbands#add_to_warband'
+  get '/warbands/sell_wyrdstone' => "warbands#sell_wyrdstone"
+  get '/warbands/add_wyrdstone' => "warbands#add_wyrdstone"
 
   get '/equipment/sell' => 'equipment#sell'
   get '/equipment/delete' => 'equipment#destroy'
@@ -19,7 +21,9 @@ Rails.application.routes.draw do
   resources :skill, only: [:show, :index, :destroy]
   resources :equipment
   resources :warriors
-  resources :warbands
+  resources :warbands do
+    resources :warriors, only: [:new, :show, :edit]
+  end
   resources :users do
     resources :warbands, only: [:show, :index]
   end

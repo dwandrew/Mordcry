@@ -46,8 +46,8 @@
             <td><%= link_to @warrior.warband.name, warband_path(@warrior.warband_id)%></td>
         </tr>
         <tr>
-            <td>"Edit"</td>
-            <td><%= link_to "Edit Warrior", edit_warrior_path(@warrior) %></td>
+            <td>Edit</td>
+            <td><%=link_to "Edit", edit_warband_warrior_path(@warrior.warband_id, id:@warrior.id) %></td>
         </tr>
 </table>
     

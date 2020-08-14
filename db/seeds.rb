@@ -66,7 +66,7 @@ Skill.create(name: "Spellcaster", description: "This Warrior may cast spells, an
 Skill.create(name: "Large", description: "This Warrior is very large and therefore does not have to take All Alone checks", skill_category: "Generic")
 Skill.create(name: "Animal", description: "This Warrior has animalistic intelligence and therefore can never gain skills from experience or become a hero", skill_category: "Generic" )
 Skill.create(name: "Fear", description: "This Warrior is intimidating or terrifying and so causes Fear", skill_category: "Generic" )
-Skill.create(name: "Burn the Witch", description: "This Warrior hates Spellcasters in particular and gets +1 to their number of close combat attacks if attacking a spellcaster", skill_category: "generic")
+Skill.create(name: "Burn the Witch", description: "This Warrior hates Spellcasters in particular and gets +1 to their number of close combat attacks if attacking a spellcaster", skill_category: "Generic")
 Skill.create(name: "Prayers", description: "This Warrior may cast Prayers, and can chooses a single Prayer from the Appropriate list, whenever they learn a new skill they can choose a new Prayer instead or reduce the difficultly of one they already have by 1", skill_category: "Generic")
 Skill.create(name: "Fanatical", description: "This Warrior is driven by a fervour that means they do not need to take Fear or All Alone checks", skill_category: "Generic")
 Skill.create(name: "Swordsman", description: "This Warrior is so effective at parrying that if their parry equals to or beats the enemy hit its a successful parry, now they can even parry a crit!", skill_category: "Combat")

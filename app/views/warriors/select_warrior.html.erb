@@ -1,9 +1,19 @@
 
 <%= form_for @warband do |f| %>
+
+
+
+
 <% selection = warrior_categories %>
 
+  <div class='info_box'>
   <h2>Warband Name: <%= @warband.name %></h2>
-  
+  <h3>Gold:</h3>
+  <%= @warband.gold_crowns %><br>
+  <h3>Wyrdstone Shards</h3>
+  <%= @warband.wyrdstone_shards %>
+  </div>
+
 
 <h2>Heroes</h2>
 <table class="warband_table">

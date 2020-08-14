@@ -8,7 +8,7 @@ module WarriorsHelper
             ["Witch Hunter Captain", "Warrior Priest", "Witch Hunter", "Zealot", "Flaggellant", "War Dog" ]
         when "Mercenaries"
             ["Captain", "Champion", "Rookie", "Swordsman", "Sniper", "Soldier"]
-        when "Chaos Cultits"
+        when "Chaos Cultists"
             ["Cult Leader", "Mutant", "Possessed", "DemonSoul", "Cultist", "Beastmen"]
         else 
             "No Warband of that name"
@@ -25,7 +25,7 @@ module WarriorsHelper
             witchhunter_stats(name)
         when "Mercenaries"
             mercenary_stats(name)
-        when "Chaos Cultits"
+        when "Chaos Cultists"
             cultist_stats(name)
         end
     end
@@ -382,7 +382,7 @@ module WarriorsHelper
             bravery: 5,
             # skills: "Leader, SpellCaster",
             number: 1,
-            warband_type: "Chaos Cultits",
+            warband_type: "Chaos Cultists",
             is_hero: true,
             cost: 70)
             w.skill << Skill.find_by_name('Leader')
@@ -401,7 +401,7 @@ module WarriorsHelper
             bravery: 3,
             # skills: "Mutations",
             number: 2,
-            warband_type: "Chaos Cultits",
+            warband_type: "Chaos Cultists",
             is_hero: true,
             cost: 35)
             w.skill << Skill.find_by_name('Mutations')
@@ -419,7 +419,7 @@ module WarriorsHelper
             bravery: 5,
             # skills: "Fear, Mutations",
             number: 2,
-            warband_type: "Chaos Cultits",
+            warband_type: "Chaos Cultists",
             is_hero: true,
             cost: 90)
             w.skill << Skill.find_by_name('Mutations')
@@ -438,7 +438,7 @@ module WarriorsHelper
             bravery: 4,
             # skills: "Fanatical",
             number: 1,
-            warband_type: "Chaos Cultits",
+            warband_type: "Chaos Cultists",
             is_hero: false,
             cost: 35)
             w.skill << Skill.find_by_name('Fanatical')
@@ -456,7 +456,7 @@ module WarriorsHelper
             bravery: 3,
             
             number: 10,
-            warband_type: "Chaos Cultits",
+            warband_type: "Chaos Cultists",
             is_hero: false,
             cost: 25)
         when "Beastmen"
@@ -472,7 +472,7 @@ module WarriorsHelper
             bravery: 5,
             
             number: 3,
-            warband_type: "Chaos Cultits",
+            warband_type: "Chaos Cultists",
             is_hero: false,
             cost: 45)
         end

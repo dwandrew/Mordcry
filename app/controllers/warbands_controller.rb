@@ -1,7 +1,7 @@
 class WarbandsController < ApplicationController
     before_action :new_warband, only: [:new]
     before_action :require_login, except: [:index, :show]
-    before_action :find_warband, only: [:edit, :update, :show, :destroy]
+    before_action :find_warband, only: [:edit, :update, :show, :destroy, :sell_wyrdstone, :add_wyrdstone]
     before_action :check_owner, only: [:edit, :destroy]
     
         def new
@@ -84,6 +84,44 @@ class WarbandsController < ApplicationController
             redirect_to warband_path(@warband)
         end
 
+        def add_wyrdstone
+            @warband.wyrdstone_shards+=1
+            @warband.save
+            redirect_to warband_path(@warband)
+        end
+
+        def sell_wyrdstone
+            if @warband.wyrdstone_shards >= 1 && @warband.warriors.length >=1
+                no_warriors =@warband.warriors.length
+                case no_warriors
+                when 1..3
+                    @value= 45
+                    wyrdstone_sell_add
+                when 4..6
+                    @value= 40
+                    wyrdstone_sell_add
+                when 7..9
+                    @value= 35
+                    wyrdstone_sell_add
+                when 10..12
+                    @value= 30
+                    wyrdstone_sell_add
+                when 13..15
+                    @value= 25
+                    wyrdstone_sell_add
+                when 16..20
+                    @value= 20
+                    wyrdstone_sell_add
+                else
+                    flash[:alert]="Too Many members"
+                    redirect_to warband_path(@warband)
+                end
+                redirect_to warband_path(@warband)
+            else flash[:alert] = "Sorry, you have no Wyrdstone to sell!"
+                redirect_to warband_path(@warband)
+            end
+        end
+
         def destroy
             find_warband
             @warband.destroy
@@ -131,6 +169,12 @@ private
                 alert << "#{k.to_s.capitalize} #{v.join(", ")} "
             end
             alert.join()
+        end
+
+        def wyrdstone_sell_add
+            @warband.gold_crowns+= @value
+            @warband.wyrdstone_shards -= 1
+            @warband.save
         end
 
         def require_login
