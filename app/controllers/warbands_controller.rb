@@ -2,7 +2,7 @@ class WarbandsController < ApplicationController
     before_action :new_warband, only: [:new]
     before_action :require_login, except: [:index, :show]
     before_action :find_warband, only: [:edit, :update, :show, :destroy, :sell_wyrdstone, :add_wyrdstone]
-    before_action :check_owner, only: [:edit, :destroy]
+    before_action :check_owner, only: [:edit, :destroy, :sell_wyrdstone, :add_wyrdstone]
     
         def new
         end
@@ -26,8 +26,6 @@ class WarbandsController < ApplicationController
                 @warbands = Warband.warband_search(params[:warband])
             elsif params[:rating]
                 @warbands = Warband.rating_search(params[:rating])
-            elsif helpers.logged_in?
-                @warbands = current_user.warbands
             elsif Warband.all ==[] 
                 flash[:alert] = "No Currently created Warbands on Record, Feel free to Sign in and make one!"
                 redirect_to '/'

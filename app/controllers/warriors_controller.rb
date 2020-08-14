@@ -1,5 +1,5 @@
 class WarriorsController < ApplicationController
-    before_action :require_login
+    before_action :require_login, except: [:show]
 
     def new
         @warband = Warband.find_by_id(params[:warband_id])
@@ -33,10 +33,6 @@ class WarriorsController < ApplicationController
 
     def show
         find_warrior
-        unless warrior_user
-        flash[:alert] = "Not permissable to view others warriors"
-        redirect_to '/'
-        end
     end
 
     def index

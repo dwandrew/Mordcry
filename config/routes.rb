@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :warriors, only: [:new, :show, :edit]
   end
   resources :users do
-    resources :warbands, only: [:show, :index]
+    resources :warbands, only: [:show, :index, :new, :create]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
