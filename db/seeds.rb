@@ -17,10 +17,10 @@ Ability.create(name: "Move or Fire", effect:	"Cannot be fired if wielder moves d
 Ability.create(name: "Blunt", effect:	"Strength of attack counts as 1 lower for attacks made by this weapon. (Included in Weapon Profile)")
 Ability.create(name: "Reload", effect:	"Weapon must be reloaded after firing, takes an activation to reload")
 Ability.create(name: "Accurate", effect:	"Weapon gets a +1 on any dice roll to hit, this does not change 5’s into crits.")
-Ability.create(name: "Blunderbuss", effect:	"When fired, draw a line 16” long and 1” wide, for anyone in this line roll a dice: <br>
-1-2: 1 point of damage<br>
-3-5: 3 points of damage<br>
-6: 5 points of damage<br>
+Ability.create(name: "Blunderbuss", effect:	"When fired, draw a line 16” long and 1” wide, for anyone in this line roll a dice:
+1-2: 1 point of damag
+3-5: 3 points of damag
+6: 5 points of damag
 After firing the Blunderbuss takes a full 2 activations to reload.")
 Ability.create(name: "Gromril Weapon", effect: "(CC only)	Weapon ignores 1 point of armour soak (in addition to any it already ignores), increase Damage and Crit Damage of the weapon by +1")
 Ability.create(name: "Ithilmar Weapon", effect: "(CC only)	Weapon adds +1 to its number of attacks and Crit Damage")
@@ -35,17 +35,29 @@ Armour.create(name: "Buckler",	soak: 0,	agility_penalty: 0,	abilities: "Parry (a
 Armour.create(name: "Helmet",	soak: 0,	agility_penalty: 0, abilities: "4+ Save against Stunning, (becomes knocked down instead)", cost: 10)
 
 Skill.create(name: "Leader", description: "Any friendly Warrior within 6\" of this Warrior may use its Bravery instead of their own as long as the Leader is not stunned", skill_category: "Generic" )
-Skill.create(name: "Spellcaster", description: "This Warrior may cast spells, and can choose a single spell from the Appropriate list when recruited. <br> Whenever they learn a new skill they can choose a new spell instead or reduce the difficultly to cast of one they already have by 1", skill_category: "Generic")
+Skill.create(name: "Spellcaster", description: "This Warrior may cast spells, and can choose a single spell from the Appropriate list when recruited. Whenever they learn a new skill they can choose a new spell instead or reduce the difficultly to cast of one they already have by 1", skill_category: "Generic")
 Skill.create(name: "Large", description: "This Warrior is very large and therefore does not have to take All Alone checks", skill_category: "Generic")
 Skill.create(name: "Animal", description: "This Warrior has animalistic intelligence and therefore can never gain skills from experience or become a hero", skill_category: "Generic" )
 Skill.create(name: "Fear", description: "This Warrior is intimidating or terrifying and so causes Fear", skill_category: "Generic" )
 Skill.create(name: "Burn the Witch", description: "This Warrior hates Spellcasters in particular and gets +1 to their number of close combat attacks if attacking a spellcaster", skill_category: "Generic")
-Skill.create(name: "Prayers", description: "This Warrior may cast Prayers, and can choose a single Prayer from the Appropriate list when recruited. <br> Whenever they learn a new skill they can choose a new Prayer instead or reduce the difficultly to cast of one they already have by 1", skill_category: "Generic")
+Skill.create(name: "Prayers", description: "This Warrior may cast Prayers, and can choose a single Prayer from the Appropriate list when recruited. Whenever they learn a new skill they can choose a new Prayer instead or reduce the difficultly to cast of one they already have by 1", skill_category: "Generic")
 Skill.create(name: "Fanatical", description: "This Warrior is driven by a fervour that means they do not need to take Fear or All Alone checks", skill_category: "Generic")
 Skill.create(name: "Swordsman", description: "This Warrior is so effective at parrying that if their parry equals to or beats the enemy hit its coutsn as a successful parry, now they can even parry a crit!", skill_category: "Combat")
 Skill.create(name: "Mutations", description: "This Warrior has been twisted by the cursed nature of their surroundings and when purchased can be given Mutations from the list.", skill_category: "Special" )
 Skill.create(name: "Perfect Killer", description: "The Warrior has honed the killing arts, and now all attacks ignore 1 point of armour soak (in addition to any already ignored)", skill_category: "Combat" )
 Skill.create(name: "No Need for Weapons", description: "The Warrior has no need or has no ability to use Weapons. They many not choose any nor be equipped with them, they can also not use shields or bucklers.", skill_category: "Generic" )
+Skill.create(name: , description: , skill_category: )
+Skill.create(name: , description: , skill_category: )
+Skill.create(name: , description: , skill_category: )
+Skill.create(name: , description: , skill_category: )
+Skill.create(name: , description: , skill_category: )
+Skill.create(name: , description: , skill_category: )
+Skill.create(name: , description: , skill_category: )
+Skill.create(name: , description: , skill_category: )
+Skill.create(name: , description: , skill_category: )
+Skill.create(name: , description: , skill_category: )
+Skill.create(name: , description: , skill_category: )
+Skill.create(name: , description: , skill_category: )
 # Skill.create(name: , description: , skill_category: )
 
 
@@ -89,3 +101,31 @@ Mutation.create(name: "Spines",cost: 35, description: "Any Warrior in base conta
 Mutation.create(name: "Scorpion Tail",cost: 40, description: "The Warrior sprouts a chitinous scorpions tail, The Warrior always counts as being equipped with a Pick that attacks at strength 5, (strength 2 against those immune to poison), this does not require hands to use")    
 Mutation.create(name: "Extra Arm",cost: 40, description: "The Warrior has been blessed with an entire extra arm! This allows it to be equipped as normal or allowing the warrior three hands worth of equipment at once. If a Possessed takes this their number of basic attacks goes up by +2")    
 Mutation.create(name: "Hideous",cost:20, description: "The Warrior is so malformed or vile looking they now get the Fear Skill.")    
+
+Injury.create(name:"Leg Wound", description:"The warrior’s leg is broken. They suffer a -1 Movement characteristic penalty from now on.")
+Injury.create(name:"Arm Wound", description: "Roll another D6:
+1 = Severe arm wound. The arm must be amputated. The warrior may only use a single onehanded weapon from now on.
+2-6 = Light wound. The warrior must miss the next game.
+")
+Injury.create(name:"Fearful", description: "The Warriors will has started to become broken, -1 Bravery characteristic penalty from now on.")
+Injury.create(name: "Smashed Leg", description:"Roll another D6: 
+1 = The warrior may not run any more but he may still charge. 
+2-6 = The warrior misses the next game.
+")
+Injury.create(name:"Chest Wound", description:"The warrior has been badly wounded in the chest. They recover but are weakened by the injury, -1 Toughness characteristic penalty from now on.")
+Injury.create(name:"Blinded in One Eye" , description:"The warrior survives but loses the sight in one eye; randomly determine which. They suffer -1 to attack rolls with Ranged weapons from now on (A 6 to hit still counts as a crit). If the warrior is subsequently blinded in their remaining good eye they must retire from the warband.")
+Injury.create(name:"Old Battle Wound" , description:"The warrior survives, but their wound will prevent them from fighting if you roll a 1 on a D6 at the start of any battle. Roll at the start of each battle from now on.
+")
+Injury.create(name:"Nervous Condition", description:"The warrior’s nervous system has been damaged. Their Agility is permanently reduced by 1 from now on")
+Injury.create(name:"Hand injury", description:"The warrior’s hand is badly injured. They suffer -1 to attack rolls with close combat weapons from now on (A 6 to hit still counts as a crit).")
+Injury.create(name:"Deep Wound", description: "The warrior has suffered a serious wound and must miss the next D3 games while they are recovering. They may do nothing at all while recovering.")
+Injury.create(name:"Bitter Enmity", description:"The warrior makes a full physical recovery, but is psychologically scarred by his experience. From now on the warrior hates the following (roll a D6):
+D6 Result
+1-3 The individual who caused the injury. If it was a Henchman, he hates the enemy leader instead
+4 The leader of the warband that caused the injury
+5 The entire warband of the warrior responsible for the injury
+6 All warbands of that type."
+)
+Injury.create(name:"Hardened", description:"The warrior survives and becomes inured to the horrors of Mordheim. From now on they are immune to fear.")
+Injury.create(name:"Horrible Scars", description:"The warrior causes fear from now on.")
+

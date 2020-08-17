@@ -27,7 +27,10 @@
         </tr>
         <tr>
             <td>Injuries:</td>
-            <td><%= @warrior.injuries %> </td>
+             <td><% @warrior.injury.each do |s| %>
+                <%=link_to s.name, injury_path(s) %>
+                <%end%>
+                </td>
         </tr>
         <tr>
             <td>Currently Wounded:</td>
@@ -122,3 +125,21 @@
             </tr>
         <% end %>
     </table>
+
+    <% if !@warrior.mutations.empty? %>
+    <h3>Mutations</h3>
+        <table class="warband_table">
+        <tr>
+        <th>Mutation Name</th>
+
+        <th>Mutation Description</th>
+        </tr>
+        <% @warrior.mutations.each do |m| %>
+        <tr>
+        <td><%= m.name %> </td>
+
+        <td><%= m.description %> </td>
+        </tr>
+    <% end %>
+
+    <%end%>

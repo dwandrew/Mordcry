@@ -80,5 +80,16 @@ class Warrior < ApplicationRecord
         
     end
 
+    def injury_attributes=(injury_params)
+        injury_params.each do |a|
+            injury = Injury.find_by_id(a[1][:id])
+            if injury
+                    self.injury << injury
+            end 
+        self.save
+        end
+        
+    end
+
 
 end

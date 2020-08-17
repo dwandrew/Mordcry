@@ -1,0 +1,19 @@
+
+<div class="info_box">
+<h2>Mutation table</h2>
+<table class="warband_table">
+<tr>
+<th>Injury Name</th>
+
+<th>InjuryDescription</th>
+</tr>
+<% @injuries.each do |i| %>
+<tr>
+<td><%= i.name %> </td>
+<td><%= i.description %> </td>
+</tr>
+<% end %>
+
+</table>
+<%= link_to 'Back', 'javascript:history.back()', class:"home_link" %>
+</div>

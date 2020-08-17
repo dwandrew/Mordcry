@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root 'static#home'
   get '/rules' => 'static#rules'
   get '/skills' => 'skill#index'
+  get '/injury_chart' => 'static#injury_chart'
   get "/warbands/add_to_warband" => 'warbands#add_to_warband'
   post "/warbands/add_to_warband" => 'warbands#add_to_warband'
   get '/warbands/sell_wyrdstone' => "warbands#sell_wyrdstone"
@@ -21,9 +22,11 @@ Rails.application.routes.draw do
   get '/equipment/sell_armour' => 'equipment#sell_armour'
   get '/equipment/delete_armour' => 'equipment#destroy_armour'
   get '/skill/destroy' => "skill#destroy"
+  get '/injury/destroy' => "injuries#destroy"
 
   resources :mutations, only: [:show, :index]
   resources :skill, only: [:show, :index, :destroy]
+  resources :injury, only: [:show, :index]
   resources :equipment
   resources :warriors
   resources :warbands do

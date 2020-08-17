@@ -139,7 +139,23 @@
 </table>
 <% end %>
 
-
+<h3>Injuries</h3>
+<br>
+<table>
+  <tr>
+    <th>Injury Name</th>
+    <th>Add Injury</th>
+    <th>Delete Injury</th>
+  </tr>
+  <br>
+    <%= f.fields_for :injury do |s| %>
+    <tr>
+      <td><%= s.object.name %> </td>
+      <td><%= s.collection_select :id, Injury.all, :id, :name, {include_blank: 'Select an Injury'} %></td>
+      <td><%= link_to "Delete Injury", injury_destroy_path(warrior_id: @warrior, injury_id: s.object.id) %> </td>
+    </tr>
+    <% end %>
+</table>
 
 
     <%= f.hidden_field :cost %><br>
