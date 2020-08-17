@@ -128,6 +128,7 @@ module WarriorsHelper
                     is_hero: false,
                     cost: 15)
                     w.skill << Skill.find_by_name('Animal')
+                    w.skill << Skill.find_by_name('No Need for Weapons')
                     w 
         when  "Rat Monster"
                w=  Warrior.create(
@@ -148,6 +149,8 @@ module WarriorsHelper
                     w.skill << Skill.find_by_name('Fear')
                     w.skill << Skill.find_by_name('Large')
                     w.skill << Skill.find_by_name('Animal')
+                    w.skill << Skill.find_by_name('No Need for Weapons')
+            
                     w
         else   "Nothing" 
         end
@@ -255,12 +258,12 @@ module WarriorsHelper
                 agility: 4,
                 wounds: 8,
                 bravery: 3,
-                # skills: "Animal",
                 number: 5,
                 warband_type: "Witch Hunters",
                 is_hero: false,
                 cost: 20) 
                 w.skill << Skill.find_by_name('Animal')
+                w.skill << Skill.find_by_name('No Need for Weapons')
                 w
         end
     
@@ -424,6 +427,7 @@ module WarriorsHelper
             cost: 90)
             w.skill << Skill.find_by_name('Mutations')
             w.skill << Skill.find_by_name('Fear')
+            w.skill << Skill.find_by_name('No Need for Weapons')
             w
         when "DemonSoul"
             w= Warrior.create(
@@ -482,6 +486,7 @@ module WarriorsHelper
         cost = 0
         warrior.equipment.each {|e| cost+= e.cost}
         warrior.armour.each {|a| cost+= a.cost}
+        warrior.mutations.each {|m| cost += m.cost}
         cost += warrior.cost
         warrior.cost = cost
     end

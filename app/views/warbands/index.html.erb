@@ -16,6 +16,10 @@
 
 <div class='search_box'>
 <span>
+<%= link_to "Top Ten Warband-Ratings", warbands_top_ten_path %>
+</span>
+
+<span>
         <%= form_tag warbands_path, method:'get' do %>
         <h3><%= label_tag (:warband), "Enter Type of Warband:"%></h3>
         <%= text_field_tag :warband, params[:warband], placeholder:"Enter type"%>

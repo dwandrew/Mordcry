@@ -3,5 +3,8 @@
 <em><h3>Category: <%= @skill.skill_category %></h3></em>
 <p><%= @skill.description %>
 </p>
+<% if @skill.name == "Mutations" %>
+<%= link_to "Mutations List", mutations_path, class:"home_link" %><br>
+<% end %>
 <%= link_to 'Back', 'javascript:history.back()', class:"home_link" %>
 </div>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :injuries
+  resources :mutations
   get 'abilities/show' => 'abilities#show'
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   devise_scope :user do
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
   post "/warbands/add_to_warband" => 'warbands#add_to_warband'
   get '/warbands/sell_wyrdstone' => "warbands#sell_wyrdstone"
   get '/warbands/add_wyrdstone' => "warbands#add_wyrdstone"
+  get '/warbands/top_ten' => "warbands#top_ten"
 
   get '/equipment/sell' => 'equipment#sell'
   get '/equipment/delete' => 'equipment#destroy'
@@ -19,6 +22,7 @@ Rails.application.routes.draw do
   get '/equipment/delete_armour' => 'equipment#destroy_armour'
   get '/skill/destroy' => "skill#destroy"
 
+  resources :mutations, only: [:show, :index]
   resources :skill, only: [:show, :index, :destroy]
   resources :equipment
   resources :warriors

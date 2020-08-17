@@ -9,6 +9,6 @@ class Warband < ApplicationRecord
 
     scope :warband_search, -> (warband) {self.where("warband_type LIKE ?", "%#{warband}%")}
     scope :rating_search, -> (rating) {self.where("warband_rating >= ?", rating)}
-
+    scope :top_ten, -> {self.order(warband_rating: :desc)}
 
 end

@@ -8,10 +8,16 @@ class Warrior < ApplicationRecord
     has_many :armour, through: :warriors_armour
     has_many :warriors_skill
     has_many :skill, through: :warriors_skill
+    has_many :warriors_mutation
+    has_many :mutations, through: :warriors_mutation
+    has_many :warriors_injury
+    has_many :injury, through: :warriors_injury
 
     accepts_nested_attributes_for :skill
     accepts_nested_attributes_for :equipment
     accepts_nested_attributes_for :armour
+    accepts_nested_attributes_for :mutations
+    accepts_nested_attributes_for :injury
 
     def equipment_attributes=(equipment_params)
         equipment_params.each do |e|
@@ -58,4 +64,21 @@ class Warrior < ApplicationRecord
         end
         
     end
+
+    def mutations_attributes=(mutation_params)
+        mutation_params.each do |a|
+            mutation = Mutation.find_by_id(a[1][:id])
+            if mutation
+                if (!self.mutations.include? (mutation)) && self.warband.gold_crowns > mutation.cost
+                    self.mutations << mutation
+                    self.warband.gold_crowns-= mutation.cost
+                    self.warband.save
+                end
+            end 
+        self.save
+        end
+        
+    end
+
+
 end

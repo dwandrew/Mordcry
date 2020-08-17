@@ -59,6 +59,7 @@
   
 </table>
 <br>
+  <% unless @warrior.skill.include? (Skill.find_by_name('No Need for Weapons')) %>
 <h3>Weapons</h3>
 <table>
   <tr>
@@ -68,7 +69,7 @@
     <th>Delete Weapon</th>
   </tr>
   <br>
-  
+
   <%= f.fields_for :equipment do |e| %>
     <tr>
       <td><%= e.object.name %> </td>
@@ -79,6 +80,8 @@
   <%end%>
 </table>
 <br>
+<% end %>
+
 <h3>Armour</h3>
 <table>
   <tr>
@@ -116,6 +119,27 @@
     </tr>
     <% end %>
 </table>
+
+<% if @warrior.warrior_type == "Mutant" || @warrior.warrior_type == "Possessed"  %>
+<h3>Mutations</h3>
+<br>
+<table>
+  <tr>
+    <th>Mutation Name</th>
+    <th>Add Mutation</th>
+  </tr>
+  <br>
+    <%= f.fields_for :mutations do |m| %>
+    <tr>
+      <td><%= m.object.name %> </td>
+      <td><%= m.collection_select :id, Mutation.all, :id, :name, {include_blank: 'Select a Mutation'} %></td>
+
+    </tr>
+    <% end %>
+</table>
+<% end %>
+
+
 
 
     <%= f.hidden_field :cost %><br>

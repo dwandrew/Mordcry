@@ -29,6 +29,9 @@ Wyrdstone: <%= shards(@warband)  %><br>
   <th>Wounds</th>
   <th>Bravery</th>
   <th>Skills</th>
+  <% if @warband.warband_type == "Chaos Cultists" %>
+  <th>Mutations</th>
+  <% end %> 
   <th>Injuries</th>
   <th>Max in Warband</th>
   <th>Cost</th>
@@ -53,6 +56,12 @@ Wyrdstone: <%= shards(@warband)  %><br>
     <%=link_to s.name, skill_path(s) %><br>
     <%end%>
      </td>
+    <% if @warband.warband_type == "Chaos Cultists" %>
+    <td><% w.mutations.each do |m| %>
+    <%=link_to m.name, mutation_path(m) %><br>
+    <%end%>
+     </td>
+    <% end %>
     <td><%= w.injuries %> </td>
     <td><%= w.number %> </td>
     <td><%= warrior_cost(w) %> </td>

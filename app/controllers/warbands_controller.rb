@@ -12,7 +12,7 @@ class WarbandsController < ApplicationController
             @warband = @user.warbands.build(warband_params)
             if @warband.valid?
             @warband.save
-            redirect_to warband_path(@warband)
+            redirect_to new_warband_warrior_path(@warband)
             else
                 flash[:alert] = warband_alerts
                 redirect_to new_warband_path
@@ -34,6 +34,11 @@ class WarbandsController < ApplicationController
             end
         end
 
+        def top_ten
+            @warbands = Warband.top_ten.limit(10)
+            render :index
+        end
+
         def show
             unless @warband
             flash[:alert] = "No Current Warband of that record, Feel free to make one!"
@@ -45,9 +50,10 @@ class WarbandsController < ApplicationController
             @warband = Warband.find_by_id(params[:warrior][:warband_id])
             check_owner
             if (@warband.gold_crowns- params[:warrior][:cost].to_i) <= 0
-            flash[:alert] = "Do not have enough gold for that!"
-            redirect_to warband_path(@warband)
+                flash[:alert] = "Do not have enough gold for that!"
+                redirect_to warband_path(@warband)
             else
+
             @warrior = @warband.warriors.build(
             warrior_type: params[:warrior][:warrior_type],
             exp: params[:warrior][:exp],
@@ -66,6 +72,8 @@ class WarbandsController < ApplicationController
                     @warrior.skill << Skill.find_by_name(s)
                 end
             end
+            helpers.check_natural_weapons(@warrior)
+            @warrior.equipment << Equipment.find_by_name("Punch/Kick")
             @warrior.save
             @warband.gold_crowns-= @warrior.cost
             @warband.save
@@ -145,7 +153,8 @@ private
                 :warband_id,
                 :warband_type,
                 :warrior_type,
-                :wounds
+                :wounds,
+                :equipment
             ])
         end
     

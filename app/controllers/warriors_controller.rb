@@ -4,6 +4,7 @@ class WarriorsController < ApplicationController
     def new
         @warband = Warband.find_by_id(params[:warband_id])
         @warrior = @warband.warriors.build
+        
         render 'select_warrior'
     end
 
@@ -16,9 +17,10 @@ class WarriorsController < ApplicationController
     def edit
         find_warrior
         if warrior_user
-            (3-@warrior.equipment.length).times {@warrior.equipment.build}
+            (4-@warrior.equipment.length).times {@warrior.equipment.build}
             (3-@warrior.armour.length).times {@warrior.armour.build}
             @warrior.skill.build
+            @warrior.mutations.build
             else
                 flash[:alert] = "Not permissable to view others warriors"
                 redirect_to '/'
@@ -78,7 +80,8 @@ class WarriorsController < ApplicationController
                 :wounds,
                 equipment_attributes: [:id],
                 armour_attributes: [:id],
-                skill_attributes: [:id]
+                skill_attributes: [:id],
+                mutations_attributes: [:id]
             )
         end
     
