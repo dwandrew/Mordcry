@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Basic instructions to run the Mordcry App:
 
-Things you may want to cover:
+Will need to initally run bundle install to make sure all gemfiles are installed correctly.
+Run rails db:migrate, and rails db:reset to make sure all seeds are initiated correctly
+Will need to create a .env file, and make sure to add google client_id and client_secret via:
+- Go to 'https://console.developers.google.com'
+- Select your project.
+- Go to Credentials, then select the "OAuth consent screen" tab on top, and provide an 'EMAIL ADDRESS' and a 'PRODUCT NAME'
+- Wait 10 minutes for changes to take effect.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Run rails s to start server
