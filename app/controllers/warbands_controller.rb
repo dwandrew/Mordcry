@@ -53,7 +53,6 @@ class WarbandsController < ApplicationController
                 flash[:alert] = "Do not have enough gold for that!"
                 redirect_to warband_path(@warband)
             else
-
             @warrior = @warband.warriors.build(
             warrior_type: params[:warrior][:warrior_type],
             exp: params[:warrior][:exp],
@@ -66,7 +65,11 @@ class WarbandsController < ApplicationController
             number: params[:warrior][:number],
             warband_type: @warband.warband_type,
             is_hero: params[:warrior][:is_hero],
-            cost: params[:warrior][:cost])
+            cost: params[:warrior][:cost],
+            skills_list: params[:warrior][:skills_list]
+            )
+
+
             if params[:warrior][:skills]
                 params[:warrior][:skills].each do |s|
                     @warrior.skill << Skill.find_by_name(s)
@@ -154,7 +157,8 @@ private
                 :warband_type,
                 :warrior_type,
                 :wounds,
-                :equipment
+                :equipment,
+                :skills_list
             ])
         end
     

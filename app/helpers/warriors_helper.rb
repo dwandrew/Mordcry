@@ -46,6 +46,7 @@ module WarriorsHelper
                     number: 1,
                     warband_type: "Ratmen",
                     is_hero: true,
+                    skills_list: "Combat, Shooting, Academic, Strength, Speed, Skaven_Special",
                     cost: 60)
                     w.skill << Skill.find_by_name('Leader')
                     w.skill << Skill.find_by_name('Perfect Killer')
@@ -64,6 +65,7 @@ module WarriorsHelper
                     number: 2,
                     warband_type: "Ratmen",
                     is_hero: true,
+                    skills_list: "Combat, Shooting, Strength, Speed, Skaven_Special",
                     cost: 40 ) 
         when "Sorceror"
                 w= Warrior.create(
@@ -79,6 +81,7 @@ module WarriorsHelper
                     number: 1,
                     warband_type: "Ratmen",
                     is_hero: true,
+                    skills_list: "Academic, Speed, Skaven_Special",
                     cost: 45)
                     w.skill << Skill.find_by_name('Spellcaster')
                     w 
@@ -96,6 +99,7 @@ module WarriorsHelper
                     number: 2,
                     warband_type: "Ratmen",
                     is_hero: true,
+                    skills_list: "Combat, Shooting, Speed, Skaven_Special",
                     cost: 20) 
         when  "Henchrat"
                 Warrior.create(
@@ -174,6 +178,7 @@ module WarriorsHelper
                     number: 1,
                     warband_type: "Witch Hunters",
                     is_hero: true,
+                    skills_list: "Combat, Shooting, Academic, Strength, Speed, Witch_Hunter_Special",
                     cost: 60)
                     w.skill << Skill.find_by_name('Leader')
                     w.skill << Skill.find_by_name('Burn the Witch')
@@ -192,6 +197,7 @@ module WarriorsHelper
                     # skills: "Prayers",
                     number: 1,
                     warband_type: "Witch Hunters",
+                    skills_list: "Combat, Academic, Strength, Witch_Hunter_Special",
                     is_hero: true,
                     cost: 40)
                     w.skill << Skill.find_by_name('Prayers')
@@ -210,6 +216,7 @@ module WarriorsHelper
                     # skills: "Burn the Witch",
                     number: 3,
                     warband_type: "Witch Hunters",
+                    skills_list: "Combat, Shooting, Academic, Speed, Witch_Hunter_Special",
                     is_hero: true,
                     cost:25)
                     w.skill << Skill.find_by_name('Burn the Witch')
@@ -287,6 +294,7 @@ module WarriorsHelper
                 number: 1,
                 warband_type: "Mercenaries",
                 is_hero: true,
+                skills_list: "Combat, Shooting, Academic, Strength, Speed, Mercenary_Special",
                 cost: 60)
                 w.skill << Skill.find_by_name('Leader')
                 w
@@ -303,6 +311,7 @@ module WarriorsHelper
                 bravery: 5,
                 number: 2,
                 warband_type: "Mercenaries",
+                skills_list: "Combat, Shooting, Strength, Mercenary_Special",
                 is_hero: true,
                 cost: 35)
             when"Rookie"
@@ -318,6 +327,7 @@ module WarriorsHelper
                 bravery: 3,
                 number: 2,
                 warband_type: "Mercenaries",
+                skills_list: "Combat, Shooting, Speed, Mercenary_Special",
                 is_hero: true,
                 cost: 15)
             when"Swordsman"
@@ -387,6 +397,7 @@ module WarriorsHelper
             number: 1,
             warband_type: "Chaos Cultists",
             is_hero: true,
+            skills_list: "Combat, Academic, Strength, Speed, Chaos_Cultist_Special",
             cost: 70)
             w.skill << Skill.find_by_name('Leader')
             w.skill << Skill.find_by_name('Spellcaster')
@@ -405,6 +416,7 @@ module WarriorsHelper
             # skills: "Mutations",
             number: 2,
             warband_type: "Chaos Cultists",
+            skills_list: "Combat, Speed, Chaos_Cultist_Special",
             is_hero: true,
             cost: 35)
             w.skill << Skill.find_by_name('Mutations')
@@ -423,6 +435,7 @@ module WarriorsHelper
             # skills: "Fear, Mutations",
             number: 2,
             warband_type: "Chaos Cultists",
+            skills_list: "Combat, Strength, Speed, Chaos_Cultist_Special",
             is_hero: true,
             cost: 90)
             w.skill << Skill.find_by_name('Mutations')

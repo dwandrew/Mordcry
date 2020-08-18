@@ -77,14 +77,15 @@ Skill.create(name: "Resilient", description: "This Warrior is as tough as old bo
 Skill.create(name: "Fearsome", description: "The Warriors reputation and physique have become so potent that he now causes Fear ", skill_category: "Strength" )
 Skill.create(name: "Strongman", description: "The Warriors Strikes have become powered by such forced that both Damage and Crit Damage got up by +1 for any close combat weapon wielded by the Warrior", skill_category: "Strength" )
 Skill.create(name: "Unstoppable Charge", description: "The Warriors charges have become incredibly potent, adding an additional +1 to the number of attacks and +1 to Str on a successful charge", skill_category: "Strength" )
+Skill.create(name: "Robust", description: "The Warrior has trained in armour for long hours and can now move in it like a second skin, any Agility Penalty for Armour worn is reduced by 1", skill_category: "Strength" )
 #Speed Skills
-Skill.create(name: "Leap", description: "Through training or just skill the warrior can make incredible leaps, add +D6 to any jump attempts by the Warrior", skill_category: "Speed" )
+Skill.create(name: "Leap", description: "Through training or just skill the warrior can make incredible leaps, add +D6\" to any jump attempts by the Warrior", skill_category: "Speed" )
 Skill.create(name: "Sprint", description: "The Warrior is incredible fleet of foot, add +1 to their Movement", skill_category: "Speed" )
 Skill.create(name: "Acrobat", description: "The Warrior is agile and swift on their feet. They only need to take fall damage for each 6\" or Partial 6\" they fall, and can re-roll diving charge tests", skill_category: "Speed" )
 Skill.create(name: "Jump Up", description: "The Warrior is swift to jump back on their feet when, they may ignore the effect of being Knocked Down, unless they are knocked down because of a successful save from a helmet", skill_category: "Speed" )
 Skill.create(name: "Dodge", description: "The Warrior has a natural armour soak of 1 against shooting attacks, that stacks with other armours soak value, this skill stacks and can be taken up to two times", skill_category: "Speed" )
 Skill.create(name: "Scale Sheer surfaces", description: "The Warrior is so skilled at climbing it barely causes them to pause, you can re-roll failed climbing checks and climb up to double your move for one action", skill_category: "Speed" )
-Skill.create(name: , description: , skill_category: "Speed" )
+# Skill.create(name: , description: , skill_category: "Speed" )
 
 #Special Skills
 # Skill.create(name: , description: , skill_category: "Ratmen Special" )

@@ -79,6 +79,7 @@ class WarriorsController < ApplicationController
                 :injuries,
                 :active,
                 :wounds,
+                :skills_list,
                 equipment_attributes: [:id],
                 armour_attributes: [:id],
                 skill_attributes: [:id],

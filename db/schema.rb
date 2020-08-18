@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_130417) do
+ActiveRecord::Schema.define(version: 2020_08_18_074956) do
 
   create_table "abilities", force: :cascade do |t|
     t.string "name"
@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_130417) do
     t.string "warband_type"
     t.boolean "is_hero", default: false
     t.integer "cost"
+    t.string "skills_list"
   end
 
   create_table "warriors_armours", force: :cascade do |t|
