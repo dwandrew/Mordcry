@@ -1,11 +1,19 @@
 class WarriorsController < ApplicationController
     before_action :require_login, except: [:show]
-
+    before_action :find_warrior, only: [:edit, :update, :show, :destroy]
+    before_action :new_warband_warrior, only: [:new, :select_warrior]
+    
+    
     def new
-        @warband = Warband.find_by_id(params[:warband_id])
-        @warrior = @warband.warriors.build
-        
-        render 'select_warrior'
+        if warrior_user
+            redirect_to warbands_select_warrior_path(warband_id: @warband.id)
+        else
+            flash[:alert] = "Not permissable to Edit others warbands"
+            redirect_to '/'
+        end
+    end
+
+    def select_warrior
     end
 
     
@@ -15,7 +23,7 @@ class WarriorsController < ApplicationController
     end
 
     def edit
-        find_warrior
+        
         if warrior_user
             (4-@warrior.equipment.length).times {@warrior.equipment.build}
             (3-@warrior.armour.length).times {@warrior.armour.build}
@@ -29,20 +37,22 @@ class WarriorsController < ApplicationController
     end
 
     def update
-        find_warrior
+      
         @warrior.update(warrior_params)
         redirect_to warband_path (@warrior.warband.id)
     end
 
     def show
-        find_warrior
+        
     end
+
+    
 
     def index
     end
 
     def destroy
-        find_warrior
+  
         if warrior_user
             @warband = @warrior.warband.id
             @warrior.destroy
@@ -89,13 +99,16 @@ class WarriorsController < ApplicationController
             )
         end
     
-        def new_warrior
-            @warrior = Warrior.new
+        def new_warband_warrior
+            @warband = Warband.find_by_id(params[:warband_id])
+            @warrior = @warband.warriors.build
         end
     
         def find_warrior
             @warrior = Warrior.find_by_id(params[:id])
         end
+
+
 
         def warrior_user
             @warrior.warband.user == helpers.current_user
@@ -105,6 +118,13 @@ class WarriorsController < ApplicationController
             unless helpers.logged_in?
               flash[:alert] = "You must be logged in to access this section"
               redirect_to '/'
+            end
+        end
+
+        def check_owner
+            unless warrior_user
+                flash[:alert] = "Not permissable to Edit others warbands"
+                redirect_to '/'
             end
         end
 

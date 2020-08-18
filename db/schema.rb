@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_085144) do
+ActiveRecord::Schema.define(version: 2020_08_18_141225) do
 
   create_table "abilities", force: :cascade do |t|
     t.string "name"
@@ -69,6 +69,15 @@ ActiveRecord::Schema.define(version: 2020_08_18_085144) do
     t.string "name"
     t.string "description"
     t.string "skill_category"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "spells", force: :cascade do |t|
+    t.string "spell_name"
+    t.integer "spell_diff"
+    t.string "description"
+    t.string "spell_warband"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -157,6 +166,13 @@ ActiveRecord::Schema.define(version: 2020_08_18_085144) do
   create_table "warriors_skills", force: :cascade do |t|
     t.integer "warrior_id"
     t.integer "skill_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "warriors_spells", force: :cascade do |t|
+    t.integer "warrior_id"
+    t.integer "spell_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

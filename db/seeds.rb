@@ -129,18 +129,19 @@ Equipment.create(name: "Handgun" , range: "3-24", attacks: 3, damage: "2 / 5",  
 
 
 Equipment.create(name: "Blunderbuss" , range: "*", attacks: 1, damage: "Special", strength: "Special", cost: 30, category: "Ranged").abilities<< Ability.find_by_name("Blunderbuss")
-# Equipment.create(name: "Sling (short range)" , range: "3-9", attacks: 5, damage: "1 / 2",  strength: "3", cost: 3, category: "Ranged")
-# Equipment.create(name: "Sling (long range)" , range: "3-18", attacks: 3, damage: "1 / 2",  strength: "3", cost: 3, category: "Ranged")
 Equipment.create(name: "Sling" , range: "3-9 / 3-18", attacks: 0, damage: "1 / 2",  strength: "3", cost: 3, category: "Ranged").abilities<< Ability.find_by_name("Sling")
 Equipment.create(name: "Throwing Knife/Star" , range: "6",	attacks: 3,	 damage: "1 / 4",  strength: "As User", cost: 10, category: "Ranged")
-					
+
+Equipment.create(name: "Great Claw" ,	range: "1",	attacks: 3,	damage: "2 / 5", strength: "As User +1", cost: 0, category:"Mutation").abilities<< Ability.find_by_name("Damaging")
+Equipment.create(name: "Scorpion Tail" ,	range: "2",	attacks: 4,	damage: "1 / 4", strength: "5/2", cost: 0, category: "Mutation").abilities<< Ability.find_by_name("Penetrating")
+
 Mutation.create(name: "Magic Resistant",cost: 20, description: "A demon protects the warrior, this gives them a 4+ chance to ignore the effects of any spell/prayer that may effect them")    
-Mutation.create(name: "Great Claw",cost: 50, description: "The Warriors arm ends in a great claw, This counts as a halberd however it only requires one arm to use so the other is free to be equipped as normal")    
+Mutation.create(name: "Great Claw",cost: 50, description: "The Warriors arm ends in a great claw, This replaces one arm for the purposes of two handed weapons")    
 Mutation.create(name: "Cloven Hooves",cost:40, description: "The Warriors feed end in hooves/claws that grant extra speed or dexterity, +1 Movement or +1 Agility (choose at purchase)" )    
 Mutation.create(name: "Tentacle limb",cost: 35, description: "One of the Warriors arms becomes a Tentacle, any close combat attack against the mutant loses 1 to its number of attacks (down to a minimum of 1), however the arm cannot be used to hold a weapon or shield")    
 Mutation.create(name: "Blackblood",cost: 30, description: "When the Warrior suffers 3 or more wounds in a single round anyone in base contact with the Warrior rolls on the fall damage chart and takes that much damage (ignoring armour soak) as they are hit by the corrosive foulness")    
 Mutation.create(name: "Spines",cost: 35, description: "Any Warrior in base contact with the mutant at the start of the mutants activation takes 1 automatic point of damage (armour soak applies)")    
-Mutation.create(name: "Scorpion Tail",cost: 40, description: "The Warrior sprouts a chitinous scorpions tail, The Warrior always counts as being equipped with a Pick that attacks at strength 5, (strength 2 against those immune to poison), this does not require hands to use")    
+Mutation.create(name: "Scorpion Tail",cost: 40, description: "The Warrior sprouts a chitinous scorpions tail, This attacks at Strength 5, (Strength 2 against those immune to poison), this does not require hands to use")    
 Mutation.create(name: "Extra Arm",cost: 40, description: "The Warrior has been blessed with an entire extra arm! This allows it to be equipped as normal or allowing the warrior three hands worth of equipment at once. If a Possessed takes this their number of basic attacks goes up by +2")    
 Mutation.create(name: "Hideous",cost:20, description: "The Warrior is so malformed or vile looking they now get the Fear Skill.")    
 
@@ -170,4 +171,30 @@ D6 Result
 )
 Injury.create(name:"Hardened", description:"The warrior survives and becomes inured to the horrors of Mordheim. From now on they are immune to fear.")
 Injury.create(name:"Horrible Scars", description:"The warrior causes fear from now on.")
+
+#Chaos spells
+Spell.create(spell_name:"Mouth of Madness", spell_diff: 10, description:"Pick an enemy model withing 6\", closest model must be chosen if possible, The target is immediately Stunned, if they cannot be Stunnde they are Knocked Down", spell_warband: "Chaos Cultists")
+Spell.create(spell_name:"Shadows Eye", spell_diff:7, description:"Can only be Cast once per battle, Choose any single model within 6\" friend or foe. Then roll a D6: 1: The Shadows Ire descends on the Target as they are viewed as unworthy, They are immediately taken out of action (though you do not have to roll on the injuries chart post battle), 2-5: The Model gains +1 to any one of its chracteristcs or +5 to its Wounds for the duration of the battle, 6: The Model gets +1 to each of its Characteristics and +5 to its Wounds for the duration of the battle ", spell_warband: "Chaos Cultists")
+Spell.create(spell_name:"Burning Blood", spell_diff:8, description:"The Spellcater slits their palm with a ritual blade and burning blood courses forth. This Attack has range 8\" and causes 2D3 Str 5 attacks Damage 2/5, after using this spell roll on the Knocked down/Stunning chart for the spellcaster", spell_warband: "Chaos Cultists")
+Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Chaos Cultists")
+Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Chaos Cultists")
+Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Chaos Cultists")
+Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Chaos Cultists")
+#Ratmen Spells
+Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Ratmen")
+Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Ratmen")
+Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Ratmen")
+Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Ratmen")
+Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Ratmen")
+Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Ratmen")
+Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Ratmen")
+#Prayers
+Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Witch Hunters, The Sisterhood")
+Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Witch Hunters, The Sisterhood")
+Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Witch Hunters, The Sisterhood")
+Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Witch Hunters, The Sisterhood")
+Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Witch Hunters, The Sisterhood")
+Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Witch Hunters, The Sisterhood")
+Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Witch Hunters, The Sisterhood")
+
 

@@ -1,4 +1,7 @@
+<div class="grid">
+
 <div class="create_box">
+
 <% if @warrior.name !=nil %>
 <h2> <%= @warrior.name.empty? ? "Unamed Warrior" : @warrior.name %> <br><br> of <%= @warrior.warband.name %></h2>
 <% end %>
@@ -55,30 +58,32 @@
     </tr>
   
 </table>
-<br>
+
   <% unless @warrior.skill.include? (Skill.find_by_name('No Need for Weapons')) %>
 <h3>Weapons</h3>
-<table>
-  <tr>
-    <th>Weapon Name</th>
-    <th>Add Weapon</th>
-    <th>Sell Weapon</th>
-    <th>Delete Weapon</th>
-  </tr>
-  <br>
-
-  <%= f.fields_for :equipment do |e| %>
+  <table>
     <tr>
-      <td><%= e.object.name %> </td>
-      <td><%= e.collection_select :id, (@warrior.equipment_list.split(', ').map {|name| Equipment.name_search(name)}.flatten), :id, :name, {include_blank: 'Select a Weapon'} %></td>
-      <td><%= link_to "Sell Weapon", equipment_sell_path(warrior_id: @warrior, equipment_id: e.object.id) %> </td>
-      <td><%= link_to "Delete Weapon", equipment_delete_path(warrior_id: @warrior, equipment_id: e.object.id) %> </td>
+      <th>Weapon Name</th>
+      <th>Add Weapon</th>
+      <th>Sell Weapon</th>
+      <th>Delete Weapon</th>
     </tr>
-  <%end%>
-</table>
-<br>
-<% end %>
+    <br>
 
+    <%= f.fields_for :equipment do |e| %>
+      <tr>
+        <td><%= e.object.name %> </td>
+        <td><%= e.collection_select :id, (@warrior.equipment_list.split(', ').map {|name| Equipment.name_search(name)}.flatten), :id, :name, {include_blank: 'Select a Weapon'} %></td>
+        <td><%= link_to "Sell Weapon", equipment_sell_path(warrior_id: @warrior, equipment_id: e.object.id) %> </td>
+        <td><%= link_to "Delete Weapon", equipment_delete_path(warrior_id: @warrior, equipment_id: e.object.id) %> </td>
+      </tr>
+    <%end%>
+  </table>
+  <br>
+  <% end %>
+</div>
+
+<div class="create_box">
 <h3>Armour</h3>
 <table>
   <tr>
@@ -155,11 +160,12 @@
     </tr>
     <% end %>
 </table>
-
+</div>
 
     <%= f.hidden_field :cost %><br>
 
-
   <%= f.submit class:"home_link"%>
-<% end %>
+
 </div>
+ 
+<% end %>

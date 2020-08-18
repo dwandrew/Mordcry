@@ -1,6 +1,6 @@
-<% if @warrior.name !=nil %>
-<h1>Warrior Stats for <%= @warrior.name.empty? ? "Unnamed Warrior" : @warrior.name %></h1>
-<% end %>
+<div class = "grid">
+
+<div>
 <table class="create_box">
         <tr>
             <td>Name:</td>
@@ -53,7 +53,9 @@
             <td><%=link_to "Edit", edit_warband_warrior_path(@warrior.warband_id, id:@warrior.id) %></td>
         </tr>
 </table>
-    
+</div>
+
+<div>
     <h3>Warrior Characteristics</h3>
     <table class="warband_table">
         <tr>
@@ -74,7 +76,6 @@
             <td><%= @warrior.bravery %> </td>
         </tr>
     </table ><br>
-
 
 <h3>Weapons</h3>
     <table class="warband_table">
@@ -103,7 +104,10 @@
         </tr>
         <%end %>
     
-    </table><br>
+    </table>
+
+<br>
+
 <% if !@warrior.armour.empty? %>
 <h3>Armour</h3>
 
@@ -127,6 +131,10 @@
     </table>
     <% end %>
 
+
+<br>
+
+
     <% if !@warrior.mutations.empty? %>
     <h3>Mutations</h3>
         <table class="warband_table">
@@ -145,6 +153,13 @@
         </table>
     <% end %>
 
+
+
+</div>
+
+<br>
+    
+    <div class="span_2">
     <% if !@warrior.skill.empty? %>
         <h3>Skills</h3>
             <table class="warband_table">
@@ -162,5 +177,6 @@
             <% end %>
             </table>
     <% end %>
+    </div>
 
-    
+</div>

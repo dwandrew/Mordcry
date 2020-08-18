@@ -12,12 +12,15 @@ class Warrior < ApplicationRecord
     has_many :mutations, through: :warriors_mutation
     has_many :warriors_injury
     has_many :injury, through: :warriors_injury
+    has_many :warriors_spell
+    has_many :spell, through: :warriors_spell
 
     accepts_nested_attributes_for :skill
     accepts_nested_attributes_for :equipment
     accepts_nested_attributes_for :armour
     accepts_nested_attributes_for :mutations
     accepts_nested_attributes_for :injury
+    accepts_nested_attributes_for :spell
 
     def equipment_attributes=(equipment_params)
         equipment_params.each do |e|
@@ -40,7 +43,6 @@ class Warrior < ApplicationRecord
         armour_params.each do |a|
             armour = Armour.find_by_id(a[1][:id])
             if armour
-          
                 if (!self.armour.include? (armour)) && self.warband.gold_crowns > armour.cost
                     self.armour << armour
                     self.warband.gold_crowns-= armour.cost
@@ -73,6 +75,11 @@ class Warrior < ApplicationRecord
                     self.mutations << mutation
                     self.warband.gold_crowns-= mutation.cost
                     self.warband.save
+                    if mutation.name == "Great Claw"
+                        self.equipment << Equipment.find_by_name("Great Claw")
+                    elsif mutation.name == "Scorpion Tail"
+                        self.equipment << Equipment.find_by_name("Scorpion Tail")
+                    end 
                 end
             end 
         self.save
@@ -90,6 +97,18 @@ class Warrior < ApplicationRecord
         end
         
     end
+
+    def spell_attributes=(spell_params)
+        spell_params.each do |a|
+            spell = Spell.find_by_id(a[1][:id])
+            if spell
+                    self.spell << spell
+            end 
+        self.save
+        end
+        
+    end
+
 
 
 end

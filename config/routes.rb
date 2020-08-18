@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :spells
   resources :injuries
   resources :mutations
   get 'abilities/show' => 'abilities#show'
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   get '/warbands/sell_wyrdstone' => "warbands#sell_wyrdstone"
   get '/warbands/add_wyrdstone' => "warbands#add_wyrdstone"
   get '/warbands/top_ten' => "warbands#top_ten"
+  get '/warbands/select_warrior' => "warriors#select_warrior"
 
   get '/equipment/sell' => 'equipment#sell'
   get '/equipment/delete' => 'equipment#destroy'
