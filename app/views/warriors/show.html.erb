@@ -33,8 +33,8 @@
                 </td>
         </tr>
         <tr>
-            <td>Currently Wounded:</td>
-            <td><%= @warrior.active ? "No": "Yes" %></td> 
+            <td>Missing Game:</td>
+            <td><%= @warrior.active ? "Yes": "No" %></td> 
         </tr>
         <tr>
             <td>Hero:</td>
@@ -104,7 +104,7 @@
         <%end %>
     
     </table><br>
-
+<% if !@warrior.armour.empty? %>
 <h3>Armour</h3>
 
     <table class="warband_table">
@@ -125,6 +125,7 @@
             </tr>
         <% end %>
     </table>
+    <% end %>
 
     <% if !@warrior.mutations.empty? %>
     <h3>Mutations</h3>
@@ -141,5 +142,25 @@
         <td><%= m.description %> </td>
         </tr>
     <% end %>
+        </table>
+    <% end %>
 
-    <%end%>
+    <% if !@warrior.skill.empty? %>
+        <h3>Skills</h3>
+            <table class="warband_table">
+            <tr>
+            <th>Skill Name</th>
+            <th>Skill Category</th>
+            <th>Skill Description</th>
+            </tr>
+            <% @warrior.skill.each do |s| %>
+            <tr>
+            <td > <%= link_to s.name, skill_path(s) %> </td>
+            <td><%= s.skill_category%></td>
+            <td><%= s.description %> </td>
+            </tr>
+            <% end %>
+            </table>
+    <% end %>
+
+    

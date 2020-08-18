@@ -48,11 +48,12 @@ module WarriorsHelper
                     is_hero: true,
                     skills_list: "Combat, Shooting, Academic, Strength, Speed, Skaven_Special",
                     cost: 60)
+                    w.equipment_list= equipment_lists(w)
                     w.skill << Skill.find_by_name('Leader')
                     w.skill << Skill.find_by_name('Perfect Killer')
                     w
         when  "Brute"
-                Warrior.create(
+                w= Warrior.create(
                     name: "", 
                     warrior_type: "Brute",
                     exp: "4",
@@ -66,7 +67,9 @@ module WarriorsHelper
                     warband_type: "Ratmen",
                     is_hero: true,
                     skills_list: "Combat, Shooting, Strength, Speed, Skaven_Special",
-                    cost: 40 ) 
+                    cost: 40 )
+                    w.equipment_list= equipment_lists(w)
+                    w
         when "Sorceror"
                 w= Warrior.create(
                     name: "", 
@@ -83,10 +86,11 @@ module WarriorsHelper
                     is_hero: true,
                     skills_list: "Academic, Speed, Skaven_Special",
                     cost: 45)
+                    w.equipment_list= equipment_lists(w)
                     w.skill << Skill.find_by_name('Spellcaster')
                     w 
         when  "Apprentice"
-                Warrior.create(
+                w= Warrior.create(
                     name: "", 
                     warrior_type: "Apprentice",
                     exp: 0,
@@ -100,9 +104,11 @@ module WarriorsHelper
                     warband_type: "Ratmen",
                     is_hero: true,
                     skills_list: "Combat, Shooting, Speed, Skaven_Special",
-                    cost: 20) 
+                    cost: 20)
+                    w.equipment_list= equipment_lists(w)
+                    w
         when  "Henchrat"
-                Warrior.create(
+                w= Warrior.create(
                     name: "", 
                     warrior_type: "Henchrat",
                     exp: 0,
@@ -115,7 +121,9 @@ module WarriorsHelper
                     number: 20,
                     warband_type: "Ratmen",
                     is_hero: false,
-                    cost: 20) 
+                    cost: 20)
+                    w.equipment_list= equipment_lists(w)
+                    w 
         when  'Giant Rat'
                 w= Warrior.create(
                     name: '', 
@@ -131,6 +139,7 @@ module WarriorsHelper
                     warband_type: "Ratmen",
                     is_hero: false,
                     cost: 15)
+                    w.equipment_list= equipment_lists(w)
                     w.skill << Skill.find_by_name('Animal')
                     w.skill << Skill.find_by_name('No Need for Weapons')
                     w 
@@ -154,7 +163,7 @@ module WarriorsHelper
                     w.skill << Skill.find_by_name('Large')
                     w.skill << Skill.find_by_name('Animal')
                     w.skill << Skill.find_by_name('No Need for Weapons')
-            
+                    w.equipment_list= equipment_lists(w)
                     w
         else   "Nothing" 
         end
@@ -182,6 +191,7 @@ module WarriorsHelper
                     cost: 60)
                     w.skill << Skill.find_by_name('Leader')
                     w.skill << Skill.find_by_name('Burn the Witch')
+                    w.equipment_list= equipment_lists(w)
                     w
             when "Warrior Priest" 
                 w= Warrior.create(
@@ -201,6 +211,7 @@ module WarriorsHelper
                     is_hero: true,
                     cost: 40)
                     w.skill << Skill.find_by_name('Prayers')
+                    w.equipment_list= equipment_lists(w)
                     w
             when "Witch Hunter" 
                 w= Warrior.create(
@@ -220,9 +231,10 @@ module WarriorsHelper
                     is_hero: true,
                     cost:25)
                     w.skill << Skill.find_by_name('Burn the Witch')
+                    w.equipment_list= equipment_lists(w)
                     w
             when "Zealot" 
-                Warrior.create(
+                w= Warrior.create(
                     name: "", 
                     warrior_type: "Zealot",
                     exp: 0,
@@ -236,6 +248,8 @@ module WarriorsHelper
                     warband_type: "Witch Hunters",
                     is_hero: false,
                     cost: 20)
+                    w.equipment_list= equipment_lists(w)
+                    w
             when "Flaggellant"
                 w= Warrior.create(
                     name: "", 
@@ -253,6 +267,7 @@ module WarriorsHelper
                     is_hero: false,
                     cost: 40)
                     w.skill << Skill.find_by_name('Fanatical')
+                    w.equipment_list= equipment_lists(w)
                     w
             when "War Dog"
                 w = Warrior.create(
@@ -271,6 +286,7 @@ module WarriorsHelper
                 cost: 20) 
                 w.skill << Skill.find_by_name('Animal')
                 w.skill << Skill.find_by_name('No Need for Weapons')
+                w.equipment_list= equipment_lists(w)
                 w
         end
     
@@ -297,9 +313,10 @@ module WarriorsHelper
                 skills_list: "Combat, Shooting, Academic, Strength, Speed, Mercenary_Special",
                 cost: 60)
                 w.skill << Skill.find_by_name('Leader')
+                w.equipment_list= equipment_lists(w)
                 w
             when"Champion"
-                Warrior.create(
+                w= Warrior.create(
                 name: "", 
                 warrior_type: "Champion",
                 exp: 4,
@@ -314,8 +331,10 @@ module WarriorsHelper
                 skills_list: "Combat, Shooting, Strength, Mercenary_Special",
                 is_hero: true,
                 cost: 35)
+                w.equipment_list= equipment_lists(w)
+                w
             when"Rookie"
-                Warrior.create(
+                w= Warrior.create(
                 name: "", 
                 warrior_type: "Rookie",
                 exp: 10,
@@ -330,6 +349,8 @@ module WarriorsHelper
                 skills_list: "Combat, Shooting, Speed, Mercenary_Special",
                 is_hero: true,
                 cost: 15)
+                w.equipment_list= equipment_lists(w)
+                w
             when"Swordsman"
                 w= Warrior.create(
                 name: "", 
@@ -346,9 +367,10 @@ module WarriorsHelper
                 is_hero: false,
                 cost: 35)
                 w.skill << Skill.find_by_name('Swordsman')
+                w.equipment_list= equipment_lists(w)
                 w
             when"Sniper"
-                Warrior.create(
+                w= Warrior.create(
                 name: "", 
                 warrior_type: "Sniper",
                 exp: 0,
@@ -361,9 +383,11 @@ module WarriorsHelper
                 number: 7,
                 warband_type: "Mercenaries",
                 is_hero: false,
-                cost: 25)            
+                cost: 25)     
+                w.equipment_list= equipment_lists(w)
+                w       
             when"Soldier"
-                Warrior.create(
+                w= Warrior.create(
                 name: "", 
                 warrior_type: "Soldier",
                 exp: 0,
@@ -377,6 +401,8 @@ module WarriorsHelper
                 warband_type: "Mercenaries",
                 is_hero: false,
                 cost: 25)
+                w.equipment_list= equipment_lists(w)
+                w
             end
     end
 
@@ -401,6 +427,7 @@ module WarriorsHelper
             cost: 70)
             w.skill << Skill.find_by_name('Leader')
             w.skill << Skill.find_by_name('Spellcaster')
+            w.equipment_list= equipment_lists(w)
             w
         when "Mutant"  
             w= Warrior.create(
@@ -420,6 +447,7 @@ module WarriorsHelper
             is_hero: true,
             cost: 35)
             w.skill << Skill.find_by_name('Mutations')
+            w.equipment_list= equipment_lists(w)
             w                
         when "Possessed" 
             w= Warrior.create(
@@ -441,6 +469,7 @@ module WarriorsHelper
             w.skill << Skill.find_by_name('Mutations')
             w.skill << Skill.find_by_name('Fear')
             w.skill << Skill.find_by_name('No Need for Weapons')
+            w.equipment_list= equipment_lists(w)
             w
         when "DemonSoul"
             w= Warrior.create(
@@ -459,9 +488,10 @@ module WarriorsHelper
             is_hero: false,
             cost: 35)
             w.skill << Skill.find_by_name('Fanatical')
+            w.equipment_list= equipment_lists(w)
             w
         when "Cultist"
-            Warrior.create(
+            w= Warrior.create(
             name: "", 
             warrior_type: "Cultist",
             exp: 0,
@@ -476,8 +506,10 @@ module WarriorsHelper
             warband_type: "Chaos Cultists",
             is_hero: false,
             cost: 25)
+            w.equipment_list= equipment_lists(w)
+            w
         when "Beastmen"
-            Warrior.create(
+            w = Warrior.create(
             name: "", 
             warrior_type: "Beastmen",
             exp: 0,
@@ -492,6 +524,8 @@ module WarriorsHelper
             warband_type: "Chaos Cultists",
             is_hero: false,
             cost: 45)
+            w.equipment_list= equipment_lists(w)
+            w
         end
     end
 
@@ -504,7 +538,82 @@ module WarriorsHelper
         warrior.cost = cost
     end
 
-    
+    def equipment_lists(warrior)
+        case warrior.warband_type 
+        when 'Ratmen'
+            case warrior.warrior_type
+                when "Assassin"
+                    "Dagger, Sword, Flail, Spear, Halberd, Weeping Blades, Fighting Claws, Sling, Throwing Knife/Star, Blowpipe, Warplock Pistol" 
+                when  "Brute"
+                    "Dagger, Sword, Flail, Spear, Halberd, Weeping Blades, Fighting Claws, Sling, Throwing Knife/Star, Blowpipe, Warplock Pistol" 
+                when "Sorceror"
+                    "Dagger, Sword, Flail, Spear, Halberd, Weeping Blades, Fighting Claws, Sling, Throwing Knife/Star, Blowpipe, Warplock Pistol"
+                when "Apprentice" 
+                    "Dagger, Mace/Hammer/Club, Sword, Spear, Sling"
+                when "Henchrat"
+                    "Dagger, Mace/Hammer/Club, Sword, Spear, Sling"
+                when 'Giant Rat'
+                    "None"
+                when "Rat Monster"
+                    "None"
+            end
+        when 'Witch Hunters'
+            case warrior.warrior_type
+                when "Witch Hunter Captain"
+                    "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, Double-Handed Weapon, Crossbow, Pistol"
+                when "Warrior Priest"
+                    "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, Double-Handed Weapon, Crossbow, Pistol" 
+                when "Witch Hunter"
+                    "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, Double-Handed Weapon, Crossbow, Pistol" 
+                when "Zealot"
+                    "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, Double-Handed Weapon, Spear, Bow, Shortbow" 
+                when "Flaggellant"
+                    "Flail, Morningstar, Double-Handed Weapon" 
+                when "War Dog"
+                    "none"
+            end
+             
+            
+        when "Mercenaries"
+            case warrior.warrior_type
+                when "Captain"
+                    "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, MorningStar, Double-Handed Weapon, Spear, Halberd, Crossbow, Pistol, Duelling Pistol, Bow" 
+                when "Champion"
+                    "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, MorningStar, Double-Handed Weapon, Spear, Halberd, Crossbow, Pistol, Duelling Pistol, Bow"  
+                when "Rookie"
+                    "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, MorningStar, Double-Handed Weapon, Spear, Halberd, Crossbow, Pistol, Duelling Pistol, Bow"  
+                when "Swordsman"
+                    "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, MorningStar, Double-Handed Weapon, Spear, Halberd, Crossbow, Pistol, Duelling Pistol, Bow"  
+                when "Sniper"
+                    "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, Crossbow, Pistol, Bow, Longbow, Blunderbuss, Handgun, Hunting Rifle" 
+                when "Soldier"
+                    "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, MorningStar, Double-Handed Weapon, Spear, Halberd, Crossbow, Pistol, Duelling Pistol, Bow" 
+            end
+            
+
+            
+        when "Chaos Cultists"
+            case warrior.warrior_type
+                when "Cult Leader"
+                    "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, Double-Handed Weapon, Spear, Bow, Shortbow" 
+                when "Mutant"
+                    "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, Double-Handed Weapon, Spear, Bow, Shortbow"  
+                when "Possessed" 
+                    "None"
+                when "DemonSoul"
+                    "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, Double-Handed Weapon, Flail"  
+                when "Cultist"
+                    "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, Double-Handed Weapon, Spear, Bow, Shortbow" 
+                when "Beastmen"
+                    "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, Double-Handed Weapon, Flail"  
+            end
+            
+            
+        else 
+            "No Warband of that name"
+        end
+
+    end
 
 
 

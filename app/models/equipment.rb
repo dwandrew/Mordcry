@@ -7,4 +7,6 @@ class Equipment < ApplicationRecord
     has_many :equipment_abilities
     has_many :abilities, through: :equipment_abilities 
 
+    scope :name_search, -> (name) {self.where("name LIKE ?", "#{name}")}
+
 end

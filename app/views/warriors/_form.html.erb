@@ -40,12 +40,9 @@
       <td><%= f.label :bravery %></td>
       <td><%= f.number_field :bravery %></td>
     </tr>
+    
     <tr>
-      <td><%= f.label :injuries %></td>
-      <td><%= f.text_field :injuries %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :active %></td>
+      <td><%= f.label "Needs to Miss Game" %></td>
       <td><%= f.check_box :active %></td>
     </tr>
     <tr>
@@ -73,7 +70,7 @@
   <%= f.fields_for :equipment do |e| %>
     <tr>
       <td><%= e.object.name %> </td>
-      <td><%= e.collection_select :id, Equipment.all, :id, :name, {include_blank: 'Select a Weapon'} %></td>
+      <td><%= e.collection_select :id, (@warrior.equipment_list.split(', ').map {|name| Equipment.name_search(name)}.flatten), :id, :name, {include_blank: 'Select a Weapon'} %></td>
       <td><%= link_to "Sell Weapon", equipment_sell_path(warrior_id: @warrior, equipment_id: e.object.id) %> </td>
       <td><%= link_to "Delete Weapon", equipment_delete_path(warrior_id: @warrior, equipment_id: e.object.id) %> </td>
     </tr>
@@ -102,6 +99,7 @@
   <%end%>
 </table>
 
+<% if @warrior.skills_list %>
 <h3>Skills</h3>
 <br>
 <table>
@@ -119,6 +117,7 @@
     </tr>
     <% end %>
 </table>
+ <% end %>
 
 <% if @warrior.warrior_type == "Mutant" || @warrior.warrior_type == "Possessed"  %>
 <h3>Mutations</h3>

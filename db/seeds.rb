@@ -17,6 +17,7 @@ Ability.create(name: "Move or Fire", effect:	"Cannot be fired if wielder moves d
 Ability.create(name: "Blunt", effect:	"Strength of attack counts as 1 lower for attacks made by this weapon. (Included in Weapon Profile)")
 Ability.create(name: "Reload", effect:	"Weapon must be reloaded after firing, takes an activation to reload")
 Ability.create(name: "Accurate", effect:	"Weapon gets a +1 on any dice roll to hit, this does not change 5’s into crits.")
+Ability.create(name: "Sling", effect:	"This weapon has 2 attack profiles, one for short range and one for long range, on its short range profile number of attacks is 5, on its long range profile number of attacks is 3")
 Ability.create(name: "Blunderbuss", effect:	"When fired, draw a line 16” long and 1” wide, for anyone in this line roll a dice:
 1-2: 1 point of damag
 3-5: 3 points of damag
@@ -113,7 +114,7 @@ Equipment.create(name: 'Teeth/Claws',	range: "1",	attacks: 4,	damage: "1 / 3", s
 
 Equipment.create(name: "Halberd" ,	range: "2",	attacks: 3,	damage: "2 / 4", strength: "As User +1", cost: 15, category:"Two handed close").abilities<< Ability.find_by_name("Damaging")
 Equipment.create(name: "Flail" ,	range: "2",	attacks: 4,	damage: "1 / 5", strength: "As User +(2)", cost: 15, category:"Two handed close").abilities<< Ability.find_by_name("Flailing")
-Equipment.create(name: "GreatSword/Axe/Hammer" , range: "1",	attacks: 3,	damage: "2 / 4", strength: "As User +2", cost: 20, category:"Two handed close").abilities<< Ability.find_by_name("Damaging")
+Equipment.create(name: "Double-Handed Weapon" , range: "1",	attacks: 3,	damage: "2 / 4", strength: "As User +2", cost: 20, category:"Two handed close").abilities<< Ability.find_by_name("Damaging")
 				
 Equipment.create(name: "Shortbow" ,	range: "3-16", attacks: 3, damage: "1 / 3", strength: "3", cost: 5, category: "Ranged")
 Equipment.create(name: "Bow", range: "3-24", attacks: 3, damage: "1 / 3", strength: "3", cost: 10, category: "Ranged")
@@ -128,8 +129,9 @@ Equipment.create(name: "Handgun" , range: "3-24", attacks: 3, damage: "2 / 5",  
 
 
 Equipment.create(name: "Blunderbuss" , range: "*", attacks: 1, damage: "Special", strength: "Special", cost: 30, category: "Ranged").abilities<< Ability.find_by_name("Blunderbuss")
-Equipment.create(name: "Sling (short range)" , range: "3-9", attacks: 5, damage: "1 / 2",  strength: "3", cost: 3, category: "Ranged")
-Equipment.create(name: "Sling (long range)" , range: "3-18", attacks: 3, damage: "1 / 2",  strength: "3", cost: 3, category: "Ranged")
+# Equipment.create(name: "Sling (short range)" , range: "3-9", attacks: 5, damage: "1 / 2",  strength: "3", cost: 3, category: "Ranged")
+# Equipment.create(name: "Sling (long range)" , range: "3-18", attacks: 3, damage: "1 / 2",  strength: "3", cost: 3, category: "Ranged")
+Equipment.create(name: "Sling" , range: "3-9 / 3-18", attacks: 0, damage: "1 / 2",  strength: "3", cost: 3, category: "Ranged").abilities<< Ability.find_by_name("Sling")
 Equipment.create(name: "Throwing Knife/Star" , range: "6",	attacks: 3,	 damage: "1 / 4",  strength: "As User", cost: 10, category: "Ranged")
 					
 Mutation.create(name: "Magic Resistant",cost: 20, description: "A demon protects the warrior, this gives them a 4+ chance to ignore the effects of any spell/prayer that may effect them")    

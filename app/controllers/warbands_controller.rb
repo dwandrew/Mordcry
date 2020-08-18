@@ -66,7 +66,8 @@ class WarbandsController < ApplicationController
             warband_type: @warband.warband_type,
             is_hero: params[:warrior][:is_hero],
             cost: params[:warrior][:cost],
-            skills_list: params[:warrior][:skills_list]
+            skills_list: params[:warrior][:skills_list],
+            equipment_list: params[:warrior][:equipment_list]
             )
 
 
@@ -80,7 +81,7 @@ class WarbandsController < ApplicationController
             @warrior.save
             @warband.gold_crowns-= @warrior.cost
             @warband.save
-            redirect_to warband_path(@warband)
+            redirect_to edit_warband_warrior_path(warband_id: @warband.id, id: @warrior.id)
             end
             
         end
