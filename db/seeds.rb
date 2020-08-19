@@ -134,6 +134,7 @@ Equipment.create(name: "Throwing Knife/Star" , range: "6",	attacks: 3,	 damage: 
 
 Equipment.create(name: "Great Claw" ,	range: "1",	attacks: 3,	damage: "2 / 5", strength: "As User +1", cost: 0, category:"Mutation").abilities<< Ability.find_by_name("Damaging")
 Equipment.create(name: "Scorpion Tail" ,	range: "2",	attacks: 4,	damage: "1 / 4", strength: "5/2", cost: 0, category: "Mutation").abilities<< Ability.find_by_name("Penetrating")
+Equipment.create(name: "Righteous Hammer" , range: "1",	attacks: 4,	damage: "2 / 4", strength: "As User +2", cost: 0, category:"One handed close").abilities<< Ability.find_by_name("Damaging")
 
 Mutation.create(name: "Magic Resistant",cost: 20, description: "A demon protects the warrior, this gives them a 4+ chance to ignore the effects of any spell/prayer that may effect them")    
 Mutation.create(name: "Great Claw",cost: 50, description: "The Warriors arm ends in a great claw, This replaces one arm for the purposes of two handed weapons")    
@@ -173,28 +174,28 @@ Injury.create(name:"Hardened", description:"The warrior survives and becomes inu
 Injury.create(name:"Horrible Scars", description:"The warrior causes fear from now on.")
 
 #Chaos spells
-Spell.create(spell_name:"Mouth of Madness", spell_diff: 10, description:"Pick an enemy model withing 6\", closest model must be chosen if possible, The target is immediately Stunned, if they cannot be Stunnde they are Knocked Down", spell_warband: "Chaos Cultists")
+Spell.create(spell_name:"Mouth of Madness", spell_diff: 10, description:"Pick an enemy model within 6\", closest model must be chosen if possible, The target is immediately Stunned, if they cannot be Stunnde they are Knocked Down", spell_warband: "Chaos Cultists")
 Spell.create(spell_name:"Shadows Eye", spell_diff:7, description:"Can only be Cast once per battle, Choose any single model within 6\" friend or foe. Then roll a D6: 1: The Shadows Ire descends on the Target as they are viewed as unworthy, They are immediately taken out of action (though you do not have to roll on the injuries chart post battle), 2-5: The Model gains +1 to any one of its chracteristcs or +5 to its Wounds for the duration of the battle, 6: The Model gets +1 to each of its Characteristics and +5 to its Wounds for the duration of the battle ", spell_warband: "Chaos Cultists")
 Spell.create(spell_name:"Burning Blood", spell_diff:8, description:"The Spellcater slits their palm with a ritual blade and burning blood courses forth. This Attack has range 8\" and causes 2D3 Str 5 attacks Damage 2/5, after using this spell roll on the Knocked down/Stunning chart for the spellcaster", spell_warband: "Chaos Cultists")
-Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Chaos Cultists")
-Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Chaos Cultists")
-Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Chaos Cultists")
-Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Chaos Cultists")
+Spell.create(spell_name:"Lure of Chaos", spell_diff:8, description:"The Spellcaster briefly takes control of the enemies motor system, causing them to stagger like a puppet. Choose an enemy within 12\" that model makes a bonus move (maximum distance) towards the spellcaster (yes, this can include walking off buildings). This does not cause free attacks for leaving combat", spell_warband: "Chaos Cultists")
+Spell.create(spell_name:"Wings of Darkness", spell_diff:7, description:"The Spellcaster may immediately make a 12\" move ignoring terrain and the requirement to climb. If they end this move in base contact with an enemy it counts as a successful regular charge", spell_warband: "Chaos Cultists")
+Spell.create(spell_name:"Word of Pain", spell_diff: 7, description:"All models (friend or foe) within 3\" of the spellcaster (excluding the spellcaster), takes takes damage equal to a roll on the fall damage chart (also ignoring armour)", spell_warband: "Chaos Cultists")
+
 #Ratmen Spells
-Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Ratmen")
-Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Ratmen")
-Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Ratmen")
-Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Ratmen")
-Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Ratmen")
-Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Ratmen")
-Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Ratmen")
+Spell.create(spell_name:"Warpfire", spell_diff: 8, description:"The Spellcaster summons a ball of hideous warpflame and flings it at the enemy. Targets an enemy up to 8\" away, hits the first model in its path. The Spell causes D3 Str 4 Damage 2/4 Penetrating attacks, and one Str 3 Damage 1/3 attack on every model within 3\" of the impacted target ", spell_warband: "Ratmen")
+Spell.create(spell_name:"Children of the Horned Rat", spell_diff:0, description:"The Spell can only be cast once per game, It Summons D3 Giant rats within 6\" of the spellcaster, these do not count towards maximum warband size and dissapear at the end of the battle", spell_warband: "Ratmen")
+Spell.create(spell_name:"Scrabbling Swarm", spell_diff:7, description:"The Spellcaster lets out a hideous shriek and rats answer his arcane summons. Targets an enemy within 8\" of the spellcaster, they take 2D6 Str 1, Damage 1/2 Penetrating hits", spell_warband: "Ratmen")
+Spell.create(spell_name:"Black Fury", spell_diff:8, description:"The Sorceror can immediately make a 12\" charge move towards an enemy model (ignoring any terrain or climb tests), this counts as a successful diving charge for the following attack action", spell_warband: "Ratmen")
+Spell.create(spell_name:"Eye of the Warp", spell_diff: 8, description:"The Spellcaster rips a hole in reality and the terror of the warp swims through. All Warriors in base contact with the sorceror (who are not stunned or knocked down), must make a Bravery check, or suffer a Str 3 Damage 1/3 attack and then make an immediate out of activation move as if failing an All Alone check, this allows anyone in base contact the bonus free attack for an enemy leaving base contact without a disengage", spell_warband: "Ratmen")
+Spell.create(spell_name:"Sorcerors Curse", spell_diff: 6, description:"The Spellcaster points a finger and effects the enemy with waves of entropic energy. The Spell has range 12\" and affects a single enemy model, The Targets armour soak value reduces by 1 and the target must re-roll successful hits from attacks until the start of the next battle round.", spell_warband: "Ratmen")
+
 #Prayers
-Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Witch Hunters, The Sisterhood")
-Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Witch Hunters, The Sisterhood")
-Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Witch Hunters, The Sisterhood")
-Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Witch Hunters, The Sisterhood")
-Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Witch Hunters, The Sisterhood")
-Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Witch Hunters, The Sisterhood")
-Spell.create(spell_name:, spell_diff:, description:, spell_warband: "Witch Hunters, The Sisterhood")
+Spell.create(spell_name:"Righteous Hammer", spell_diff: 7, description:"The Prayer summons a blazing hammer of Righteous energy to smite their foes. You can use the Righteous Hammer Profile to make attacks, it is a single handed hammer. Once cast the warrior must make a roll before each activation to see if they can maintain the hammer, this is a bonus action as if they were casting the Prayer again, if they fail the hammer dissapears but can be recast as an action.", spell_warband: "Witch Hunters, The Sisterhood")
+Spell.create(spell_name:"Hearts of Steel", spell_diff:8, description:"Words thunder forth instilling bravery in the hearts of the Warband. Any Allied Warriors withing 8\" become immune to Fear and All Alone until the start of the next battle round", spell_warband: "Witch Hunters, The Sisterhood")
+Spell.create(spell_name:"Smite the Demon", spell_diff:9, description:"Holy scripture pours from the Warrior causing evil-doers to burn with holy fire. All Enemy models within 4\" of the Warrior suffer a Str 3 Damage 1/3 attack, If the enemy was Undead or a Chaos Cultist they suffer a Str 5 Damage 2/4 attack instead.", spell_warband: "Witch Hunters, The Sisterhood")
+Spell.create(spell_name:"Shield of Faith", spell_diff:6, description:"The Fervour of the Warrior makes them immune to the enchantments of the enemy. The Warrior become immune to all spells for the duration. Roll a Dice at the beggining of each of their following activations, on a 1 or 2 the spell ends", spell_warband: "Witch Hunters, The Sisterhood")
+Spell.create(spell_name:"Healing Hands", spell_diff:5, description:"Glowing with Holy light, the touch of the Warrior makes wounds close and injuries heal. Any one model within 2\" of the Warrior (including themself) if healed the casting number (what was rolled to cast the spell) of wounds as long as Prayer was successfully cast, in addition they targetted model is no longer stunned or knocked down if they were." , spell_warband: "Witch Hunters, The Sisterhood")
+Spell.create(spell_name:"Armour of Purity", spell_diff:9, description:"Shining Platemail covers the warrior protecting them from harm.  The Warrior counts as wearing Gromril Armour with no Agility Penalty, in addition the model also Causes Fear for the duration. Once cast the warrior must make a roll before each activation to see if they can maintain the armour, this is a bonus action as if they were casting the Prayer again, if they fail the armour dissapears but can be recast as an action.", spell_warband: "Witch Hunters, The Sisterhood")
+
 
 

@@ -30,6 +30,7 @@ class WarriorsController < ApplicationController
             @warrior.skill.build
             @warrior.mutations.build
             @warrior.injury.build
+            @warrior.spell.build
             else
                 flash[:alert] = "Not permissable to view others warriors"
                 redirect_to '/'
@@ -95,7 +96,8 @@ class WarriorsController < ApplicationController
                 armour_attributes: [:id],
                 skill_attributes: [:id],
                 mutations_attributes: [:id],
-                injury_attributes: [:id]
+                injury_attributes: [:id],
+                spell_attributes: [:id]
             )
         end
     

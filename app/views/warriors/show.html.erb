@@ -153,6 +153,24 @@
         </table>
     <% end %>
 
+    <% if !@warrior.spell.empty? %>
+    <h3><%= @warrior.skill.include?(Skill.find_by_name("Prayers")) ? "Prayers" : "Spells" %></h3>
+        <table class="warband_table">
+        <tr>
+        <th><%= @warrior.skill.include?(Skill.find_by_name("Prayers")) ? "Prayer Name" : "Spell Name" %></th>
+    <th><%= @warrior.skill.include?(Skill.find_by_name("Prayers")) ? "Prayer Difficulty" : "Spell Difficulty" %></th>
+    <th><%= @warrior.skill.include?(Skill.find_by_name("Prayers")) ? "Prayer Description" : "Spell Description" %></th>
+        </tr>
+        <% @warrior.spell.each do |s| %>
+        <tr>
+        <td><%= s.spell_name %> </td>
+        <td><%= s.spell_diff %> </td>
+        <td><%= s.description %> </td>
+        </tr>
+    <% end %>
+        </table>
+    <% end %>
+
 
 
 </div>

@@ -160,6 +160,26 @@
     </tr>
     <% end %>
 </table>
+
+<% if @warrior.skill.include?(Skill.find_by_name("Spellcaster")) || @warrior.skill.include?(Skill.find_by_name("Prayers")) %>
+<h3><%= @warrior.skill.include?(Skill.find_by_name("Prayers")) ? "Prayers" : "Spells" %></h3>
+<br>
+<table>
+  <tr>
+    <th><%= @warrior.skill.include?(Skill.find_by_name("Prayers")) ? "Prayer Name" : "Spell Name" %></th>
+    <th><%= @warrior.skill.include?(Skill.find_by_name("Prayers")) ? "Add Prayer" : "Add Spell" %></th>
+    <th><%= @warrior.skill.include?(Skill.find_by_name("Prayers")) ? "Delete Prayer" : "Delete Spell" %></th>
+  </tr>
+  <br>
+    <%= f.fields_for :spell do |s| %>
+    <tr>
+      <td><%= s.object.spell_name %> </td>
+      <td><%= s.collection_select :id, (Spell.all.select {|spell| spell.spell_warband.include?(@warrior.warband_type)}.flatten), :id, :spell_name, {include_blank: 'Select a Spell / Prayer'} %></td>
+      <td><%= link_to "Delete Spell", spell_destroy_path(warrior_id: @warrior, spell_id: s.object.id) %> </td>
+    </tr>
+    <% end %>
+</table>
+<% end %>
 </div>
 
     <%= f.hidden_field :cost %><br>

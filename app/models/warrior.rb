@@ -99,9 +99,10 @@ class Warrior < ApplicationRecord
     end
 
     def spell_attributes=(spell_params)
+        
         spell_params.each do |a|
             spell = Spell.find_by_id(a[1][:id])
-            if spell
+            if !self.spell.include? (spell)
                     self.spell << spell
             end 
         self.save

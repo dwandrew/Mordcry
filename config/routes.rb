@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   
-  resources :spells
-  resources :injuries
-  resources :mutations
   get 'abilities/show' => 'abilities#show'
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   devise_scope :user do
@@ -25,7 +22,9 @@ Rails.application.routes.draw do
   get '/equipment/delete_armour' => 'equipment#destroy_armour'
   get '/skill/destroy' => "skill#destroy"
   get '/injury/destroy' => "injuries#destroy"
+  get '/spell/destroy' => "spells#destroy"
 
+  resources :spells, only: [:show, :index]
   resources :mutations, only: [:show, :index]
   resources :skill, only: [:show, :index, :destroy]
   resources :injury, only: [:show, :index]
