@@ -6,7 +6,7 @@ class WarbandsController < ApplicationController
     
         def new
         end
-
+ 
         def create
             @user = current_user
             @warband = @user.warbands.build(warband_params)

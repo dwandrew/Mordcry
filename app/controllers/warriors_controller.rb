@@ -31,6 +31,7 @@ class WarriorsController < ApplicationController
             @warrior.mutations.build
             @warrior.injury.build
             @warrior.spell.build
+            @warrior
             else
                 flash[:alert] = "Not permissable to view others warriors"
                 redirect_to '/'
@@ -105,7 +106,7 @@ class WarriorsController < ApplicationController
             @warband = Warband.find_by_id(params[:warband_id])
             @warrior = @warband.warriors.build
         end
-    
+        
         def find_warrior
             @warrior = Warrior.find_by_id(params[:id])
         end

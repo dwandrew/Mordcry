@@ -4,6 +4,13 @@ def show
 end
 
 def index
+    if params[:category]
+        @spells = Spell.category_search(params[:category])
+    else
+    @ratman_list = Spell.all.select {|s| s.spell_warband == "Ratmen"} 
+    @prayers = Spell.all.select {|s| s.spell_warband == "Witch Hunters, The Sisterhood"} 
+    @chaos_list =Spell.all.select {|s| s.spell_warband == "Chaos Cultists"} 
+    end
 end
 
 def destroy

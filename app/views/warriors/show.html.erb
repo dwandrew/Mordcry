@@ -1,7 +1,7 @@
 <div class = "grid">
 
 <div>
-<table class="create_box">
+<table class="create_box" >
         <tr>
             <td>Name:</td>
             <td><%= @warrior.name %> </td>
@@ -153,6 +153,11 @@
         </table>
     <% end %>
 
+</div>
+
+<br>
+
+<div class="span_2">
     <% if !@warrior.spell.empty? %>
     <h3><%= @warrior.skill.include?(Skill.find_by_name("Prayers")) ? "Prayers" : "Spells" %></h3>
         <table class="warband_table">
@@ -170,14 +175,10 @@
     <% end %>
         </table>
     <% end %>
-
-
-
 </div>
 
-<br>
     
-    <div class="span_2">
+    <div class="span_3">
     <% if !@warrior.skill.empty? %>
         <h3>Skills</h3>
             <table class="warband_table">

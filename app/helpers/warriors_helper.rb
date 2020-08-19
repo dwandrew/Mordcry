@@ -10,6 +10,8 @@ module WarriorsHelper
             ["Captain", "Champion", "Rookie", "Swordsman", "Sniper", "Soldier"]
         when "Chaos Cultists"
             ["Cult Leader", "Mutant", "Possessed", "DemonSoul", "Cultist", "Beastmen"]
+        when 'The Sisterhood'
+            ["Mother Superior", "Sister Superior", "Auger", "Sister", "Novice"]
         else 
             "No Warband of that name"
         end
@@ -27,7 +29,10 @@ module WarriorsHelper
             mercenary_stats(name)
         when "Chaos Cultists"
             cultist_stats(name)
+        when "The Sisterhood"
+            sisterhood_stats(name)
         end
+
     end
 
     def ratmen_stats(name)
@@ -529,6 +534,103 @@ module WarriorsHelper
         end
     end
 
+    def sisterhood_stats(name)
+        case name    
+            when "Mother Superior" 
+                w = Warrior.create(
+                    name: "", 
+                    warrior_type: "Mother Superior",
+                    exp: 10,
+                    move: 4,
+                    strength: 3,
+                    toughness: 3,
+                    agility: 3,
+                    wounds: 20,
+                    bravery: 5,
+                    number: 1,
+                    warband_type: "The Sisterhood",
+                    is_hero: true,
+                    skills_list: "Combat, Academic, Strength, Speed, Sisterhood_Special",
+                    cost: 60)
+                    w.skill << Skill.find_by_name('Leader')
+                    w.skill << Skill.find_by_name('Prayers')
+                    w.equipment_list= equipment_lists(w)
+                    w
+            when "Sister Superior" 
+                w= Warrior.create(
+                    name: "", 
+                    warrior_type: "Sister Superior",
+                    exp: 4,
+                    move: 4,
+                    strength: 3,
+                    toughness: 3,
+                    agility: 3,
+                    wounds: 12,
+                    bravery: 5,
+                    number: 3,
+                    warband_type: "The Sisterhood",
+                    skills_list: "Combat, Academic, Strength, Speed, Sisterhood_Special",
+                    is_hero: true,
+                    cost: 35)
+                    w.equipment_list= equipment_lists(w)
+                    w
+            when "Auger" 
+                w= Warrior.create(
+                    name: "", 
+                    warrior_type: "Auger" ,
+                    exp: 4,
+                    move: 4,
+                    strength: 2,
+                    toughness: 3,
+                    agility: 3,
+                    wounds: 10,
+                    bravery: 4,
+                    number: 1,
+                    warband_type: "The Sisterhood",
+                    skills_list: "Academic, Speed, Sisterhood_Special",
+                    is_hero: true,
+                    cost:25)
+                    w.skill << Skill.find_by_name('Blessed Sight')
+                    w.equipment_list= equipment_lists(w)
+                    w
+            when "Sister" 
+                w= Warrior.create(
+                    name: "", 
+                    warrior_type: "Sister",
+                    exp: 0,
+                    move: 4,
+                    strength: 3,
+                    toughness: 3,
+                    agility: 3,
+                    wounds: 10,
+                    bravery: 4,
+                    number: 10,
+                    warband_type: "The Sisterhood",
+                    is_hero: false,
+                    cost: 25)
+                    w.equipment_list= equipment_lists(w)
+                    w
+            when "Novice"
+                w= Warrior.create(
+                    name: "", 
+                    warrior_type: "Novice",
+                    exp: 0,
+                    move: 4,
+                    strength: 2,
+                    toughness: 3,
+                    agility: 3,
+                    wounds: 8,
+                    bravery: 3,
+                    # skills: "Fanatical",
+                    number: 7,
+                    warband_type: "The Sisterhood",
+                    is_hero: false,
+                    cost: 15)
+                    w.equipment_list= equipment_lists(w)
+                    w
+        end
+    end
+
     def warrior_cost(warrior)
         cost = 0
         warrior.equipment.each {|e| cost+= e.cost}
@@ -608,6 +710,8 @@ module WarriorsHelper
                     "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, Double-Handed Weapon, Flail"  
             end
             
+        when "The Sisterhood"
+            "Dagger, Mace/Hammer/Club, Blessed Warhammer, Steel Whip, Double-Handed Weapon, Flail, Sling" 
             
         else 
             "No Warband of that name"

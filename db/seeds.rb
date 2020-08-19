@@ -12,6 +12,8 @@ Ability.create(name: "Penetrating", effect: "Weapon ignores one point of armour 
 Ability.create(name: "Clubbed", effect:	"Stuns on a 4+ rather than a 5+")
 Ability.create(name: "Flailing", effect:	"Parry has to beat the highest successful hit roll.
 Add +(*) (Included in Weapon Profile) to Strength if the first activation is used to attack. But not for the second activation (and any consecutive activations this turn) if it is also used to attack.")
+Ability.create(name: "May not be Parried", effect:	"A weapon with this abilty may not be parried under any circumstance")
+Ability.create(name: "Holy", effect:	"A holy weapon has been sanctified in the light of the Gods to do great damage the unholy. A Holy Weapon Deals +1 damage and critical damage against Undead or Chaos Warriors. They can Only be Dual Wielded by Mother and Sister Superiors")
 Ability.create(name: "Damaging", effect:	"Blows calculated at +(*) Strength (Included in Weapon Profile)")
 Ability.create(name: "Move or Fire", effect:	"Cannot be fired if wielder moves during its activation")
 Ability.create(name: "Blunt", effect:	"Strength of attack counts as 1 lower for attacks made by this weapon. (Included in Weapon Profile)")
@@ -47,7 +49,7 @@ Skill.create(name: "Fanatical", description: "This Warrior is driven by a fervou
 Skill.create(name: "Mutations", description: "This Warrior has been twisted by the cursed nature of their surroundings and when purchased can be given Mutations from the list.", skill_category: "Special" )
 Skill.create(name: "Perfect Killer", description: "The Warrior has honed the killing arts, and now all attacks ignore 1 point of armour soak (in addition to any already ignored)", skill_category: "Combat" )
 Skill.create(name: "No Need for Weapons", description: "The Warrior has no need or has no ability to use Weapons. They many not choose any nor be equipped with them, they can also not use shields or bucklers.", skill_category: "Generic" )
-    
+Skill.create(name: "Blessed Sight" , description: "The Warrior is guided by a blessed second sight. The Warrior can re-roll any failed characteristic check and any rolls to hit when attacking. In addition if the Warrior was not taken out of action during the game you may roll two dice for their exploration and pick either dice as the result", skill_category: "Special" )
 #Combat Skils 
 
 Skill.create(name: "Swordsman", description: "This Warrior is so effective at parrying that if their parry equals to or beats the enemy hit its coutsn as a successful parry, now they can even parry a crit!", skill_category: "Combat")
@@ -86,6 +88,7 @@ Skill.create(name: "Acrobat", description: "The Warrior is agile and swift on th
 Skill.create(name: "Jump Up", description: "The Warrior is swift to jump back on their feet when, they may ignore the effect of being Knocked Down, unless they are knocked down because of a successful save from a helmet", skill_category: "Speed" )
 Skill.create(name: "Dodge", description: "The Warrior has a natural armour soak of 1 against shooting attacks, that stacks with other armours soak value, this skill stacks and can be taken up to two times", skill_category: "Speed" )
 Skill.create(name: "Scale Sheer surfaces", description: "The Warrior is so skilled at climbing it barely causes them to pause, you can re-roll failed climbing checks and climb up to double your move for one action", skill_category: "Speed" )
+
 # Skill.create(name: , description: , skill_category: "Speed" )
 
 #Special Skills
@@ -108,6 +111,8 @@ Equipment.create(name: "Mace/Hammer/Club" ,	range: "1",	attacks: 4,	damage: "1 /
 Equipment.create(name: "Spear" ,	range: "2",	attacks: 3,	damage: "1 / 4", strength: "As User", cost: 5, category: "One handed close")
 Equipment.create(name: "Dagger" ,	range: "1",	attacks: 5,	damage: "1 / 2", strength: "As User", cost: 2, category: "One handed close")
 Equipment.create(name: "Morningstar" ,	range: "1",	attacks: 4,	damage: "1 / 3", strength: "As User +(1)", cost: 10, category: "One handed close").abilities<< Ability.find_by_name("Flailing")
+Equipment.create(name: "Steel Whip" ,	range: "3",	attacks: 4,	damage: "1 / 3", strength: "As User", cost: 10, category: "One handed close").abilities<< Ability.find_by_name("May not be Parried")
+Equipment.create(name: "Blessed Warhammer" ,	range: "1",	attacks: 3,	damage: "1 / 3", strength: "As User (+1)", cost: 15, category: "One handed close").abilities<< [Ability.find_by_name("Clubbed"), Ability.find_by_name("Holy")]
 Equipment.create(name: "Punch/Kick" ,	range: "1",	attacks: 4,	damage: "1 / 2", strength: "As User -1", cost: 0, category: "One handed close").abilities<< Ability.find_by_name("Blunt")
 Equipment.create(name: 'Natural Weapons',	range: "1",	attacks: 4,	damage: "2 / 4", strength: "As User", cost: 0, category: "One handed close")
 Equipment.create(name: 'Teeth/Claws',	range: "1",	attacks: 4,	damage: "1 / 3", strength: "As User", cost: 0, category: "One handed close")
@@ -193,7 +198,7 @@ Spell.create(spell_name:"Sorcerors Curse", spell_diff: 6, description:"The Spell
 Spell.create(spell_name:"Righteous Hammer", spell_diff: 7, description:"The Prayer summons a blazing hammer of Righteous energy to smite their foes. You can use the Righteous Hammer Profile to make attacks, it is a single handed hammer. Once cast the warrior must make a roll before each activation to see if they can maintain the hammer, this is a bonus action as if they were casting the Prayer again, if they fail the hammer dissapears but can be recast as an action.", spell_warband: "Witch Hunters, The Sisterhood")
 Spell.create(spell_name:"Hearts of Steel", spell_diff:8, description:"Words thunder forth instilling bravery in the hearts of the Warband. Any Allied Warriors withing 8\" become immune to Fear and All Alone until the start of the next battle round", spell_warband: "Witch Hunters, The Sisterhood")
 Spell.create(spell_name:"Smite the Demon", spell_diff:9, description:"Holy scripture pours from the Warrior causing evil-doers to burn with holy fire. All Enemy models within 4\" of the Warrior suffer a Str 3 Damage 1/3 attack, If the enemy was Undead or a Chaos Cultist they suffer a Str 5 Damage 2/4 attack instead.", spell_warband: "Witch Hunters, The Sisterhood")
-Spell.create(spell_name:"Shield of Faith", spell_diff:6, description:"The Fervour of the Warrior makes them immune to the enchantments of the enemy. The Warrior become immune to all spells for the duration. Roll a Dice at the beggining of each of their following activations, on a 1 or 2 the spell ends", spell_warband: "Witch Hunters, The Sisterhood")
+Spell.create(spell_name:"Shield of Faith", spell_diff:6, description:"The Fervour of the Warrior makes them immune to the enchantments of the enemy. The Warrior become immune to all spells for the duration. Roll a Dice at the beginning of each of their following activations, on a 1 or 2 the spell ends", spell_warband: "Witch Hunters, The Sisterhood")
 Spell.create(spell_name:"Healing Hands", spell_diff:5, description:"Glowing with Holy light, the touch of the Warrior makes wounds close and injuries heal. Any one model within 2\" of the Warrior (including themself) if healed the casting number (what was rolled to cast the spell) of wounds as long as Prayer was successfully cast, in addition they targetted model is no longer stunned or knocked down if they were." , spell_warband: "Witch Hunters, The Sisterhood")
 Spell.create(spell_name:"Armour of Purity", spell_diff:9, description:"Shining Platemail covers the warrior protecting them from harm.  The Warrior counts as wearing Gromril Armour with no Agility Penalty, in addition the model also Causes Fear for the duration. Once cast the warrior must make a roll before each activation to see if they can maintain the armour, this is a bonus action as if they were casting the Prayer again, if they fail the armour dissapears but can be recast as an action.", spell_warband: "Witch Hunters, The Sisterhood")
 

@@ -102,9 +102,14 @@ class Warrior < ApplicationRecord
         
         spell_params.each do |a|
             spell = Spell.find_by_id(a[1][:id])
-            if !self.spell.include? (spell)
+            if spell
+                if !self.spell.include? (spell)
                     self.spell << spell
-            end 
+                    if spell.spell_name == "Righteous Hammer"
+                    self.equipment << Equipment.find_by_name("Righteous Hammer")
+                    end
+                end
+            end
         self.save
         end
         

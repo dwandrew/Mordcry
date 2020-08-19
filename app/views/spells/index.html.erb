@@ -1,0 +1,84 @@
+
+<div class="info_box">
+<span >
+        <%= form_tag spells_path, method:'get' do %>
+        <h3><%= label_tag (:category), "Enter Warband to filter by:"%></h3>
+        <%= text_field_tag :category, params[:category], placeholder:"Enter Warband"%>
+        <%= submit_tag "Search", name: nil, class:'home_link' %>
+        <% end %>
+        </span>
+<% if @spells %>
+<table class="warband_table">
+<tr>
+<th>Spell Name</th>
+<th>Spell Category</th>
+<th>Spell Description</th>
+</tr>
+<% @spells.each do |s| %>
+<tr>
+<td><%= s.spell_name %> </td>
+<td><%= s.spell_diff %> </td>
+<td><%= s.description %> </td>
+</tr>
+<% end %>
+</table>
+<% end %>
+
+<% if @ratman_list %>
+<h3>Ratmen Spells</h3>
+<table class="warband_table">
+<tr>
+<th>Spell Name</th>
+<th>Spell Category</th>
+<th>Spell Description</th>
+</tr>
+<% @ratman_list.each do |s| %>
+<tr>
+<td><%= s.spell_name %> </td>
+<td><%= s.spell_diff %> </td>
+<td><%= s.description %> </td>
+</tr>
+<% end %>
+</table>
+<% end %>
+
+<% if @chaos_list %>
+<h3>Chaos Cultist Spells</h3>
+<table class="warband_table">
+<tr>
+<th>Spell Name</th>
+<th>Spell Category</th>
+<th>Spell Description</th>
+</tr>
+<% @chaos_list.each do |s| %>
+<tr>
+<td><%= s.spell_name %> </td>
+<td><%= s.spell_diff %> </td>
+<td><%= s.description %> </td>
+</tr>
+<% end %>
+</table>
+<% end %>
+
+<% if @prayers %>
+<h3>Prayers</h3>
+<table class="warband_table">
+<tr>
+<th>Prayer Name</th>
+<th>Prayer Category</th>
+<th>Prayer Description</th>
+</tr>
+<% @prayers.each do |s| %>
+<tr>
+<td><%= s.spell_name %> </td>
+<td><%= s.spell_diff %> </td>
+<td><%= s.description %> </td>
+</tr>
+<% end %>
+</table>
+<% end %>
+
+
+
+<%= link_to 'Back', 'javascript:history.back()', class:"home_link" %>
+</div>

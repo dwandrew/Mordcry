@@ -12,3 +12,4 @@ class Warband < ApplicationRecord
     scope :top_ten, -> {self.order(warband_rating: :desc)}
 
 end
+ 
