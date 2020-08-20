@@ -60,7 +60,11 @@ class Warrior < ApplicationRecord
             if skill
                 if !self.skill.include? (skill)
                     self.skill << skill
+                if skill.name == "Arcane Lore"
+                    self.skill << Skill.find_by_name("Spellcaster")
                 end
+                end
+
             end 
         self.save
         end

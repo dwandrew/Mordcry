@@ -77,6 +77,24 @@
         </tr>
     </table ><br>
 
+    <h3>Warriors Attack Bonus</h3>
+    <table class="warband_table">
+        <tr>
+            <th>Close Combat Attack Bonus</th>
+            <th>Close Combat Damage Bonus</th>
+            <th>Ranged Attack Bonus</th>
+            <th>Ranged Damage Bonus</th>
+        </tr>
+
+        <tr>
+            <td>+<%= @warrior.close_combat_attacks_bonus %> </td>
+            <td>+<%= @warrior.close_combat_damage_bonus %> </td>
+            <td>+<%= @warrior.ranged_attacks_bonus %> </td>
+            <td>+<%= @warrior.ranged_damage_bonus %> </td>
+           
+        </tr>
+    </table ><br>
+
 <h3>Weapons</h3>
     <table class="warband_table">
     <tr>
@@ -189,7 +207,7 @@
             </tr>
             <% @warrior.skill.each do |s| %>
             <tr>
-            <td > <%= link_to s.name, skill_path(s) %> </td>
+            <td> <%= link_to s.name, skill_path(s) %> </td>
             <td><%= s.skill_category%></td>
             <td><%= s.description %> </td>
             </tr>

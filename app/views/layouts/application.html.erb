@@ -4,19 +4,20 @@
   <nav> 
     <ul>
       <li class= "nav-link active"><%= link_to "Home", '/'%></li>
-      <li class= "nav-link"><%= link_to "Mordcry Rules", '/rules'%></li>
       <li class= "nav-link"><%= link_to "View All Warbands", warbands_path %></li>
+      <li class= "nav-link"><%= link_to "Mordcry Rules", '/rules'%></li>
       
       <% if !logged_in? %>
       <li class= "nav-link"><%= link_to "Log In", '/users/sign_in', class: "nav-link" %></li>
       <li class= "nav-link"><%= link_to "Sign up", '/users/sign_up' %></li>
      <% else %>
+      <li class= "nav-link"><%= link_to "Experience and Advancement", '/exp' %></li>
+      <li class= "nav-link"><%= link_to "Injury Chart", '/injury_chart' %></li>
       <li class= "nav-link"><%= link_to "View Own Warbands", user_warbands_path(user_id: current_user.id) %></li>
       <li class= "nav-link"><%= link_to "Make New Warband", new_user_warband_path(user_id: current_user.id) %></li>
-      <li class= "nav-link"><%= link_to "View Skills", skills_path %></li>
-      <li class= "nav-link"><%= link_to "Injury Chart", '/injury_chart' %></li>
-      <li class= "nav-link"><%= link_to "View Spells", spells_path %></li>
       <li class= "nav-link"><%= link_to "View Equipment", '/equipment'%></li>
+      <li class= "nav-link"><%= link_to "View Spells", spells_path %></li>
+      <li class= "nav-link"><%= link_to "View Skills", skills_path %></li>
       <li class= "nav-link"><%= link_to "Sign Out", '/users/sign_out', class: "nav-link" %></li>
       <% end %>
     </ul>

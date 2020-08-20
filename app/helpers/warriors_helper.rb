@@ -157,7 +157,7 @@ module WarriorsHelper
                     strength: 5,
                     toughness:4,
                     agility: 4,
-                    wounds: 25,
+                    wounds: 30,
                     bravery: 4,
                     # skills: 'Fear, Animal, Large',
                     number: 1,

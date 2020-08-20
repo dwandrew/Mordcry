@@ -49,7 +49,7 @@
       float: left;
       display: block;
       text-align: center;
-      padding: 8px 14px;
+      padding: 4px 8px;
       text-decoration: none;
     }
     a{
@@ -208,6 +208,9 @@
       border: none;
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
+  td:first-child{
+    white-space: nowrap;
+  }
   td {background-color: burlywood;}
   td:nth-child(even){background-color: cornsilk;}
 

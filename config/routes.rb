@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/users/sign_out' => 'devise/sessions#destroy'
   end
   root 'static#home'
+  get '/exp' => 'static#exp'
   get '/rules' => 'static#rules'
   get '/skills' => 'skill#index'
   get '/injury_chart' => 'static#injury_chart'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_141225) do
+ActiveRecord::Schema.define(version: 2020_08_20_091253) do
 
   create_table "abilities", force: :cascade do |t|
     t.string "name"
@@ -133,6 +133,10 @@ ActiveRecord::Schema.define(version: 2020_08_18_141225) do
     t.integer "cost"
     t.string "skills_list"
     t.string "equipment_list"
+    t.integer "close_combat_attacks_bonus", default: 0
+    t.integer "ranged_attacks_bonus", default: 0
+    t.integer "close_combat_damage_bonus", default: 0
+    t.integer "ranged_damage_bonus", default: 0
   end
 
   create_table "warriors_armours", force: :cascade do |t|

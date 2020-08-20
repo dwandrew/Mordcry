@@ -7,4 +7,8 @@ class StaticController < ApplicationController
 
   def injury_chart
   end
+
+  def exp
+
+  end
 end
