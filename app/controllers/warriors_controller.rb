@@ -54,6 +54,10 @@ class WarriorsController < ApplicationController
             @warriors = Warrior.type_search(params[:type])
         elsif params[:name]
             @warriors = Warrior.name_search(params[:name])
+        elsif params[:warband_name]
+            warband = Warband.warband_name_search(params[:warband_name])
+     
+            @warriors = warband.map {|w| w.warriors}.flatten
         else
         @warriors = helpers.current_user.warriors
         end

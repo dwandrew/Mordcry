@@ -24,6 +24,7 @@ class Warrior < ApplicationRecord
 
     scope :type_search, -> (type) {self.where("warrior_type LIKE ?",  "%#{type}%")}
     scope :name_search, -> (name) {self.where("name LIKE ?",  "%#{name}%")}
+    scope :warband_name_search, -> (warband_name) {self.where("warband LIKE ?",  "%#{warband_name}%")}
 
     def equipment_attributes=(equipment_params)
         equipment_params.each do |e|

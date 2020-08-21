@@ -7,6 +7,7 @@ class Warband < ApplicationRecord
 
     accepts_nested_attributes_for :warriors
 
+    scope :warband_name_search, -> (warband_name) {self.where("name LIKE ?",  "%#{warband_name}%")}
     scope :warband_search, -> (warband) {self.where("warband_type LIKE ?", "%#{warband}%")}
     scope :rating_search, -> (rating) {self.where("warband_rating >= ?", rating)}
     scope :top_ten, -> {self.order(warband_rating: :desc)}

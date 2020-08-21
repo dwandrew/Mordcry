@@ -1,18 +1,25 @@
  <div class='search_box'>
- <span>
- <%= form_tag warriors_path, method:'get' do %>
-<h3><%= label_tag (:type), "Enter Type of Warrior:"%></h3>
-<%= text_field_tag :type, params[:type], placeholder:"Enter type"%>
-<%= submit_tag "Search", name: nil, class:'home_link' %>
-<% end %>
-</span>
-<span>
- <%= form_tag warriors_path, method:'get' do %>
-<h3><%= label_tag (:name), "Enter Name of Warrior:"%></h3>
-<%= text_field_tag :name, params[:name], placeholder:"Enter Name"%>
-<%= submit_tag "Search", name: nil, class:'home_link' %>
-<% end %>
-</span>
+    <span>
+        <%= form_tag warriors_path, method:'get' do %>
+        <h3><%= label_tag (:type), "Enter Type of Warrior:"%></h3>
+        <%= text_field_tag :type, params[:type], placeholder:"Enter type"%>
+        <%= submit_tag "Search", name: nil, class:'home_link' %>
+        <% end %>
+    </span>
+    <span>
+        <%= form_tag warriors_path, method:'get' do %>
+        <h3><%= label_tag (:name), "Enter Name of Warrior:"%></h3>
+        <%= text_field_tag :name, params[:name], placeholder:"Enter Name"%>
+        <%= submit_tag "Search", name: nil, class:'home_link' %>
+        <% end %>
+    </span>
+    <span>
+        <%= form_tag warriors_path, method:'get' do %>
+        <h3><%= label_tag (:warband_name), "Enter Warband name for Warriors:"%></h3>
+        <%= text_field_tag :warband_name, params[:warband_name], placeholder:"Enter Warband Name"%>
+        <%= submit_tag "Search", name: nil, class:'home_link' %>
+        <% end %>
+    </span>
 </div>
 
 <table class="warband_table">
@@ -30,6 +37,7 @@
   <th>Skills</th>
   <th>Max Number in Warband</th>
   <th>Cost</th>
+  <th>Edit</th>
 </tr>
 
 <% @warriors.each do |x| %>
@@ -50,6 +58,7 @@
      </td>
     <td><%= x.number %> </td>
     <td><%= x.cost %> </td>
+    <td><%= link_to "Edit", edit_warrior_path(x) %></td>
   </tr>
 
 <% end %>
