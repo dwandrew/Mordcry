@@ -10,4 +10,8 @@ Will need to create a .env file, and make sure to add google client_id and clien
 - Go to Credentials, then select the "OAuth consent screen" tab on top, and provide an 'EMAIL ADDRESS' and a 'PRODUCT NAME'
 - Wait 10 minutes for changes to take effect.
 
+- Should you wish email to be passed from the site for forgotten passwords you will need to add a gmail username and password to the .env file
+
 Run rails s to start server
+
+Enjoy!

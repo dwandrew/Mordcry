@@ -73,6 +73,12 @@
       <td>Warrior is Hero</td>
       <td><%= @warrior.is_hero ? "Yes" : "No" %></td>
     </tr>
+    <% if !@warrior.is_hero %>
+    <tr>
+      <td>Make Warrior Hero</td>
+      <td><%= f.check_box :is_hero %></td>
+    </tr>
+    <% end %>
   
 </table>
 
