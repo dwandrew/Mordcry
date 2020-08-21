@@ -48,9 +48,15 @@ class WarriorsController < ApplicationController
         
     end
 
-    
 
     def index
+        if params[:type]
+            @warriors = Warrior.type_search(params[:type])
+        elsif params[:name]
+            @warriors = Warrior.name_search(params[:name])
+        else
+        @warriors = helpers.current_user.warriors
+        end
     end
 
     def destroy

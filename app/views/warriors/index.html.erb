@@ -1,0 +1,57 @@
+ <div class='search_box'>
+ <span>
+ <%= form_tag warriors_path, method:'get' do %>
+<h3><%= label_tag (:type), "Enter Type of Warrior:"%></h3>
+<%= text_field_tag :type, params[:type], placeholder:"Enter type"%>
+<%= submit_tag "Search", name: nil, class:'home_link' %>
+<% end %>
+</span>
+<span>
+ <%= form_tag warriors_path, method:'get' do %>
+<h3><%= label_tag (:name), "Enter Name of Warrior:"%></h3>
+<%= text_field_tag :name, params[:name], placeholder:"Enter Name"%>
+<%= submit_tag "Search", name: nil, class:'home_link' %>
+<% end %>
+</span>
+</div>
+
+<table class="warband_table">
+<tr>
+  <th>Name</th>
+  <th>Warrior Warband</th>
+  <th>Type</th>
+  <th>Exp</th>
+  <th>Move</th>
+  <th>Strength</th>
+  <th>Toughness</th>
+  <th>Agility</th>
+  <th>Wounds</th>
+  <th>Bravery</th>
+  <th>Skills</th>
+  <th>Max Number in Warband</th>
+  <th>Cost</th>
+</tr>
+
+<% @warriors.each do |x| %>
+  <tr>
+    <td><%=x.name %></td>
+    <td><%=x.warband.name %></td>
+    <td><%= x.warrior_type %> </td>
+    <td><%= x.exp %> </td>
+    <td><%= x.move %> </td>
+    <td><%= x.strength %> </td>
+    <td><%= x.toughness %> </td>
+    <td><%= x.agility %> </td>
+    <td><%= x.wounds %> </td>
+    <td><%= x.bravery %> </td>
+    <td><% x.skill.each do |s| %>
+    <%=link_to s.name, skill_path(s) %><br>
+    <%end%>
+     </td>
+    <td><%= x.number %> </td>
+    <td><%= x.cost %> </td>
+  </tr>
+
+<% end %>
+
+</table>

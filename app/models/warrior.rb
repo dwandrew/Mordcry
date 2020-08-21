@@ -22,6 +22,9 @@ class Warrior < ApplicationRecord
     accepts_nested_attributes_for :injury
     accepts_nested_attributes_for :spell
 
+    scope :type_search, -> (type) {self.where("warrior_type LIKE ?",  "%#{type}%")}
+    scope :name_search, -> (name) {self.where("name LIKE ?",  "%#{name}%")}
+
     def equipment_attributes=(equipment_params)
         equipment_params.each do |e|
             weapon = Equipment.find_by_id(e[1][:id])
