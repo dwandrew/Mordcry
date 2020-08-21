@@ -15,8 +15,8 @@
       <td><%= f.text_field :name  %></td>
     </tr>
     <tr>
-      <td><%= f.label :warrior_type %></td>
-      <td><%= f.text_field :warrior_type %></td>
+      <td>Warrior type</td>
+      <td><%= @warrior.warrior_type %></td>
     </tr>
     <tr>
       <td><%= f.label :exp %></td>
@@ -70,8 +70,8 @@
     </tr>
 
     <tr>
-      <td><%= f.label :is_hero %></td>
-      <td><%= f.check_box :is_hero %></td>
+      <td>Warrior is Hero</td>
+      <td><%= @warrior.is_hero ? "Yes" : "No" %></td>
     </tr>
   
 </table>
