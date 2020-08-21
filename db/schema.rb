@@ -140,8 +140,8 @@ ActiveRecord::Schema.define(version: 2020_08_20_091253) do
   end
 
   create_table "warriors_armours", force: :cascade do |t|
-    t.string "warrior_id"
-    t.string "armour_id"
+    t.integer "warrior_id"
+    t.integer "armour_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
