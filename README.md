@@ -1,4 +1,4 @@
-# README
+MORDCRY
 
 Basic instructions to run the Mordcry App:
 
@@ -15,3 +15,5 @@ Will need to create a .env file, and make sure to add google client_id and clien
 Run rails s to start server
 
 Enjoy!
+
+Another option is check it out on Heroku! https://mordcry.herokuapp.com/
