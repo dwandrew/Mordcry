@@ -697,8 +697,8 @@ module WarriorsHelper
                     cost: 25)
                     w.equipment_list= equipment_lists(w)
                     w
-                when "Zombie"
-                    w = Warrior.create(
+            when "Zombie"
+                w = Warrior.create(
                         name: "", 
                         warrior_type: "Zombie",
                         exp: 0,
@@ -722,8 +722,8 @@ module WarriorsHelper
                         w.skill << Skill.find_by_name("No Need for Weapons")
                         w.equipment_list= equipment_lists(w)
                         w
-                when 'Ghoul'
-                    w = Warrior.create(
+            when 'Ghoul'
+                w = Warrior.create(
                         name: "", 
                         warrior_type: "Ghoul",
                         exp: 0,
@@ -742,8 +742,8 @@ module WarriorsHelper
                         w.skill << Skill.find_by_name("No Need for Weapons")
                         w.equipment_list= equipment_lists(w)
                         w
-                when 'Dire Wolf'
-                    w = Warrior.create(
+            when 'Dire Wolf'
+                w = Warrior.create(
                         name: "", 
                         warrior_type: "Dire Wolf",
                         exp: 0,
