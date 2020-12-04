@@ -635,6 +635,31 @@ module WarriorsHelper
         end
     end
 
+    def undead_stats(name)
+        case name
+        when "Vampire" 
+            w = Warrior.create(
+                name: "", 
+                warrior_type: "Vampire",
+                exp: 10,
+                move: 5,
+                strength: 4,
+                toughness: 4,
+                agility: 4,
+                wounds: 20,
+                bravery: 5,
+                number: 1,
+                warband_type: "The Undead",
+                is_hero: true,
+                skills_list: "Combat, Academic, Strength, Speed",
+                cost: 100)
+                w.skill << Skill.find_by_name('Leader')
+                w.equipment_list= equipment_lists(w)
+                w
+        when "Necromancer"
+        end
+    end
+
     def warrior_cost(warrior)
         cost = 0
         warrior.equipment.each {|e| cost+= e.cost}
