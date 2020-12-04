@@ -60,6 +60,24 @@
 </table>
 <% end %>
 
+<% if @necromancy_list %>
+<h3>Necromancy Spells</h3>
+<table class="warband_table">
+<tr>
+<th>Spell Name</th>
+<th>Spell Difficulty</th>
+<th>Spell Description</th>
+</tr>
+<% @necromancy_list.each do |s| %>
+<tr>
+<td><%= s.spell_name %> </td>
+<td><%= s.spell_diff %> </td>
+<td><%= s.description %> </td>
+</tr>
+<% end %>
+</table>
+<% end %>
+
 <% if @prayers %>
 <h3>Prayers</h3>
 <table class="warband_table">
