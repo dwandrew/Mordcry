@@ -10,7 +10,7 @@ def index
     @ratman_list = Spell.all.select {|s| s.spell_warband == "Ratmen"} 
     @prayers = Spell.all.select {|s| s.spell_warband == "Witch Hunters, The Sisterhood"} 
     @chaos_list =Spell.all.select {|s| s.spell_warband == "Chaos Cultists"}
-    @necromancy_list =  =Spell.all.select {|s| s.spell_warband == "The Undead"}
+    @necromancy_list = Spell.all.select {|s| s.spell_warband == "The Undead"}
     end
 end
 

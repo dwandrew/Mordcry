@@ -18,7 +18,7 @@ module WarbandsHelper
     end
 
     def check_natural_weapons(warrior)
-        if warrior.warrior_type == 'Giant Rat' || warrior.warrior_type == "War Dog" || warrior.warrior_type == "Dire Wolf" || warrior.warrior_type == "Zombie" || warrior_type.warrior_type == "Ghoul"
+        if warrior.warrior_type == 'Giant Rat' || warrior.warrior_type == "War Dog" || warrior.warrior_type == "Dire Wolf" || warrior.warrior_type == "Zombie" || warrior.warrior_type == "Ghoul"
             warrior.equipment << Equipment.find_by_name('Teeth/Claws')
         elsif warrior.warrior_type == 'Rat Monster' || warrior.warrior_type == "Possessed"
             warrior.equipment << Equipment.find_by_name('Natural Weapons')
