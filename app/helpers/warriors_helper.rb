@@ -654,9 +654,120 @@ module WarriorsHelper
                 skills_list: "Combat, Academic, Strength, Speed",
                 cost: 100)
                 w.skill << Skill.find_by_name('Leader')
+                w.skill << Skill.find_by_name('Fear')
+                w.skill << Skill.find_by_name('Feel no Fear')
+                w.skill << Skill.find_by_name('Feel no Pain')
+                w.skill << Skill.find_by_name("Immune to Poison")
                 w.equipment_list= equipment_lists(w)
                 w
         when "Necromancer"
+            w = Warrior.create(
+                name: "", 
+                warrior_type: "Necromancer",
+                exp: 8,
+                move: 4,
+                strength: 3,
+                toughness: 3,
+                agility: 3,
+                wounds: 10,
+                bravery: 5,
+                number: 1,
+                warband_type: "The Undead",
+                is_hero: true,
+                skills_list: "Academic, Speed",
+                cost: 40)
+                w.skill << Skill.find_by_name('Spellcaster')
+                w.equipment_list= equipment_lists(w)
+                w
+            when "Dreg"
+                w = Warrior.create(
+                    name: "", 
+                    warrior_type: "Dreg",
+                    exp: 0,
+                    move: 4,
+                    strength: 3,
+                    toughness: 3,
+                    agility: 3,
+                    wounds: 12,
+                    bravery: 4,
+                    number: 3,
+                    warband_type: "The Undead",
+                    is_hero: true,
+                    skills_list: "Combat, Strength, Speed",
+                    cost: 25)
+                    w.equipment_list= equipment_lists(w)
+                    w
+                when "Zombie"
+                    w = Warrior.create(
+                        name: "", 
+                        warrior_type: "Zombie",
+                        exp: 0,
+                        move: 4,
+                        strength: 3,
+                        toughness: 3,
+                        agility: 1,
+                        wounds: 8,
+                        bravery: 5,
+                        number: 15,
+                        warband_type: "The Undead",
+                        is_hero: false,
+                        skills_list: "",
+                        cost: 15)
+                        w.skill << Skill.find_by_name('Fear')
+                        w.skill << Skill.find_by_name('Feel no Fear')
+                        w.skill << Skill.find_by_name('Feel no Pain')
+                        w.skill << Skill.find_by_name("Immune to Poison")
+                        w.skill << Skill.find_by_name("No Brain")
+                        w.skill << Skill.find_by_name("Plodding")
+                        w.skill << Skill.find_by_name("No Need for Weapons")
+                        w.equipment_list= equipment_lists(w)
+                        w
+                when 'Ghoul'
+                    w = Warrior.create(
+                        name: "", 
+                        warrior_type: "Ghoul",
+                        exp: 0,
+                        move: 4,
+                        strength: 3,
+                        toughness: 4,
+                        agility: 3,
+                        wounds: 8,
+                        bravery: 3,
+                        number: 5,
+                        warband_type: "The Undead",
+                        is_hero: false,
+                        skills_list: "",
+                        cost: 40)
+                        w.skill << Skill.find_by_name('Fear')
+                        w.skill << Skill.find_by_name("No Need for Weapons")
+                        w.equipment_list= equipment_lists(w)
+                        w
+                when 'Dire Wolf'
+                    w = Warrior.create(
+                        name: "", 
+                        warrior_type: "Dire Wolf",
+                        exp: 0,
+                        move: 9,
+                        strength: 4,
+                        toughness: 3,
+                        agility: 2,
+                        wounds: 10,
+                        bravery: 5,
+                        number: 5,
+                        warband_type: "The Undead",
+                        is_hero: false,
+                        skills_list: "",
+                        cost: 50)
+                        w.skill << Skill.find_by_name('Fear')
+                        w.skill << Skill.find_by_name('Feel no Fear')
+                        w.skill << Skill.find_by_name('Feel no Pain')
+                        w.skill << Skill.find_by_name("Immune to Poison")
+                        w.skill << Skill.find_by_name("No Brain")
+                        w.skill << Skill.find_by_name("Plodding")
+                        w.skill << Skill.find_by_name("Slavering Charge")
+                        w.skill << Skill.find_by_name("No Need for Weapons")
+                        w.equipment_list= equipment_lists(w)
+                        w
         end
     end
 
@@ -701,7 +812,7 @@ module WarriorsHelper
                 when "Flaggellant"
                     "Flail, Morningstar, Double-Handed Weapon" 
                 when "War Dog"
-                    "none"
+                    "None"
             end
              
             
@@ -741,7 +852,21 @@ module WarriorsHelper
             
         when "The Sisterhood"
             "Dagger, Mace/Hammer/Club, Blessed Warhammer, Steel Whip, Double-Handed Weapon, Flail, Sling" 
-            
+        when "The Undead"
+            case warrior.warrior_type
+            when "Vampire"
+                "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, Double-Handed Weapon, Spear, Halberd, Bow, Shortbow"
+            when "Necromancer"
+                "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, Double-Handed Weapon, Spear, Halberd, Bow, Shortbow"
+            when "Dreg"
+                "Dagger, Mace/Hammer/Club, Axe/Pick, Sword, Double-Handed Weapon, Spear, Halberd, Bow, Shortbow"
+            when "Zombie"
+                "None"
+            when "Dire Wolf"
+                "None"
+            when "Ghoul"
+                "None"
+            end
         else 
             "No Warband of that name"
         end
