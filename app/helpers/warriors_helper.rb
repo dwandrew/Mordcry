@@ -12,6 +12,8 @@ module WarriorsHelper
             ["Cult Leader", "Mutant", "Possessed", "DemonSoul", "Cultist", "Beastmen"]
         when 'The Sisterhood'
             ["Mother Superior", "Sister Superior", "Auger", "Sister", "Novice"]
+        when 'The Undead'
+            ["Vampire", "Necromancer", "Dreg", "Zombie", "Ghoul", "Dire Wolf"]
         else 
             "No Warband of that name"
         end
@@ -31,6 +33,8 @@ module WarriorsHelper
             cultist_stats(name)
         when "The Sisterhood"
             sisterhood_stats(name)
+        when 'The Undead'
+            undead_stats(name)
         end
 
     end
