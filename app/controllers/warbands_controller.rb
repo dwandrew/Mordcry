@@ -69,8 +69,6 @@ class WarbandsController < ApplicationController
             skills_list: params[:warrior][:skills_list],
             equipment_list: params[:warrior][:equipment_list]
             )
-                binding.pry
-
             if params[:warrior][:skills]
                 params[:warrior][:skills].each do |s|
                     @warrior.skill << Skill.find_by_name(s)
