@@ -27,6 +27,9 @@ Ability.create(name: "Blunderbuss", effect:	"When fired, draw a line 16” long 
 After firing the Blunderbuss takes a full 2 activations to reload.")
 Ability.create(name: "Gromril Weapon", effect: "(CC only)	Weapon ignores 1 point of armour soak (in addition to any it already ignores), increase Damage and Crit Damage of the weapon by +1")
 Ability.create(name: "Ithilmar Weapon", effect: "(CC only)	Weapon adds +1 to its number of attacks and Crit Damage")
+Ability.create(name: "Unwieldy", effect:	"A warrior equipped with these weapons may not equip any other weapons (including ranged weapons) for the duration of the battle")
+Ability.create(name: "Climb", effect:	"A warrior equipped with these weapons gets a +1 bonus to climb checks")
+Ability.create(name: "Pair", effect:	"A warrior equipped with these weapons carries one in either hand (the extra attacks are already listed in the weapon profile)")
 
 
 Armour.create(name: "Light Armour",	soak: 1,	agility_penalty: -1, abilities: "-", cost: 20)
@@ -125,6 +128,9 @@ Equipment.create(name: "Blessed Warhammer" ,	range: "1",	attacks: 3,	damage: "1 
 Equipment.create(name: "Punch/Kick" ,	range: "1",	attacks: 4,	damage: "1 / 2", strength: "As User -1", cost: 0, category: "One handed close").abilities<< Ability.find_by_name("Blunt")
 Equipment.create(name: 'Natural Weapons',	range: "1",	attacks: 4,	damage: "2 / 4", strength: "As User", cost: 0, category: "One handed close")
 Equipment.create(name: 'Teeth/Claws',	range: "1",	attacks: 4,	damage: "1 / 3", strength: "As User", cost: 0, category: "One handed close")
+Equipment.create(name: 'Fighting Claws',	range: "1",	attacks: 6,	damage: "1 / 4", strength: "As User", cost: 35, category: "One handed close").abilities<< [Ability.find_by_name("Parry"), Ability.find_by_name("Unwieldy"),Ability.find_by_name("Pair")]
+Equipment.create(name: 'Weeping blades',	range: "1",	attacks: 6,	damage: "2 / 5", strength: "As User", cost: 50, category: "One handed close").abilities<< [Ability.find_by_name("Parry"), Ability.find_by_name("Pair")]
+
 
 Equipment.create(name: "Halberd" ,	range: "2",	attacks: 3,	damage: "2 / 4", strength: "As User +1", cost: 15, category:"Two handed close").abilities<< Ability.find_by_name("Damaging")
 Equipment.create(name: "Flail" ,	range: "2",	attacks: 4,	damage: "1 / 5", strength: "As User +(2)", cost: 15, category:"Two handed close").abilities<< Ability.find_by_name("Flailing")
