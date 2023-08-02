@@ -736,7 +736,7 @@ module WarriorsHelper
                         number: 5,
                         warband_type: "The Undead",
                         is_hero: false,
-                        skills_list: "",
+                        skills_list: "Combat, Strength, Speed",
                         cost: 40)
                         w.skill << Skill.find_by_name('Fear')
                         w.skill << Skill.find_by_name("No Need for Weapons")

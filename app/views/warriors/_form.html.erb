@@ -128,7 +128,7 @@
   <%end%>
 </table>
 
-<% if @warrior.skills_list %>
+<% if @warrior.skills_list && @warrior.is_hero%>
 <h3>Skills</h3>
 <br>
 <table>

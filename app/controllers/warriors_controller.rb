@@ -19,7 +19,7 @@ class WarriorsController < ApplicationController
     
 
     def create
-        
+
     end
 
     def edit
