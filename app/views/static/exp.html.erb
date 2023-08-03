@@ -53,6 +53,14 @@ Exp: <em>2, 5, 9, 14</em> and then every consecutive <em>5</em> experience after
 <p>When a Warrior reaches an Experience Milestone they make a roll on the applicable Advancement chart.</p>
 
 <h4>Hero Advancement Chart</h4>
+
+<div><b>2D6 Dice roll generation</b></div>
+<div><i>refresh page to reset</i></div>
+<div><% localRoll =  expRoll() %></div>
+<div>Roll 1: <%= localRoll["roll1"] %></div>
+<div>Roll 2: <%= localRoll["roll2"] %></div>
+<div>Total: <%= localRoll["total"] %></div>
+
 <table>
 <tr>
 <th>2D6</th>

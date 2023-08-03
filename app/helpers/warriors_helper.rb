@@ -873,6 +873,15 @@ module WarriorsHelper
 
     end
 
+    def expRoll()
+        new_rand = Random.new()
+        roll_object = Hash.new()
+        roll_object["roll1"] = new_rand.rand(1..6) 
+        roll_object["roll2"] = new_rand.rand(1..6)
+        roll_object["total"] = roll_object["roll1"] + roll_object["roll2"]
+        roll_object
+    end
+
 
 
 

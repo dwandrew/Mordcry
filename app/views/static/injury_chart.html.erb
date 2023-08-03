@@ -5,11 +5,25 @@ You can choose for Henchmen to just roll on the Henchmen injury instead or use t
 <p>
 <h3>Henchmen Injury Chart</h3>
 Roll a D6:<br>
+<br>
+<div><b>D6 Dice roll generation</b></div>
+<div><i>refresh page to reset</i></div>
+<div><% localRoll =  expRoll() %></div>
+<div>Roll 1: <%= localRoll["roll1"] %></div>
+<br>
 <strong>1-2</strong>: Dead <br>
 <strong>3-6</strong>: Alive and well
 </p> <br>
 <h3>Hero Injury Chart</h3>
 <p>Roll a D6 to represent tens and a D6 to represent digits and consult the D66 Chart below</p>
+
+<div><b>D66 Dice roll generation</b></div>
+<div><i>refresh page to reset</i></div>
+<div><% localRoll =  expRoll() %></div>
+<div>Roll 1: <%= localRoll["roll1"] %></div>
+<div>Roll 2: <%= localRoll["roll2"] %></div>
+<div>D66 roll: <%= localRoll["roll1"] %><%= localRoll["roll2"] %></div>
+<br>
 <table class ="warband_table">
     <tr>
         <th>Number</th>
